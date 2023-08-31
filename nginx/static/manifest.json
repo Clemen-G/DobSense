@@ -1,0 +1,12 @@
+{ 
+
+  "name": "WebsiteName", 
+  "short_name": "WebName", 
+  "start_url": "http://192.168.1.21:8000/main", 
+  "display": "standalone", 
+  "icons": [{ 
+    "src": "images/logo.png", 
+    "sizes": "512x512", 
+    "type": "image/png" 
+  }] 
+}

@@ -9,12 +9,18 @@ function trap_ctrlc ()
     # if omitted, shell script will continue execution
     exit 2
 }
- 
 trap "trap_ctrlc" 2
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+echo generating nginx configuration
+export dns_server=`grep -e '^nameserver ' /etc/resolv.conf | head -n 1 | tr -s ' ' | cut -d ' ' -f 2` 
+export dev_mode
+(cd $SCRIPT_DIR/backend && pipenv run python ../nginx/gen_nginx_conf.py ../nginx/nginx.conf.template > $SCRIPT_DIR/nginx/nginx.conf)
+
 echo starting nginx
-nginx -c $SCRIPT_DIR/nginx/nginx.conf
+nginx -c $SCRIPT_DIR/nginx/nginx.conf || exit 1
+
 
 while true; do
     cd $SCRIPT_DIR/backend && pipenv run python ./app/main.py --debug &

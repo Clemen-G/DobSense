@@ -9,6 +9,8 @@ RUN npx next build
 FROM python:3.10-slim-bookworm
 RUN apt update
 RUN apt install -y nginx
+# temp
+RUN apt install -y vim
 RUN pip install pipenv
 WORKDIR /usr/src/app/backend
 COPY  ./backend/Pipfile ./backend/Pipfile.lock ./

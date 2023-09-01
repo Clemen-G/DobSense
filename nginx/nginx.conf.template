@@ -1,13 +1,30 @@
+# See https://www.tornadoweb.org/en/stable/template.html
+
 events {
     # maximum number of simultaneous connections that a NGINX worker process can have open
 	worker_connections 16;
 }
 http {
+    resolver {{ dns_server }};
     server {
         listen 8000;
+    {% if dev_mode %}
+        location /index.html {
+            # forwards the landing page to the next.js server running on the docker host (my mac)
+            proxy_pass http://host.docker.internal:3000/;
+        }
+        location ~/client/(.*) {
+            # loads "static" assets from the next.js server running on the docker host (my mac)
+            proxy_pass http://host.docker.internal:3000/$1;
+        }
+    {% else %}
+        location /index.html {
+            alias /usr/src/app/nginx/static/;
+        }
         location ~/client/(.*) {
             alias /usr/src/app/nginx/static/$1;
         }
+    {% end %}
         location /api {
             proxy_pass http://localhost:8001/api;
         }

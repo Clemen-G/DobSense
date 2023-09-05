@@ -1,0 +1,5041 @@
+[
+    {
+        "const": "And",
+        "stars": [
+            {
+                "HIP": 677,
+                "RA/DEC": "00 08 23.17 +29 05 27.0",
+                "Vmag": "2.07",
+                "Bayer": "alf",
+                "Const": "And"
+            },
+            {
+                "HIP": 5447,
+                "RA/DEC": "01 09 43.80 +35 37 15.0",
+                "Vmag": "2.07",
+                "Bayer": "bet",
+                "Const": "And"
+            },
+            {
+                "HIP": 9640,
+                "RA/DEC": "02 03 53.92 +42 19 47.5",
+                "Vmag": "2.10",
+                "Bayer": "gam01",
+                "Const": "And"
+            },
+            {
+                "HIP": 3092,
+                "RA/DEC": "00 39 19.60 +30 51 40.4",
+                "Vmag": "3.27",
+                "Bayer": "del",
+                "Const": "And"
+            },
+            {
+                "HIP": 4436,
+                "RA/DEC": "00 56 45.10 +38 29 57.3",
+                "Vmag": "3.86",
+                "Bayer": "mu.",
+                "Const": "And"
+            },
+            {
+                "HIP": 3881,
+                "RA/DEC": "00 49 48.83 +41 04 44.2",
+                "Vmag": "4.53",
+                "Bayer": "nu.",
+                "Const": "And"
+            }
+        ]
+    },
+    {
+        "const": "Ant",
+        "stars": [
+            {
+                "HIP": 51172,
+                "RA/DEC": "10 27 09.16 -31 04 04.1",
+                "Vmag": "4.28",
+                "Bayer": "alf",
+                "Const": "Ant"
+            },
+            {
+                "HIP": 48926,
+                "RA/DEC": "09 58 52.34 -35 53 27.4",
+                "Vmag": "5.23",
+                "Bayer": "eta",
+                "Const": "Ant"
+            }
+        ]
+    },
+    {
+        "const": "Aps",
+        "stars": [
+            {
+                "HIP": 72370,
+                "RA/DEC": "14 47 51.73 -79 02 41.0",
+                "Vmag": "3.83",
+                "Bayer": "alf",
+                "Const": "Aps"
+            },
+            {
+                "HIP": 81065,
+                "RA/DEC": "16 33 27.46 -78 53 49.1",
+                "Vmag": "3.86",
+                "Bayer": "gam",
+                "Const": "Aps"
+            },
+            {
+                "HIP": 81852,
+                "RA/DEC": "16 43 05.42 -77 30 59.7",
+                "Vmag": "4.23",
+                "Bayer": "bet",
+                "Const": "Aps"
+            }
+        ]
+    },
+    {
+        "const": "Aql",
+        "stars": [
+            {
+                "HIP": 97649,
+                "RA/DEC": "19 50 46.68 +08 52 02.6",
+                "Vmag": "0.76",
+                "Bayer": "alf",
+                "Const": "Aql"
+            },
+            {
+                "HIP": 97278,
+                "RA/DEC": "19 46 15.57 +10 36 47.8",
+                "Vmag": "2.72",
+                "Bayer": "gam",
+                "Const": "Aql"
+            },
+            {
+                "HIP": 93747,
+                "RA/DEC": "19 05 24.61 +13 51 49.4",
+                "Vmag": "2.99",
+                "Bayer": "zet",
+                "Const": "Aql"
+            },
+            {
+                "HIP": 99473,
+                "RA/DEC": "20 11 18.26 -00 49 17.3",
+                "Vmag": "3.24",
+                "Bayer": "the",
+                "Const": "Aql"
+            },
+            {
+                "HIP": 95501,
+                "RA/DEC": "19 25 29.75 +03 06 52.5",
+                "Vmag": "3.36",
+                "Bayer": "del",
+                "Const": "Aql"
+            },
+            {
+                "HIP": 93805,
+                "RA/DEC": "19 06 14.95 -04 52 56.4",
+                "Vmag": "3.43",
+                "Bayer": "lam",
+                "Const": "Aql"
+            },
+            {
+                "HIP": 98036,
+                "RA/DEC": "19 55 18.77 +06 24 28.6",
+                "Vmag": "3.71",
+                "Bayer": "bet",
+                "Const": "Aql"
+            },
+            {
+                "HIP": 97804,
+                "RA/DEC": "19 52 28.36 +01 00 20.4",
+                "Vmag": "3.87",
+                "Bayer": "eta",
+                "Const": "Aql"
+            },
+            {
+                "HIP": 93244,
+                "RA/DEC": "18 59 37.39 +15 04 06.5",
+                "Vmag": "4.02",
+                "Bayer": "eps",
+                "Const": "Aql"
+            }
+        ]
+    },
+    {
+        "const": "Aqr",
+        "stars": [
+            {
+                "HIP": 106278,
+                "RA/DEC": "21 31 33.52 -05 34 16.2",
+                "Vmag": "2.90",
+                "Bayer": "bet",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 109074,
+                "RA/DEC": "22 05 47.03 -00 19 11.4",
+                "Vmag": "2.95",
+                "Bayer": "alf",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 113136,
+                "RA/DEC": "22 54 39.04 -15 49 14.7",
+                "Vmag": "3.27",
+                "Bayer": "del",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 110960,
+                "RA/DEC": "22 28 49.80 -00 01 12.2",
+                "Vmag": "3.65",
+                "Bayer": "zet01",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 114341,
+                "RA/DEC": "23 09 26.76 -21 10 20.9",
+                "Vmag": "3.68",
+                "Bayer": "c02",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 112961,
+                "RA/DEC": "22 52 36.86 -07 34 46.8",
+                "Vmag": "3.73",
+                "Bayer": "lam",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 102618,
+                "RA/DEC": "20 47 40.53 -09 29 44.5",
+                "Vmag": "3.78",
+                "Bayer": "eps",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 110395,
+                "RA/DEC": "22 21 39.30 -01 23 14.5",
+                "Vmag": "3.86",
+                "Bayer": "gam",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 115438,
+                "RA/DEC": "23 22 58.30 -20 06 01.2",
+                "Vmag": "3.96",
+                "Bayer": "b01",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 111497,
+                "RA/DEC": "22 35 21.33 -00 07 02.5",
+                "Vmag": "4.04",
+                "Bayer": "eta",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 112716,
+                "RA/DEC": "22 49 35.51 -13 35 33.1",
+                "Vmag": "4.05",
+                "Bayer": "tau02",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 110003,
+                "RA/DEC": "22 16 49.97 -07 46 59.7",
+                "Vmag": "4.17",
+                "Bayer": "the",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 114855,
+                "RA/DEC": "23 15 53.28 -09 05 15.7",
+                "Vmag": "4.24",
+                "Bayer": "psi01",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 109139,
+                "RA/DEC": "22 06 26.21 -13 52 10.3",
+                "Vmag": "4.29",
+                "Bayer": "iot",
+                "Const": "Aqr"
+            },
+            {
+                "HIP": 111123,
+                "RA/DEC": "22 30 38.82 -10 40 40.4",
+                "Vmag": "4.82",
+                "Bayer": "sig",
+                "Const": "Aqr"
+            }
+        ]
+    },
+    {
+        "const": "Ara",
+        "stars": [
+            {
+                "HIP": 85258,
+                "RA/DEC": "17 25 18.00 -55 31 47.4",
+                "Vmag": "2.84",
+                "Bayer": "bet",
+                "Const": "Ara"
+            },
+            {
+                "HIP": 85792,
+                "RA/DEC": "17 31 50.52 -49 52 33.5",
+                "Vmag": "2.84",
+                "Bayer": "alf",
+                "Const": "Ara"
+            },
+            {
+                "HIP": 83081,
+                "RA/DEC": "16 58 37.23 -55 59 24.2",
+                "Vmag": "3.12",
+                "Bayer": "zet",
+                "Const": "Ara"
+            },
+            {
+                "HIP": 85267,
+                "RA/DEC": "17 25 23.66 -56 22 39.7",
+                "Vmag": "3.31",
+                "Bayer": "gam",
+                "Const": "Ara"
+            },
+            {
+                "HIP": 85727,
+                "RA/DEC": "17 31 05.98 -60 41 01.0",
+                "Vmag": "3.60",
+                "Bayer": "del",
+                "Const": "Ara"
+            },
+            {
+                "HIP": 88714,
+                "RA/DEC": "18 06 37.88 -50 05 29.2",
+                "Vmag": "3.65",
+                "Bayer": "the",
+                "Const": "Ara"
+            },
+            {
+                "HIP": 82363,
+                "RA/DEC": "16 49 47.11 -59 02 28.7",
+                "Vmag": "3.77",
+                "Bayer": "eta",
+                "Const": "Ara"
+            }
+        ]
+    },
+    {
+        "const": "Ari",
+        "stars": [
+            {
+                "HIP": 9884,
+                "RA/DEC": "02 07 10.29 +23 27 46.0",
+                "Vmag": "2.01",
+                "Bayer": "alf",
+                "Const": "Ari"
+            },
+            {
+                "HIP": 8903,
+                "RA/DEC": "01 54 38.35 +20 48 29.9",
+                "Vmag": "2.64",
+                "Bayer": "bet",
+                "Const": "Ari"
+            },
+            {
+                "HIP": 13209,
+                "RA/DEC": "02 49 58.99 +27 15 38.8",
+                "Vmag": "3.61",
+                "Bayer": "c",
+                "Const": "Ari"
+            },
+            {
+                "HIP": 8832,
+                "RA/DEC": "01 53 31.77 +19 17 38.7",
+                "Vmag": "3.88",
+                "Bayer": "gam01",
+                "Const": "Ari"
+            }
+        ]
+    },
+    {
+        "const": "Aur",
+        "stars": [
+            {
+                "HIP": 24608,
+                "RA/DEC": "05 16 41.30 +45 59 56.5",
+                "Vmag": "0.08",
+                "Bayer": "alf",
+                "Const": "Aur"
+            },
+            {
+                "HIP": 28360,
+                "RA/DEC": "05 59 31.77 +44 56 50.8",
+                "Vmag": "1.90",
+                "Bayer": "bet",
+                "Const": "Aur"
+            },
+            {
+                "HIP": 28380,
+                "RA/DEC": "05 59 43.24 +37 12 46.0",
+                "Vmag": "2.65",
+                "Bayer": "the",
+                "Const": "Aur"
+            },
+            {
+                "HIP": 23015,
+                "RA/DEC": "04 56 59.62 +33 09 58.1",
+                "Vmag": "2.69",
+                "Bayer": "iot",
+                "Const": "Aur"
+            },
+            {
+                "HIP": 23453,
+                "RA/DEC": "05 02 28.68 +41 04 33.2",
+                "Vmag": "3.69",
+                "Bayer": "zet",
+                "Const": "Aur"
+            }
+        ]
+    },
+    {
+        "const": "Boo",
+        "stars": [
+            {
+                "HIP": 69673,
+                "RA/DEC": "14 15 40.35 +19 11 14.2",
+                "Vmag": "-0.05",
+                "Bayer": "alf",
+                "Const": "Boo"
+            },
+            {
+                "HIP": 72105,
+                "RA/DEC": "14 44 59.25 +27 04 27.0",
+                "Vmag": "2.35",
+                "Bayer": "eps",
+                "Const": "Boo"
+            },
+            {
+                "HIP": 67927,
+                "RA/DEC": "13 54 41.12 +18 23 54.9",
+                "Vmag": "2.68",
+                "Bayer": "eta",
+                "Const": "Boo"
+            },
+            {
+                "HIP": 71075,
+                "RA/DEC": "14 32 04.76 +38 18 28.4",
+                "Vmag": "3.04",
+                "Bayer": "gam",
+                "Const": "Boo"
+            },
+            {
+                "HIP": 74666,
+                "RA/DEC": "15 15 30.10 +33 18 54.4",
+                "Vmag": "3.46",
+                "Bayer": "del",
+                "Const": "Boo"
+            },
+            {
+                "HIP": 73555,
+                "RA/DEC": "15 01 56.79 +40 23 26.3",
+                "Vmag": "3.49",
+                "Bayer": "bet",
+                "Const": "Boo"
+            },
+            {
+                "HIP": 71053,
+                "RA/DEC": "14 31 49.86 +30 22 16.1",
+                "Vmag": "3.57",
+                "Bayer": "rho",
+                "Const": "Boo"
+            },
+            {
+                "HIP": 71795,
+                "RA/DEC": "14 41 08.92 +13 43 42.0",
+                "Vmag": "3.78",
+                "Bayer": "zet",
+                "Const": "Boo"
+            },
+            {
+                "HIP": 67459,
+                "RA/DEC": "13 49 28.70 +15 47 52.1",
+                "Vmag": "4.05",
+                "Bayer": "ups",
+                "Const": "Boo"
+            }
+        ]
+    },
+    {
+        "const": "CMa",
+        "stars": [
+            {
+                "HIP": 32349,
+                "RA/DEC": "06 45 09.25 -16 42 47.3",
+                "Vmag": "-1.44",
+                "Bayer": "alf",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 33579,
+                "RA/DEC": "06 58 37.55 -28 58 19.5",
+                "Vmag": "1.50",
+                "Bayer": "eps",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 34444,
+                "RA/DEC": "07 08 23.49 -26 23 35.5",
+                "Vmag": "1.83",
+                "Bayer": "del",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 30324,
+                "RA/DEC": "06 22 41.99 -17 57 21.3",
+                "Vmag": "1.98",
+                "Bayer": "bet",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 35904,
+                "RA/DEC": "07 24 05.71 -29 18 11.2",
+                "Vmag": "2.45",
+                "Bayer": "eta",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 30122,
+                "RA/DEC": "06 20 18.79 -30 03 48.2",
+                "Vmag": "3.02",
+                "Bayer": "zet",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 33977,
+                "RA/DEC": "07 03 01.47 -23 49 59.9",
+                "Vmag": "3.02",
+                "Bayer": "omi02",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 33856,
+                "RA/DEC": "07 01 43.15 -27 56 05.4",
+                "Vmag": "3.49",
+                "Bayer": "sig",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 33152,
+                "RA/DEC": "06 54 07.95 -24 11 03.2",
+                "Vmag": "3.89",
+                "Bayer": "omi01",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 31592,
+                "RA/DEC": "06 36 41.00 -19 15 20.6",
+                "Vmag": "3.95",
+                "Bayer": "nu.02",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 35037,
+                "RA/DEC": "07 14 48.66 -26 46 21.7",
+                "Vmag": "4.01",
+                "Bayer": "ome",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 33160,
+                "RA/DEC": "06 54 11.48 -12 02 18.9",
+                "Vmag": "4.08",
+                "Bayer": "the",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 34045,
+                "RA/DEC": "07 03 45.49 -15 37 59.7",
+                "Vmag": "4.11",
+                "Bayer": "gam",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 33347,
+                "RA/DEC": "06 56 08.23 -17 03 15.3",
+                "Vmag": "4.36",
+                "Bayer": "iot",
+                "Const": "CMa"
+            },
+            {
+                "HIP": 31416,
+                "RA/DEC": "06 35 03.38 -22 57 53.4",
+                "Vmag": "4.54",
+                "Bayer": "ksi02",
+                "Const": "CMa"
+            }
+        ]
+    },
+    {
+        "const": "CMi",
+        "stars": [
+            {
+                "HIP": 37279,
+                "RA/DEC": "07 39 18.54 +05 13 39.0",
+                "Vmag": "0.40",
+                "Bayer": "alf",
+                "Const": "CMi"
+            },
+            {
+                "HIP": 36188,
+                "RA/DEC": "07 27 09.07 +08 17 21.9",
+                "Vmag": "2.89",
+                "Bayer": "bet",
+                "Const": "CMi"
+            }
+        ]
+    },
+    {
+        "const": "CVn",
+        "stars": [
+            {
+                "HIP": 63125,
+                "RA/DEC": "12 56 01.84 +38 19 05.7",
+                "Vmag": "2.89",
+                "Bayer": "alf02",
+                "Const": "CVn"
+            },
+            {
+                "HIP": 61317,
+                "RA/DEC": "12 33 45.09 +41 21 24.4",
+                "Vmag": "4.24",
+                "Bayer": "bet",
+                "Const": "CVn"
+            }
+        ]
+    },
+    {
+        "const": "Cae",
+        "stars": [
+            {
+                "HIP": 21770,
+                "RA/DEC": "04 40 33.82 -41 51 48.9",
+                "Vmag": "4.44",
+                "Bayer": "alf",
+                "Const": "Cae"
+            },
+            {
+                "HIP": 21861,
+                "RA/DEC": "04 42 03.45 -37 08 41.2",
+                "Vmag": "5.04",
+                "Bayer": "bet",
+                "Const": "Cae"
+            },
+            {
+                "HIP": 21060,
+                "RA/DEC": "04 30 50.10 -44 57 13.5",
+                "Vmag": "5.07",
+                "Bayer": "del",
+                "Const": "Cae"
+            }
+        ]
+    },
+    {
+        "const": "Cam",
+        "stars": [
+            {
+                "HIP": 22783,
+                "RA/DEC": "04 54 03.01 +66 20 33.6",
+                "Vmag": "4.26",
+                "Bayer": "alf",
+                "Const": "Cam"
+            },
+            {
+                "HIP": 17959,
+                "RA/DEC": "03 50 21.48 +71 19 56.5",
+                "Vmag": "4.59",
+                "Bayer": "gam",
+                "Const": "Cam"
+            }
+        ]
+    },
+    {
+        "const": "Cap",
+        "stars": [
+            {
+                "HIP": 107556,
+                "RA/DEC": "21 47 02.29 -16 07 35.6",
+                "Vmag": "2.85",
+                "Bayer": "del",
+                "Const": "Cap"
+            },
+            {
+                "HIP": 100345,
+                "RA/DEC": "20 21 00.65 -14 46 53.0",
+                "Vmag": "3.05",
+                "Bayer": "bet",
+                "Const": "Cap"
+            },
+            {
+                "HIP": 100064,
+                "RA/DEC": "20 18 03.22 -12 32 41.5",
+                "Vmag": "3.58",
+                "Bayer": "alf02",
+                "Const": "Cap"
+            },
+            {
+                "HIP": 106985,
+                "RA/DEC": "21 40 05.34 -16 39 44.1",
+                "Vmag": "3.69",
+                "Bayer": "gam",
+                "Const": "Cap"
+            },
+            {
+                "HIP": 105881,
+                "RA/DEC": "21 26 40.03 -22 24 41.0",
+                "Vmag": "3.77",
+                "Bayer": "zet",
+                "Const": "Cap"
+            },
+            {
+                "HIP": 104139,
+                "RA/DEC": "21 05 56.78 -17 13 57.8",
+                "Vmag": "4.08",
+                "Bayer": "the",
+                "Const": "Cap"
+            },
+            {
+                "HIP": 102978,
+                "RA/DEC": "20 51 49.30 -26 55 08.9",
+                "Vmag": "4.12",
+                "Bayer": "ome",
+                "Const": "Cap"
+            },
+            {
+                "HIP": 102485,
+                "RA/DEC": "20 46 05.77 -25 16 13.9",
+                "Vmag": "4.13",
+                "Bayer": "psi",
+                "Const": "Cap"
+            },
+            {
+                "HIP": 105515,
+                "RA/DEC": "21 22 14.78 -16 50 04.4",
+                "Vmag": "4.28",
+                "Bayer": "iot",
+                "Const": "Cap"
+            }
+        ]
+    },
+    {
+        "const": "Car",
+        "stars": [
+            {
+                "HIP": 30438,
+                "RA/DEC": "06 23 57.09 -52 41 44.6",
+                "Vmag": "-0.62",
+                "Bayer": "alf",
+                "Const": "Car"
+            },
+            {
+                "HIP": 45238,
+                "RA/DEC": "09 13 12.24 -69 43 02.9",
+                "Vmag": "1.67",
+                "Bayer": "bet",
+                "Const": "Car"
+            },
+            {
+                "HIP": 41037,
+                "RA/DEC": "08 22 30.86 -59 30 34.3",
+                "Vmag": "1.86",
+                "Bayer": "eps",
+                "Const": "Car"
+            },
+            {
+                "HIP": 45556,
+                "RA/DEC": "09 17 05.43 -59 16 30.9",
+                "Vmag": "2.21",
+                "Bayer": "iot",
+                "Const": "Car"
+            },
+            {
+                "HIP": 52419,
+                "RA/DEC": "10 42 57.43 -64 23 40.1",
+                "Vmag": "2.74",
+                "Bayer": "the",
+                "Const": "Car"
+            },
+            {
+                "HIP": 50099,
+                "RA/DEC": "10 13 44.28 -70 02 16.5",
+                "Vmag": "3.29",
+                "Bayer": "ome",
+                "Const": "Car"
+            },
+            {
+                "HIP": 50371,
+                "RA/DEC": "10 17 05.01 -61 19 56.4",
+                "Vmag": "3.39",
+                "Bayer": "q",
+                "Const": "Car"
+            },
+            {
+                "HIP": 45080,
+                "RA/DEC": "09 10 58.11 -58 58 00.9",
+                "Vmag": "3.43",
+                "Bayer": "a",
+                "Const": "Car"
+            },
+            {
+                "HIP": 53253,
+                "RA/DEC": "10 53 29.57 -58 51 11.8",
+                "Vmag": "3.78",
+                "Bayer": "u",
+                "Const": "Car"
+            },
+            {
+                "HIP": 51232,
+                "RA/DEC": "10 27 52.75 -58 44 21.9",
+                "Vmag": "3.81",
+                "Bayer": "s",
+                "Const": "Car"
+            },
+            {
+                "HIP": 54463,
+                "RA/DEC": "11 08 35.40 -58 58 30.2",
+                "Vmag": "3.93",
+                "Bayer": "x",
+                "Const": "Car"
+            },
+            {
+                "HIP": 42568,
+                "RA/DEC": "08 40 37.04 -59 45 39.7",
+                "Vmag": "4.31",
+                "Bayer": "d",
+                "Const": "Car"
+            },
+            {
+                "HIP": 52468,
+                "RA/DEC": "10 43 32.31 -60 33 59.9",
+                "Vmag": "4.58",
+                "Bayer": "w",
+                "Const": "Car"
+            }
+        ]
+    },
+    {
+        "const": "Cas",
+        "stars": [
+            {
+                "HIP": 4427,
+                "RA/DEC": "00 56 42.50 +60 43 00.3",
+                "Vmag": "2.15",
+                "Bayer": "gam",
+                "Const": "Cas"
+            },
+            {
+                "HIP": 3179,
+                "RA/DEC": "00 40 30.39 +56 32 14.7",
+                "Vmag": "2.24",
+                "Bayer": "alf",
+                "Const": "Cas"
+            },
+            {
+                "HIP": 746,
+                "RA/DEC": "00 09 10.09 +59 09 00.8",
+                "Vmag": "2.28",
+                "Bayer": "bet",
+                "Const": "Cas"
+            },
+            {
+                "HIP": 6686,
+                "RA/DEC": "01 25 48.60 +60 14 07.5",
+                "Vmag": "2.66",
+                "Bayer": "del",
+                "Const": "Cas"
+            },
+            {
+                "HIP": 8886,
+                "RA/DEC": "01 54 23.68 +63 40 12.5",
+                "Vmag": "3.35",
+                "Bayer": "eps",
+                "Const": "Cas"
+            }
+        ]
+    },
+    {
+        "const": "Cen",
+        "stars": [
+            {
+                "HIP": 71683,
+                "RA/DEC": "14 39 40.90 -60 50 06.5",
+                "Vmag": "-0.01",
+                "Bayer": "alf",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 68702,
+                "RA/DEC": "14 03 49.44 -60 22 22.7",
+                "Vmag": "0.61",
+                "Bayer": "bet",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 68933,
+                "RA/DEC": "14 06 41.32 -36 22 07.3",
+                "Vmag": "2.06",
+                "Bayer": "the",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 61932,
+                "RA/DEC": "12 41 31.20 -48 57 35.6",
+                "Vmag": "2.20",
+                "Bayer": "gam",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 66657,
+                "RA/DEC": "13 39 53.27 -53 27 58.9",
+                "Vmag": "2.29",
+                "Bayer": "eps",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 71352,
+                "RA/DEC": "14 35 30.45 -42 09 27.9",
+                "Vmag": "2.33",
+                "Bayer": "eta",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 68002,
+                "RA/DEC": "13 55 32.43 -47 17 17.8",
+                "Vmag": "2.55",
+                "Bayer": "zet",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 59196,
+                "RA/DEC": "12 08 21.54 -50 43 20.7",
+                "Vmag": "2.58",
+                "Bayer": "del",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 65109,
+                "RA/DEC": "13 20 36.07 -36 42 43.5",
+                "Vmag": "2.75",
+                "Bayer": "iot",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 56561,
+                "RA/DEC": "11 35 46.93 -63 01 11.4",
+                "Vmag": "3.11",
+                "Bayer": "lam",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 73334,
+                "RA/DEC": "14 59 09.70 -42 06 14.9",
+                "Vmag": "3.13",
+                "Bayer": "kap",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 67464,
+                "RA/DEC": "13 49 30.30 -41 41 15.6",
+                "Vmag": "3.41",
+                "Bayer": "nu.",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 67472,
+                "RA/DEC": "13 49 37.01 -42 28 25.3",
+                "Vmag": "3.47",
+                "Bayer": "mu.",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 68282,
+                "RA/DEC": "13 58 40.77 -44 48 12.7",
+                "Vmag": "3.87",
+                "Bayer": "ups01",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 65936,
+                "RA/DEC": "13 31 02.67 -39 24 26.2",
+                "Vmag": "3.90",
+                "Bayer": "d",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 60823,
+                "RA/DEC": "12 28 02.41 -50 13 50.2",
+                "Vmag": "3.91",
+                "Bayer": "sig",
+                "Const": "Cen"
+            },
+            {
+                "HIP": 56480,
+                "RA/DEC": "11 34 45.71 -54 15 50.9",
+                "Vmag": "4.62",
+                "Bayer": "A",
+                "Const": "Cen"
+            }
+        ]
+    },
+    {
+        "const": "Cep",
+        "stars": [
+            {
+                "HIP": 105199,
+                "RA/DEC": "21 18 34.58 +62 35 07.6",
+                "Vmag": "2.45",
+                "Bayer": "alf",
+                "Const": "Cep"
+            },
+            {
+                "HIP": 116727,
+                "RA/DEC": "23 39 20.98 +77 37 55.1",
+                "Vmag": "3.21",
+                "Bayer": "gam",
+                "Const": "Cep"
+            },
+            {
+                "HIP": 106032,
+                "RA/DEC": "21 28 39.58 +70 33 38.5",
+                "Vmag": "3.23",
+                "Bayer": "bet",
+                "Const": "Cep"
+            },
+            {
+                "HIP": 109492,
+                "RA/DEC": "22 10 51.26 +58 12 04.5",
+                "Vmag": "3.39",
+                "Bayer": "zet",
+                "Const": "Cep"
+            },
+            {
+                "HIP": 112724,
+                "RA/DEC": "22 49 40.91 +66 12 02.6",
+                "Vmag": "3.50",
+                "Bayer": "iot",
+                "Const": "Cep"
+            }
+        ]
+    },
+    {
+        "const": "Cet",
+        "stars": [
+            {
+                "HIP": 3419,
+                "RA/DEC": "00 43 35.23 -17 59 12.1",
+                "Vmag": "2.04",
+                "Bayer": "bet",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 14135,
+                "RA/DEC": "03 02 16.78 +04 05 23.7",
+                "Vmag": "2.54",
+                "Bayer": "alf",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 5364,
+                "RA/DEC": "01 08 35.26 -10 10 54.9",
+                "Vmag": "3.46",
+                "Bayer": "eta",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 12706,
+                "RA/DEC": "02 43 18.12 +03 14 10.2",
+                "Vmag": "3.47",
+                "Bayer": "gam",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 8102,
+                "RA/DEC": "01 44 05.13 -15 56 22.4",
+                "Vmag": "3.49",
+                "Bayer": "tau",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 1562,
+                "RA/DEC": "00 19 25.68 -08 49 25.8",
+                "Vmag": "3.56",
+                "Bayer": "iot",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 6537,
+                "RA/DEC": "01 24 01.45 -08 10 57.9",
+                "Vmag": "3.60",
+                "Bayer": "the",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 8645,
+                "RA/DEC": "01 51 27.61 -10 20 05.8",
+                "Vmag": "3.74",
+                "Bayer": "zet",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 12387,
+                "RA/DEC": "02 39 28.95 +00 19 42.7",
+                "Vmag": "4.08",
+                "Bayer": "del",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 12770,
+                "RA/DEC": "02 44 07.35 -13 51 31.2",
+                "Vmag": "4.24",
+                "Bayer": "pi.",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 12828,
+                "RA/DEC": "02 44 56.37 +10 06 51.2",
+                "Vmag": "4.27",
+                "Bayer": "mu.",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 11484,
+                "RA/DEC": "02 28 09.52 +08 27 36.3",
+                "Vmag": "4.30",
+                "Bayer": "ksi02",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 10324,
+                "RA/DEC": "02 13 00.01 +08 50 48.3",
+                "Vmag": "4.36",
+                "Bayer": "ksi01",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 13954,
+                "RA/DEC": "02 59 42.90 +08 54 26.6",
+                "Vmag": "4.71",
+                "Bayer": "lam",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 11783,
+                "RA/DEC": "02 32 05.28 -15 14 39.6",
+                "Vmag": "4.74",
+                "Bayer": "sig",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 12390,
+                "RA/DEC": "02 39 33.73 -11 52 17.7",
+                "Vmag": "4.83",
+                "Bayer": "eps",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 12093,
+                "RA/DEC": "02 35 52.49 +05 35 35.9",
+                "Vmag": "4.87",
+                "Bayer": "nu.",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 11345,
+                "RA/DEC": "02 25 57.01 -12 17 25.6",
+                "Vmag": "4.88",
+                "Bayer": "rho",
+                "Const": "Cet"
+            },
+            {
+                "HIP": 10826,
+                "RA/DEC": "02 19 20.79 -02 58 37.4",
+                "Vmag": "6.47",
+                "Bayer": "omi",
+                "Const": "Cet"
+            }
+        ]
+    },
+    {
+        "const": "Cha",
+        "stars": [
+            {
+                "HIP": 40702,
+                "RA/DEC": "08 18 31.27 -76 55 11.9",
+                "Vmag": "4.05",
+                "Bayer": "alf",
+                "Const": "Cha"
+            },
+            {
+                "HIP": 51839,
+                "RA/DEC": "10 35 28.22 -78 36 28.1",
+                "Vmag": "4.11",
+                "Bayer": "gam",
+                "Const": "Cha"
+            },
+            {
+                "HIP": 60000,
+                "RA/DEC": "12 18 20.94 -79 18 44.2",
+                "Vmag": "4.24",
+                "Bayer": "bet",
+                "Const": "Cha"
+            }
+        ]
+    },
+    {
+        "const": "Cir",
+        "stars": [
+            {
+                "HIP": 71908,
+                "RA/DEC": "14 42 30.69 -64 58 28.5",
+                "Vmag": "3.18",
+                "Bayer": "alf",
+                "Const": "Cir"
+            },
+            {
+                "HIP": 74824,
+                "RA/DEC": "15 17 30.96 -58 48 03.2",
+                "Vmag": "4.07",
+                "Bayer": "bet",
+                "Const": "Cir"
+            },
+            {
+                "HIP": 75323,
+                "RA/DEC": "15 23 22.66 -59 19 14.5",
+                "Vmag": "4.48",
+                "Bayer": "gam",
+                "Const": "Cir"
+            }
+        ]
+    },
+    {
+        "const": "Cnc",
+        "stars": [
+            {
+                "HIP": 40526,
+                "RA/DEC": "08 16 30.95 +09 11 08.4",
+                "Vmag": "3.53",
+                "Bayer": "bet",
+                "Const": "Cnc"
+            },
+            {
+                "HIP": 42911,
+                "RA/DEC": "08 44 41.11 +18 09 17.5",
+                "Vmag": "3.94",
+                "Bayer": "del",
+                "Const": "Cnc"
+            },
+            {
+                "HIP": 43103,
+                "RA/DEC": "08 46 41.83 +28 45 36.0",
+                "Vmag": "4.03",
+                "Bayer": "iot",
+                "Const": "Cnc"
+            },
+            {
+                "HIP": 44066,
+                "RA/DEC": "08 58 29.20 +11 51 28.0",
+                "Vmag": "4.26",
+                "Bayer": "alf",
+                "Const": "Cnc"
+            },
+            {
+                "HIP": 42806,
+                "RA/DEC": "08 43 17.21 +21 28 06.9",
+                "Vmag": "4.66",
+                "Bayer": "gam",
+                "Const": "Cnc"
+            },
+            {
+                "HIP": 40843,
+                "RA/DEC": "08 20 03.87 +27 13 07.0",
+                "Vmag": "5.13",
+                "Bayer": "chi",
+                "Const": "Cnc"
+            }
+        ]
+    },
+    {
+        "const": "Col",
+        "stars": [
+            {
+                "HIP": 26634,
+                "RA/DEC": "05 39 38.94 -34 04 26.6",
+                "Vmag": "2.65",
+                "Bayer": "alf",
+                "Const": "Col"
+            },
+            {
+                "HIP": 27628,
+                "RA/DEC": "05 50 57.55 -35 46 09.5",
+                "Vmag": "3.12",
+                "Bayer": "bet",
+                "Const": "Col"
+            },
+            {
+                "HIP": 30277,
+                "RA/DEC": "06 22 06.85 -33 26 10.6",
+                "Vmag": "3.85",
+                "Bayer": "del",
+                "Const": "Col"
+            },
+            {
+                "HIP": 25859,
+                "RA/DEC": "05 31 12.74 -35 28 13.6",
+                "Vmag": "3.86",
+                "Bayer": "eps",
+                "Const": "Col"
+            },
+            {
+                "HIP": 28328,
+                "RA/DEC": "05 59 08.79 -42 48 54.4",
+                "Vmag": "3.96",
+                "Bayer": "eta",
+                "Const": "Col"
+            },
+            {
+                "HIP": 28199,
+                "RA/DEC": "05 57 32.21 -35 16 59.9",
+                "Vmag": "4.36",
+                "Bayer": "gam",
+                "Const": "Col"
+            },
+            {
+                "HIP": 29807,
+                "RA/DEC": "06 16 33.14 -35 08 26.6",
+                "Vmag": "4.37",
+                "Bayer": "kap",
+                "Const": "Col"
+            }
+        ]
+    },
+    {
+        "const": "Com",
+        "stars": [
+            {
+                "HIP": 64394,
+                "RA/DEC": "13 11 52.92 +27 52 33.7",
+                "Vmag": "4.23",
+                "Bayer": "bet",
+                "Const": "Com"
+            },
+            {
+                "HIP": 64241,
+                "RA/DEC": "13 09 59.55 +17 31 44.8",
+                "Vmag": "4.32",
+                "Bayer": "alf",
+                "Const": "Com"
+            },
+            {
+                "HIP": 60742,
+                "RA/DEC": "12 26 56.33 +28 16 07.0",
+                "Vmag": "4.35",
+                "Bayer": "gam",
+                "Const": "Com"
+            }
+        ]
+    },
+    {
+        "const": "CrA",
+        "stars": [
+            {
+                "HIP": 94160,
+                "RA/DEC": "19 10 01.75 -39 20 26.5",
+                "Vmag": "4.10",
+                "Bayer": "bet",
+                "Const": "CrA"
+            },
+            {
+                "HIP": 94114,
+                "RA/DEC": "19 09 28.28 -37 54 15.3",
+                "Vmag": "4.11",
+                "Bayer": "alf",
+                "Const": "CrA"
+            },
+            {
+                "HIP": 93825,
+                "RA/DEC": "19 06 25.04 -37 03 45.9",
+                "Vmag": "4.23",
+                "Bayer": "gam",
+                "Const": "CrA"
+            },
+            {
+                "HIP": 94005,
+                "RA/DEC": "19 08 20.93 -40 29 47.9",
+                "Vmag": "4.57",
+                "Bayer": "del",
+                "Const": "CrA"
+            },
+            {
+                "HIP": 93542,
+                "RA/DEC": "19 03 06.83 -42 05 42.0",
+                "Vmag": "4.74",
+                "Bayer": "zet",
+                "Const": "CrA"
+            },
+            {
+                "HIP": 93174,
+                "RA/DEC": "18 58 43.47 -37 06 25.5",
+                "Vmag": "4.83",
+                "Bayer": "eps",
+                "Const": "CrA"
+            },
+            {
+                "HIP": 91875,
+                "RA/DEC": "18 43 46.94 -38 19 23.9",
+                "Vmag": "5.11",
+                "Bayer": "lam",
+                "Const": "CrA"
+            }
+        ]
+    },
+    {
+        "const": "CrB",
+        "stars": [
+            {
+                "HIP": 76267,
+                "RA/DEC": "15 34 41.19 +26 42 53.7",
+                "Vmag": "2.22",
+                "Bayer": "alf",
+                "Const": "CrB"
+            },
+            {
+                "HIP": 75695,
+                "RA/DEC": "15 27 49.85 +29 06 19.8",
+                "Vmag": "3.66",
+                "Bayer": "bet",
+                "Const": "CrB"
+            },
+            {
+                "HIP": 76952,
+                "RA/DEC": "15 42 44.64 +26 17 43.9",
+                "Vmag": "3.81",
+                "Bayer": "gam",
+                "Const": "CrB"
+            },
+            {
+                "HIP": 76127,
+                "RA/DEC": "15 32 55.80 +31 21 33.0",
+                "Vmag": "4.14",
+                "Bayer": "the",
+                "Const": "CrB"
+            },
+            {
+                "HIP": 78159,
+                "RA/DEC": "15 57 35.30 +26 52 40.9",
+                "Vmag": "4.14",
+                "Bayer": "eps",
+                "Const": "CrB"
+            },
+            {
+                "HIP": 77512,
+                "RA/DEC": "15 49 35.70 +26 04 06.8",
+                "Vmag": "4.59",
+                "Bayer": "del",
+                "Const": "CrB"
+            },
+            {
+                "HIP": 78493,
+                "RA/DEC": "16 01 26.59 +29 51 03.9",
+                "Vmag": "4.98",
+                "Bayer": "iot",
+                "Const": "CrB"
+            }
+        ]
+    },
+    {
+        "const": "Crt",
+        "stars": [
+            {
+                "HIP": 55282,
+                "RA/DEC": "11 19 20.52 -14 46 44.6",
+                "Vmag": "3.56",
+                "Bayer": "del",
+                "Const": "Crt"
+            },
+            {
+                "HIP": 55705,
+                "RA/DEC": "11 24 52.98 -17 41 02.5",
+                "Vmag": "4.06",
+                "Bayer": "gam",
+                "Const": "Crt"
+            },
+            {
+                "HIP": 53740,
+                "RA/DEC": "10 59 46.75 -18 17 56.8",
+                "Vmag": "4.08",
+                "Bayer": "alf",
+                "Const": "Crt"
+            },
+            {
+                "HIP": 54682,
+                "RA/DEC": "11 11 39.49 -22 49 32.2",
+                "Vmag": "4.46",
+                "Bayer": "bet",
+                "Const": "Crt"
+            },
+            {
+                "HIP": 56633,
+                "RA/DEC": "11 36 40.95 -09 48 08.1",
+                "Vmag": "4.70",
+                "Bayer": "the",
+                "Const": "Crt"
+            },
+            {
+                "HIP": 57283,
+                "RA/DEC": "11 44 45.76 -18 21 02.2",
+                "Vmag": "4.71",
+                "Bayer": "zet",
+                "Const": "Crt"
+            },
+            {
+                "HIP": 55687,
+                "RA/DEC": "11 24 36.61 -10 51 33.8",
+                "Vmag": "4.81",
+                "Bayer": "eps",
+                "Const": "Crt"
+            },
+            {
+                "HIP": 58188,
+                "RA/DEC": "11 56 00.98 -17 09 02.9",
+                "Vmag": "5.17",
+                "Bayer": "eta",
+                "Const": "Crt"
+            }
+        ]
+    },
+    {
+        "const": "Cru",
+        "stars": [
+            {
+                "HIP": 60718,
+                "RA/DEC": "12 26 35.94 -63 05 56.6",
+                "Vmag": "0.77",
+                "Bayer": "alf01",
+                "Const": "Cru"
+            },
+            {
+                "HIP": 62434,
+                "RA/DEC": "12 47 43.32 -59 41 19.4",
+                "Vmag": "1.25",
+                "Bayer": "bet",
+                "Const": "Cru"
+            },
+            {
+                "HIP": 61084,
+                "RA/DEC": "12 31 09.93 -57 06 45.2",
+                "Vmag": "1.59",
+                "Bayer": "gam",
+                "Const": "Cru"
+            },
+            {
+                "HIP": 59747,
+                "RA/DEC": "12 15 08.76 -58 44 56.0",
+                "Vmag": "2.79",
+                "Bayer": "del",
+                "Const": "Cru"
+            }
+        ]
+    },
+    {
+        "const": "Crv",
+        "stars": [
+            {
+                "HIP": 59803,
+                "RA/DEC": "12 15 48.47 -17 32 31.1",
+                "Vmag": "2.58",
+                "Bayer": "gam",
+                "Const": "Crv"
+            },
+            {
+                "HIP": 61359,
+                "RA/DEC": "12 34 23.23 -23 23 47.8",
+                "Vmag": "2.65",
+                "Bayer": "bet",
+                "Const": "Crv"
+            },
+            {
+                "HIP": 60965,
+                "RA/DEC": "12 29 51.98 -16 30 54.3",
+                "Vmag": "2.94",
+                "Bayer": "del",
+                "Const": "Crv"
+            },
+            {
+                "HIP": 59316,
+                "RA/DEC": "12 10 07.53 -22 37 11.3",
+                "Vmag": "3.02",
+                "Bayer": "eps",
+                "Const": "Crv"
+            },
+            {
+                "HIP": 59199,
+                "RA/DEC": "12 08 24.75 -24 43 43.6",
+                "Vmag": "4.02",
+                "Bayer": "alf",
+                "Const": "Crv"
+            },
+            {
+                "HIP": 61174,
+                "RA/DEC": "12 32 04.48 -16 11 45.1",
+                "Vmag": "4.30",
+                "Bayer": "eta",
+                "Const": "Crv"
+            }
+        ]
+    },
+    {
+        "const": "Cyg",
+        "stars": [
+            {
+                "HIP": 102098,
+                "RA/DEC": "20 41 25.91 +45 16 49.2",
+                "Vmag": "1.25",
+                "Bayer": "alf",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 100453,
+                "RA/DEC": "20 22 13.70 +40 15 24.1",
+                "Vmag": "2.23",
+                "Bayer": "gam",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 102488,
+                "RA/DEC": "20 46 12.43 +33 58 10.0",
+                "Vmag": "2.48",
+                "Bayer": "eps",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 97165,
+                "RA/DEC": "19 44 58.44 +45 07 50.5",
+                "Vmag": "2.86",
+                "Bayer": "del",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 95947,
+                "RA/DEC": "19 30 43.29 +27 57 34.9",
+                "Vmag": "3.05",
+                "Bayer": "bet01",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 104732,
+                "RA/DEC": "21 12 56.18 +30 13 37.5",
+                "Vmag": "3.21",
+                "Bayer": "zet",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 95853,
+                "RA/DEC": "19 29 42.34 +51 43 46.1",
+                "Vmag": "3.76",
+                "Bayer": "iot",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 94779,
+                "RA/DEC": "19 17 06.11 +53 22 05.4",
+                "Vmag": "3.80",
+                "Bayer": "kap",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 98110,
+                "RA/DEC": "19 56 18.40 +35 05 00.6",
+                "Vmag": "3.89",
+                "Bayer": "eta",
+                "Const": "Cyg"
+            },
+            {
+                "HIP": 107310,
+                "RA/DEC": "21 44 08.40 +28 44 35.6",
+                "Vmag": "4.49",
+                "Bayer": "mu.01",
+                "Const": "Cyg"
+            }
+        ]
+    },
+    {
+        "const": "Del",
+        "stars": [
+            {
+                "HIP": 101769,
+                "RA/DEC": "20 37 32.87 +14 35 42.7",
+                "Vmag": "3.64",
+                "Bayer": "bet",
+                "Const": "Del"
+            },
+            {
+                "HIP": 101958,
+                "RA/DEC": "20 39 38.25 +15 54 43.4",
+                "Vmag": "3.77",
+                "Bayer": "alf",
+                "Const": "Del"
+            },
+            {
+                "HIP": 101421,
+                "RA/DEC": "20 33 12.76 +11 18 12.0",
+                "Vmag": "4.03",
+                "Bayer": "eps",
+                "Const": "Del"
+            },
+            {
+                "HIP": 102532,
+                "RA/DEC": "20 46 39.52 +16 07 29.2",
+                "Vmag": "4.27",
+                "Bayer": "gam02",
+                "Const": "Del"
+            },
+            {
+                "HIP": 102281,
+                "RA/DEC": "20 43 27.55 +15 04 28.9",
+                "Vmag": "4.43",
+                "Bayer": "del",
+                "Const": "Del"
+            }
+        ]
+    },
+    {
+        "const": "Dor",
+        "stars": [
+            {
+                "HIP": 21281,
+                "RA/DEC": "04 33 59.72 -55 02 42.0",
+                "Vmag": "3.30",
+                "Bayer": "alf",
+                "Const": "Dor"
+            },
+            {
+                "HIP": 26069,
+                "RA/DEC": "05 33 37.52 -62 29 23.5",
+                "Vmag": "3.76",
+                "Bayer": "bet",
+                "Const": "Dor"
+            },
+            {
+                "HIP": 19893,
+                "RA/DEC": "04 16 01.49 -51 29 13.5",
+                "Vmag": "4.26",
+                "Bayer": "gam",
+                "Const": "Dor"
+            },
+            {
+                "HIP": 27100,
+                "RA/DEC": "05 44 46.42 -65 44 07.9",
+                "Vmag": "4.34",
+                "Bayer": "del",
+                "Const": "Dor"
+            }
+        ]
+    },
+    {
+        "const": "Dra",
+        "stars": [
+            {
+                "HIP": 87833,
+                "RA/DEC": "17 56 36.38 +51 29 20.2",
+                "Vmag": "2.24",
+                "Bayer": "gam",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 80331,
+                "RA/DEC": "16 23 59.51 +61 30 50.7",
+                "Vmag": "2.73",
+                "Bayer": "eta",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 85670,
+                "RA/DEC": "17 30 25.98 +52 18 04.9",
+                "Vmag": "2.79",
+                "Bayer": "bet",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 94376,
+                "RA/DEC": "19 12 33.15 +67 39 40.7",
+                "Vmag": "3.07",
+                "Bayer": "del",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 83895,
+                "RA/DEC": "17 08 47.23 +65 42 52.7",
+                "Vmag": "3.17",
+                "Bayer": "zet",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 75458,
+                "RA/DEC": "15 24 55.78 +58 57 57.7",
+                "Vmag": "3.29",
+                "Bayer": "iot",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 89937,
+                "RA/DEC": "18 21 02.34 +72 44 01.3",
+                "Vmag": "3.55",
+                "Bayer": "chi",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 68756,
+                "RA/DEC": "14 04 23.43 +64 22 32.9",
+                "Vmag": "3.67",
+                "Bayer": "alf",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 87585,
+                "RA/DEC": "17 53 31.63 +56 52 20.8",
+                "Vmag": "3.73",
+                "Bayer": "ksi",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 56211,
+                "RA/DEC": "11 31 24.29 +69 19 52.0",
+                "Vmag": "3.82",
+                "Bayer": "lam",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 97433,
+                "RA/DEC": "19 48 10.21 +70 16 04.2",
+                "Vmag": "3.84",
+                "Bayer": "eps",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 61281,
+                "RA/DEC": "12 33 29.04 +69 47 17.6",
+                "Vmag": "3.85",
+                "Bayer": "kap",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 78527,
+                "RA/DEC": "16 01 53.70 +58 33 52.0",
+                "Vmag": "4.01",
+                "Bayer": "the",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 94648,
+                "RA/DEC": "19 15 33.29 +73 21 18.8",
+                "Vmag": "4.45",
+                "Bayer": "tau",
+                "Const": "Dra"
+            },
+            {
+                "HIP": 85829,
+                "RA/DEC": "17 32 15.88 +55 10 22.1",
+                "Vmag": "4.86",
+                "Bayer": "nu.02",
+                "Const": "Dra"
+            }
+        ]
+    },
+    {
+        "const": "Equ",
+        "stars": [
+            {
+                "HIP": 104987,
+                "RA/DEC": "21 15 49.40 +05 14 53.1",
+                "Vmag": "3.92",
+                "Bayer": "alf",
+                "Const": "Equ"
+            },
+            {
+                "HIP": 104858,
+                "RA/DEC": "21 14 28.79 +10 00 27.8",
+                "Vmag": "4.47",
+                "Bayer": "del",
+                "Const": "Equ"
+            },
+            {
+                "HIP": 104521,
+                "RA/DEC": "21 10 20.47 +10 07 55.0",
+                "Vmag": "4.70",
+                "Bayer": "gam",
+                "Const": "Equ"
+            },
+            {
+                "HIP": 105570,
+                "RA/DEC": "21 22 53.58 +06 48 40.0",
+                "Vmag": "5.16",
+                "Bayer": "bet",
+                "Const": "Equ"
+            }
+        ]
+    },
+    {
+        "const": "Eri",
+        "stars": [
+            {
+                "HIP": 7588,
+                "RA/DEC": "01 37 42.75 -57 14 12.0",
+                "Vmag": "0.45",
+                "Bayer": "alf",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 23875,
+                "RA/DEC": "05 07 51.03 -05 05 10.5",
+                "Vmag": "2.78",
+                "Bayer": "bet",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 13847,
+                "RA/DEC": "02 58 15.72 -40 18 17.0",
+                "Vmag": "2.88",
+                "Bayer": "the01",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 17378,
+                "RA/DEC": "03 43 14.96 -09 45 54.7",
+                "Vmag": "3.52",
+                "Bayer": "del",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 20042,
+                "RA/DEC": "04 17 53.62 -33 47 54.0",
+                "Vmag": "3.55",
+                "Bayer": "ups04",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 10602,
+                "RA/DEC": "02 16 30.50 -51 30 43.6",
+                "Vmag": "3.56",
+                "Bayer": "phi",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 9007,
+                "RA/DEC": "01 55 56.83 -51 36 34.5",
+                "Vmag": "3.69",
+                "Bayer": "chi",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 15474,
+                "RA/DEC": "03 19 30.97 -21 45 28.6",
+                "Vmag": "3.70",
+                "Bayer": "tau04",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 16537,
+                "RA/DEC": "03 32 56.42 -09 27 29.9",
+                "Vmag": "3.72",
+                "Bayer": "eps",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 21393,
+                "RA/DEC": "04 35 33.07 -30 33 44.3",
+                "Vmag": "3.81",
+                "Bayer": "ups02",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 21594,
+                "RA/DEC": "04 38 10.87 -14 18 12.9",
+                "Vmag": "3.86",
+                "Bayer": "l",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 13701,
+                "RA/DEC": "02 56 25.60 -08 53 51.4",
+                "Vmag": "3.89",
+                "Bayer": "eta",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 21444,
+                "RA/DEC": "04 36 19.14 -03 21 08.8",
+                "Vmag": "3.93",
+                "Bayer": "nu.",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 20535,
+                "RA/DEC": "04 24 02.17 -34 01 01.2",
+                "Vmag": "3.97",
+                "Bayer": "d",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 22109,
+                "RA/DEC": "04 45 30.14 -03 15 16.6",
+                "Vmag": "4.01",
+                "Bayer": "mu.",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 14146,
+                "RA/DEC": "03 02 23.59 -23 37 27.6",
+                "Vmag": "4.08",
+                "Bayer": "tau03",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 12486,
+                "RA/DEC": "02 40 39.93 -39 51 19.1",
+                "Vmag": "4.11",
+                "Bayer": "iot",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 17874,
+                "RA/DEC": "03 49 27.28 -36 12 00.4",
+                "Vmag": "4.17",
+                "Bayer": "g",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 17651,
+                "RA/DEC": "03 46 50.99 -23 14 54.4",
+                "Vmag": "4.22",
+                "Bayer": "tau06",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 11407,
+                "RA/DEC": "02 26 59.10 -47 42 13.8",
+                "Vmag": "4.24",
+                "Bayer": "kap",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 23972,
+                "RA/DEC": "05 09 08.78 -08 45 14.7",
+                "Vmag": "4.25",
+                "Bayer": "lam",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 15510,
+                "RA/DEC": "03 19 53.22 -43 04 17.6",
+                "Vmag": "4.26",
+                "Bayer": "e",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 16611,
+                "RA/DEC": "03 33 47.25 -21 37 58.1",
+                "Vmag": "4.26",
+                "Bayer": "tau05",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 17797,
+                "RA/DEC": "03 48 35.82 -37 37 12.5",
+                "Vmag": "4.30",
+                "Bayer": "f",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 22701,
+                "RA/DEC": "04 52 53.68 -05 27 09.9",
+                "Vmag": "4.36",
+                "Bayer": "ome",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 12843,
+                "RA/DEC": "02 45 05.98 -18 34 21.5",
+                "Vmag": "4.47",
+                "Bayer": "tau01",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 12413,
+                "RA/DEC": "02 39 47.92 -42 53 29.9",
+                "Vmag": "4.74",
+                "Bayer": "s",
+                "Const": "Eri"
+            },
+            {
+                "HIP": 15197,
+                "RA/DEC": "03 15 50.03 -08 49 11.4",
+                "Vmag": "4.80",
+                "Bayer": "zet",
+                "Const": "Eri"
+            }
+        ]
+    },
+    {
+        "const": "For",
+        "stars": [
+            {
+                "HIP": 14879,
+                "RA/DEC": "03 12 04.28 -28 59 20.8",
+                "Vmag": "3.80",
+                "Bayer": "alf",
+                "Const": "For"
+            },
+            {
+                "HIP": 13147,
+                "RA/DEC": "02 49 05.36 -32 24 22.6",
+                "Vmag": "4.45",
+                "Bayer": "bet",
+                "Const": "For"
+            }
+        ]
+    },
+    {
+        "const": "Gem",
+        "stars": [
+            {
+                "HIP": 37826,
+                "RA/DEC": "07 45 19.36 +28 01 34.7",
+                "Vmag": "1.16",
+                "Bayer": "bet",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 31681,
+                "RA/DEC": "06 37 42.70 +16 23 57.9",
+                "Vmag": "1.93",
+                "Bayer": "gam",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 36850,
+                "RA/DEC": "07 34 36.0  +31 53 18. ",
+                "Vmag": "1.98",
+                "Bayer": "alf",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 30343,
+                "RA/DEC": "06 22 57.59 +22 30 49.9",
+                "Vmag": "2.87",
+                "Bayer": "mu.",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 32246,
+                "RA/DEC": "06 43 55.93 +25 07 52.2",
+                "Vmag": "3.06",
+                "Bayer": "eps",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 29655,
+                "RA/DEC": "06 14 52.70 +22 30 24.6",
+                "Vmag": "3.31",
+                "Bayer": "eta",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 32362,
+                "RA/DEC": "06 45 17.43 +12 53 45.8",
+                "Vmag": "3.35",
+                "Bayer": "ksi",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 35550,
+                "RA/DEC": "07 20 07.39 +21 58 56.4",
+                "Vmag": "3.50",
+                "Bayer": "del",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 37740,
+                "RA/DEC": "07 44 26.87 +24 23 53.3",
+                "Vmag": "3.57",
+                "Bayer": "kap",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 35350,
+                "RA/DEC": "07 18 05.61 +16 32 25.7",
+                "Vmag": "3.58",
+                "Bayer": "lam",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 33018,
+                "RA/DEC": "06 52 47.34 +33 57 40.9",
+                "Vmag": "3.60",
+                "Bayer": "the",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 36046,
+                "RA/DEC": "07 25 43.68 +27 47 53.8",
+                "Vmag": "3.78",
+                "Bayer": "iot",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 34088,
+                "RA/DEC": "07 04 06.54 +20 34 13.1",
+                "Vmag": "4.01",
+                "Bayer": "zet",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 36962,
+                "RA/DEC": "07 35 55.37 +26 53 45.6",
+                "Vmag": "4.06",
+                "Bayer": "ups",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 30883,
+                "RA/DEC": "06 28 57.79 +20 12 43.8",
+                "Vmag": "4.13",
+                "Bayer": "nu.",
+                "Const": "Gem"
+            },
+            {
+                "HIP": 34693,
+                "RA/DEC": "07 11 08.39 +30 14 43.0",
+                "Vmag": "4.41",
+                "Bayer": "tau",
+                "Const": "Gem"
+            }
+        ]
+    },
+    {
+        "const": "Gru",
+        "stars": [
+            {
+                "HIP": 109268,
+                "RA/DEC": "22 08 13.88 -46 57 38.2",
+                "Vmag": "1.73",
+                "Bayer": "alf",
+                "Const": "Gru"
+            },
+            {
+                "HIP": 112122,
+                "RA/DEC": "22 42 39.93 -46 53 04.4",
+                "Vmag": "2.07",
+                "Bayer": "bet",
+                "Const": "Gru"
+            },
+            {
+                "HIP": 108085,
+                "RA/DEC": "21 53 55.65 -37 21 53.4",
+                "Vmag": "3.00",
+                "Bayer": "gam",
+                "Const": "Gru"
+            },
+            {
+                "HIP": 112623,
+                "RA/DEC": "22 48 33.20 -51 19 00.1",
+                "Vmag": "3.49",
+                "Bayer": "eps",
+                "Const": "Gru"
+            },
+            {
+                "HIP": 114421,
+                "RA/DEC": "23 10 21.43 -45 14 47.9",
+                "Vmag": "3.88",
+                "Bayer": "iot",
+                "Const": "Gru"
+            },
+            {
+                "HIP": 110997,
+                "RA/DEC": "22 29 16.15 -43 29 44.0",
+                "Vmag": "3.97",
+                "Bayer": "del01",
+                "Const": "Gru"
+            },
+            {
+                "HIP": 113638,
+                "RA/DEC": "23 00 52.87 -52 45 14.8",
+                "Vmag": "4.11",
+                "Bayer": "zet",
+                "Const": "Gru"
+            },
+            {
+                "HIP": 114131,
+                "RA/DEC": "23 06 52.77 -43 31 13.2",
+                "Vmag": "4.28",
+                "Bayer": "the",
+                "Const": "Gru"
+            },
+            {
+                "HIP": 109111,
+                "RA/DEC": "22 06 06.90 -39 32 35.0",
+                "Vmag": "4.47",
+                "Bayer": "lam",
+                "Const": "Gru"
+            }
+        ]
+    },
+    {
+        "const": "Her",
+        "stars": [
+            {
+                "HIP": 80816,
+                "RA/DEC": "16 30 13.26 +21 29 22.7",
+                "Vmag": "2.78",
+                "Bayer": "bet",
+                "Const": "Her"
+            },
+            {
+                "HIP": 84345,
+                "RA/DEC": "17 14 38.86 +14 23 24.9",
+                "Vmag": "2.78",
+                "Bayer": "alf01",
+                "Const": "Her"
+            },
+            {
+                "HIP": 81693,
+                "RA/DEC": "16 41 17.48 +31 36 06.8",
+                "Vmag": "2.81",
+                "Bayer": "zet",
+                "Const": "Her"
+            },
+            {
+                "HIP": 84379,
+                "RA/DEC": "17 15 01.92 +24 50 22.5",
+                "Vmag": "3.12",
+                "Bayer": "del",
+                "Const": "Her"
+            },
+            {
+                "HIP": 84380,
+                "RA/DEC": "17 15 02.85 +36 48 33.0",
+                "Vmag": "3.16",
+                "Bayer": "pi.",
+                "Const": "Her"
+            },
+            {
+                "HIP": 86974,
+                "RA/DEC": "17 46 27.72 +27 43 21.0",
+                "Vmag": "3.42",
+                "Bayer": "mu.",
+                "Const": "Her"
+            },
+            {
+                "HIP": 81833,
+                "RA/DEC": "16 42 53.74 +38 55 20.9",
+                "Vmag": "3.48",
+                "Bayer": "eta",
+                "Const": "Her"
+            },
+            {
+                "HIP": 87933,
+                "RA/DEC": "17 57 45.83 +29 14 52.5",
+                "Vmag": "3.70",
+                "Bayer": "ksi",
+                "Const": "Her"
+            },
+            {
+                "HIP": 80170,
+                "RA/DEC": "16 21 55.24 +19 09 10.9",
+                "Vmag": "3.74",
+                "Bayer": "gam",
+                "Const": "Her"
+            },
+            {
+                "HIP": 86414,
+                "RA/DEC": "17 39 27.89 +46 00 22.8",
+                "Vmag": "3.82",
+                "Bayer": "iot",
+                "Const": "Her"
+            },
+            {
+                "HIP": 88794,
+                "RA/DEC": "18 07 32.55 +28 45 44.9",
+                "Vmag": "3.84",
+                "Bayer": "omi",
+                "Const": "Her"
+            },
+            {
+                "HIP": 87808,
+                "RA/DEC": "17 56 15.18 +37 15 01.9",
+                "Vmag": "3.86",
+                "Bayer": "the",
+                "Const": "Her"
+            },
+            {
+                "HIP": 79992,
+                "RA/DEC": "16 19 44.45 +46 18 47.8",
+                "Vmag": "3.91",
+                "Bayer": "tau",
+                "Const": "Her"
+            },
+            {
+                "HIP": 83207,
+                "RA/DEC": "17 00 17.41 +30 55 34.8",
+                "Vmag": "3.92",
+                "Bayer": "eps",
+                "Const": "Her"
+            },
+            {
+                "HIP": 81126,
+                "RA/DEC": "16 34 06.19 +42 26 12.8",
+                "Vmag": "4.20",
+                "Bayer": "sig",
+                "Const": "Her"
+            },
+            {
+                "HIP": 85693,
+                "RA/DEC": "17 30 44.30 +26 06 38.2",
+                "Vmag": "4.41",
+                "Bayer": "lam",
+                "Const": "Her"
+            },
+            {
+                "HIP": 77760,
+                "RA/DEC": "15 52 40.19 +42 27 00.0",
+                "Vmag": "4.60",
+                "Bayer": "chi",
+                "Const": "Her"
+            },
+            {
+                "HIP": 84606,
+                "RA/DEC": "17 17 40.29 +37 17 28.8",
+                "Vmag": "4.64",
+                "Bayer": "e",
+                "Const": "Her"
+            },
+            {
+                "HIP": 85112,
+                "RA/DEC": "17 23 40.7  +37 08 48. ",
+                "Vmag": "5.47",
+                "Bayer": "rho",
+                "Const": "Her"
+            }
+        ]
+    },
+    {
+        "const": "Hor",
+        "stars": [
+            {
+                "HIP": 19747,
+                "RA/DEC": "04 14 00.08 -42 17 37.9",
+                "Vmag": "3.85",
+                "Bayer": "alf",
+                "Const": "Hor"
+            },
+            {
+                "HIP": 14240,
+                "RA/DEC": "03 03 36.90 -59 44 15.4",
+                "Vmag": "5.12",
+                "Bayer": "mu.",
+                "Const": "Hor"
+            },
+            {
+                "HIP": 12484,
+                "RA/DEC": "02 40 39.58 -54 32 59.7",
+                "Vmag": "5.21",
+                "Bayer": "zet",
+                "Const": "Hor"
+            }
+        ]
+    },
+    {
+        "const": "Hya",
+        "stars": [
+            {
+                "HIP": 46390,
+                "RA/DEC": "09 27 35.25 -08 39 31.3",
+                "Vmag": "1.99",
+                "Bayer": "alf",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 64962,
+                "RA/DEC": "13 18 55.25 -23 10 17.1",
+                "Vmag": "2.99",
+                "Bayer": "gam",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 43813,
+                "RA/DEC": "08 55 23.68 +05 56 43.9",
+                "Vmag": "3.11",
+                "Bayer": "zet",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 52943,
+                "RA/DEC": "10 49 37.43 -16 11 38.9",
+                "Vmag": "3.11",
+                "Bayer": "nu.",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 43109,
+                "RA/DEC": "08 46 46.65 +06 25 08.1",
+                "Vmag": "3.38",
+                "Bayer": "eps",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 56343,
+                "RA/DEC": "11 33 00.26 -31 51 27.1",
+                "Vmag": "3.54",
+                "Bayer": "ksi",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 49841,
+                "RA/DEC": "10 10 35.40 -12 21 13.8",
+                "Vmag": "3.61",
+                "Bayer": "lam",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 51069,
+                "RA/DEC": "10 26 05.51 -16 50 09.9",
+                "Vmag": "3.83",
+                "Bayer": "mu.",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 45336,
+                "RA/DEC": "09 14 21.79 +02 18 54.1",
+                "Vmag": "3.89",
+                "Bayer": "the",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 48356,
+                "RA/DEC": "09 51 28.68 -14 50 47.6",
+                "Vmag": "4.11",
+                "Bayer": "ups01",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 42313,
+                "RA/DEC": "08 37 39.41 +05 42 13.7",
+                "Vmag": "4.14",
+                "Bayer": "del",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 57936,
+                "RA/DEC": "11 52 54.56 -33 54 29.3",
+                "Vmag": "4.29",
+                "Bayer": "bet",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 42799,
+                "RA/DEC": "08 43 13.49 +03 23 55.2",
+                "Vmag": "4.30",
+                "Bayer": "eta",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 43234,
+                "RA/DEC": "08 48 25.98 +05 50 16.4",
+                "Vmag": "4.35",
+                "Bayer": "rho",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 42402,
+                "RA/DEC": "08 38 45.45 +03 20 29.3",
+                "Vmag": "4.45",
+                "Bayer": "sig",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 46776,
+                "RA/DEC": "09 31 58.93 -01 11 04.8",
+                "Vmag": "4.54",
+                "Bayer": "tau02",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 46509,
+                "RA/DEC": "09 29 08.84 -02 46 08.2",
+                "Vmag": "4.59",
+                "Bayer": "tau01",
+                "Const": "Hya"
+            },
+            {
+                "HIP": 64166,
+                "RA/DEC": "13 09 03.28 -23 07 04.7",
+                "Vmag": "4.94",
+                "Bayer": "psi",
+                "Const": "Hya"
+            }
+        ]
+    },
+    {
+        "const": "Hyi",
+        "stars": [
+            {
+                "HIP": 2021,
+                "RA/DEC": "00 25 39.20 -77 15 18.1",
+                "Vmag": "2.82",
+                "Bayer": "bet",
+                "Const": "Hyi"
+            },
+            {
+                "HIP": 9236,
+                "RA/DEC": "01 58 45.87 -61 34 11.7",
+                "Vmag": "2.86",
+                "Bayer": "alf",
+                "Const": "Hyi"
+            },
+            {
+                "HIP": 17678,
+                "RA/DEC": "03 47 14.23 -74 14 21.3",
+                "Vmag": "3.26",
+                "Bayer": "gam",
+                "Const": "Hyi"
+            },
+            {
+                "HIP": 11001,
+                "RA/DEC": "02 21 45.02 -68 39 33.9",
+                "Vmag": "4.08",
+                "Bayer": "del",
+                "Const": "Hyi"
+            },
+            {
+                "HIP": 12394,
+                "RA/DEC": "02 39 35.22 -68 16 01.0",
+                "Vmag": "4.12",
+                "Bayer": "eps",
+                "Const": "Hyi"
+            }
+        ]
+    },
+    {
+        "const": "Ind",
+        "stars": [
+            {
+                "HIP": 101772,
+                "RA/DEC": "20 37 33.99 -47 17 30.0",
+                "Vmag": "3.11",
+                "Bayer": "alf",
+                "Const": "Ind"
+            },
+            {
+                "HIP": 103227,
+                "RA/DEC": "20 54 48.58 -58 27 14.7",
+                "Vmag": "3.67",
+                "Bayer": "bet",
+                "Const": "Ind"
+            },
+            {
+                "HIP": 105319,
+                "RA/DEC": "21 19 51.88 -53 26 57.4",
+                "Vmag": "4.39",
+                "Bayer": "the",
+                "Const": "Ind"
+            }
+        ]
+    },
+    {
+        "const": "LMi",
+        "stars": [
+            {
+                "HIP": 51233,
+                "RA/DEC": "10 27 53.09 +36 42 26.9",
+                "Vmag": "4.20",
+                "Bayer": "bet",
+                "Const": "LMi"
+            }
+        ]
+    },
+    {
+        "const": "Lac",
+        "stars": [
+            {
+                "HIP": 111169,
+                "RA/DEC": "22 31 17.38 +50 16 56.8",
+                "Vmag": "3.76",
+                "Bayer": "alf",
+                "Const": "Lac"
+            },
+            {
+                "HIP": 110538,
+                "RA/DEC": "22 23 33.64 +52 13 46.2",
+                "Vmag": "4.42",
+                "Bayer": "bet",
+                "Const": "Lac"
+            }
+        ]
+    },
+    {
+        "const": "Leo",
+        "stars": [
+            {
+                "HIP": 49669,
+                "RA/DEC": "10 08 22.46 +11 58 01.9",
+                "Vmag": "1.36",
+                "Bayer": "alf",
+                "Const": "Leo"
+            },
+            {
+                "HIP": 50583,
+                "RA/DEC": "10 19 58.16 +19 50 30.7",
+                "Vmag": "2.01",
+                "Bayer": "gam01",
+                "Const": "Leo"
+            },
+            {
+                "HIP": 57632,
+                "RA/DEC": "11 49 03.88 +14 34 20.4",
+                "Vmag": "2.14",
+                "Bayer": "bet",
+                "Const": "Leo"
+            },
+            {
+                "HIP": 54872,
+                "RA/DEC": "11 14 06.41 +20 31 26.5",
+                "Vmag": "2.56",
+                "Bayer": "del",
+                "Const": "Leo"
+            },
+            {
+                "HIP": 47908,
+                "RA/DEC": "09 45 51.10 +23 46 27.4",
+                "Vmag": "2.97",
+                "Bayer": "eps",
+                "Const": "Leo"
+            },
+            {
+                "HIP": 54879,
+                "RA/DEC": "11 14 14.44 +15 25 47.1",
+                "Vmag": "3.33",
+                "Bayer": "the",
+                "Const": "Leo"
+            },
+            {
+                "HIP": 50335,
+                "RA/DEC": "10 16 41.40 +23 25 02.4",
+                "Vmag": "3.43",
+                "Bayer": "zet",
+                "Const": "Leo"
+            },
+            {
+                "HIP": 49583,
+                "RA/DEC": "10 07 19.95 +16 45 45.6",
+                "Vmag": "3.48",
+                "Bayer": "eta",
+                "Const": "Leo"
+            },
+            {
+                "HIP": 48455,
+                "RA/DEC": "09 52 45.96 +26 00 25.5",
+                "Vmag": "3.88",
+                "Bayer": "mu.",
+                "Const": "Leo"
+            }
+        ]
+    },
+    {
+        "const": "Lep",
+        "stars": [
+            {
+                "HIP": 25985,
+                "RA/DEC": "05 32 43.81 -17 49 20.3",
+                "Vmag": "2.58",
+                "Bayer": "alf",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 25606,
+                "RA/DEC": "05 28 14.73 -20 45 33.2",
+                "Vmag": "2.81",
+                "Bayer": "bet",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 23685,
+                "RA/DEC": "05 05 27.65 -22 22 15.1",
+                "Vmag": "3.19",
+                "Bayer": "eps",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 24305,
+                "RA/DEC": "05 12 55.87 -16 12 19.5",
+                "Vmag": "3.29",
+                "Bayer": "mu.",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 27288,
+                "RA/DEC": "05 46 57.35 -14 49 19.0",
+                "Vmag": "3.55",
+                "Bayer": "zet",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 27072,
+                "RA/DEC": "05 44 27.97 -22 26 51.0",
+                "Vmag": "3.59",
+                "Bayer": "gam",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 28103,
+                "RA/DEC": "05 56 24.32 -14 10 04.9",
+                "Vmag": "3.71",
+                "Bayer": "eta",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 27654,
+                "RA/DEC": "05 51 19.15 -20 52 39.0",
+                "Vmag": "3.76",
+                "Bayer": "del",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 24845,
+                "RA/DEC": "05 19 34.53 -13 10 36.4",
+                "Vmag": "4.29",
+                "Bayer": "lam",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 24327,
+                "RA/DEC": "05 13 13.89 -12 56 28.6",
+                "Vmag": "4.36",
+                "Bayer": "kap",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 24244,
+                "RA/DEC": "05 12 17.89 -11 52 08.9",
+                "Vmag": "4.45",
+                "Bayer": "iot",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 28910,
+                "RA/DEC": "06 06 09.33 -14 56 07.0",
+                "Vmag": "4.67",
+                "Bayer": "the",
+                "Const": "Lep"
+            },
+            {
+                "HIP": 24873,
+                "RA/DEC": "05 19 59.03 -12 18 56.2",
+                "Vmag": "5.29",
+                "Bayer": "nu.",
+                "Const": "Lep"
+            }
+        ]
+    },
+    {
+        "const": "Lib",
+        "stars": [
+            {
+                "HIP": 74785,
+                "RA/DEC": "15 17 00.47 -09 22 58.3",
+                "Vmag": "2.61",
+                "Bayer": "bet",
+                "Const": "Lib"
+            },
+            {
+                "HIP": 72622,
+                "RA/DEC": "14 50 52.78 -16 02 29.8",
+                "Vmag": "2.75",
+                "Bayer": "alf02",
+                "Const": "Lib"
+            },
+            {
+                "HIP": 73714,
+                "RA/DEC": "15 04 04.26 -25 16 54.7",
+                "Vmag": "3.25",
+                "Bayer": "sig",
+                "Const": "Lib"
+            },
+            {
+                "HIP": 76333,
+                "RA/DEC": "15 35 31.54 -14 47 22.4",
+                "Vmag": "3.91",
+                "Bayer": "gam",
+                "Const": "Lib"
+            },
+            {
+                "HIP": 77853,
+                "RA/DEC": "15 53 49.48 -16 43 46.6",
+                "Vmag": "4.13",
+                "Bayer": "the",
+                "Const": "Lib"
+            }
+        ]
+    },
+    {
+        "const": "Lup",
+        "stars": [
+            {
+                "HIP": 71860,
+                "RA/DEC": "14 41 55.77 -47 23 17.3",
+                "Vmag": "2.30",
+                "Bayer": "alf",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 73273,
+                "RA/DEC": "14 58 31.95 -43 08 01.9",
+                "Vmag": "2.68",
+                "Bayer": "bet",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 76297,
+                "RA/DEC": "15 35 08.46 -41 10 00.1",
+                "Vmag": "2.80",
+                "Bayer": "gam",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 75141,
+                "RA/DEC": "15 21 22.34 -40 38 50.9",
+                "Vmag": "3.22",
+                "Bayer": "del",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 74395,
+                "RA/DEC": "15 12 17.20 -52 05 56.7",
+                "Vmag": "3.41",
+                "Bayer": "zet",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 78384,
+                "RA/DEC": "16 00 07.34 -38 23 47.9",
+                "Vmag": "3.42",
+                "Bayer": "eta",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 75177,
+                "RA/DEC": "15 21 48.44 -36 15 40.2",
+                "Vmag": "3.57",
+                "Bayer": "phi01",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 77634,
+                "RA/DEC": "15 50 57.54 -33 37 37.6",
+                "Vmag": "3.97",
+                "Bayer": "chi",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 71536,
+                "RA/DEC": "14 37 53.25 -49 25 32.7",
+                "Vmag": "4.05",
+                "Bayer": "rho",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 70576,
+                "RA/DEC": "14 26 10.80 -45 22 45.3",
+                "Vmag": "4.33",
+                "Bayer": "tau02",
+                "Const": "Lup"
+            },
+            {
+                "HIP": 76552,
+                "RA/DEC": "15 38 03.32 -42 34 02.9",
+                "Vmag": "4.34",
+                "Bayer": "ome",
+                "Const": "Lup"
+            }
+        ]
+    },
+    {
+        "const": "Lyn",
+        "stars": [
+            {
+                "HIP": 45860,
+                "RA/DEC": "09 21 03.46 +34 23 33.1",
+                "Vmag": "3.14",
+                "Bayer": "alf",
+                "Const": "Lyn"
+            }
+        ]
+    },
+    {
+        "const": "Lyr",
+        "stars": [
+            {
+                "HIP": 91262,
+                "RA/DEC": "18 36 56.19 +38 46 58.8",
+                "Vmag": "0.03",
+                "Bayer": "alf",
+                "Const": "Lyr"
+            },
+            {
+                "HIP": 93194,
+                "RA/DEC": "18 58 56.62 +32 41 22.4",
+                "Vmag": "3.25",
+                "Bayer": "gam",
+                "Const": "Lyr"
+            },
+            {
+                "HIP": 92420,
+                "RA/DEC": "18 50 04.79 +33 21 45.6",
+                "Vmag": "3.52",
+                "Bayer": "bet",
+                "Const": "Lyr"
+            },
+            {
+                "HIP": 92791,
+                "RA/DEC": "18 54 30.29 +36 53 55.0",
+                "Vmag": "4.22",
+                "Bayer": "del02",
+                "Const": "Lyr"
+            },
+            {
+                "HIP": 91971,
+                "RA/DEC": "18 44 46.34 +37 36 18.2",
+                "Vmag": "4.34",
+                "Bayer": "zet01",
+                "Const": "Lyr"
+            }
+        ]
+    },
+    {
+        "const": "Men",
+        "stars": [
+            {
+                "HIP": 25918,
+                "RA/DEC": "05 31 52.66 -76 20 30.0",
+                "Vmag": "5.18",
+                "Bayer": "gam",
+                "Const": "Men"
+            },
+            {
+                "HIP": 21949,
+                "RA/DEC": "04 43 03.95 -70 55 52.0",
+                "Vmag": "5.53",
+                "Bayer": "mu.",
+                "Const": "Men"
+            }
+        ]
+    },
+    {
+        "const": "Mic",
+        "stars": [
+            {
+                "HIP": 103738,
+                "RA/DEC": "21 01 17.46 -32 15 28.0",
+                "Vmag": "4.67",
+                "Bayer": "gam",
+                "Const": "Mic"
+            },
+            {
+                "HIP": 105140,
+                "RA/DEC": "21 17 56.25 -32 10 20.9",
+                "Vmag": "4.71",
+                "Bayer": "eps",
+                "Const": "Mic"
+            },
+            {
+                "HIP": 102831,
+                "RA/DEC": "20 49 58.08 -33 46 46.8",
+                "Vmag": "4.89",
+                "Bayer": "alf",
+                "Const": "Mic"
+            }
+        ]
+    },
+    {
+        "const": "Mon",
+        "stars": [
+            {
+                "HIP": 30867,
+                "RA/DEC": "06 28 49.07 -07 01 59.0",
+                "Vmag": "3.76",
+                "Bayer": "bet",
+                "Const": "Mon"
+            },
+            {
+                "HIP": 37447,
+                "RA/DEC": "07 41 14.88 -09 33 03.9",
+                "Vmag": "3.94",
+                "Bayer": "alf",
+                "Const": "Mon"
+            },
+            {
+                "HIP": 29651,
+                "RA/DEC": "06 14 51.34 -06 16 29.0",
+                "Vmag": "3.99",
+                "Bayer": "gam",
+                "Const": "Mon"
+            },
+            {
+                "HIP": 34769,
+                "RA/DEC": "07 11 51.86 -00 29 34.0",
+                "Vmag": "4.15",
+                "Bayer": "del",
+                "Const": "Mon"
+            },
+            {
+                "HIP": 39863,
+                "RA/DEC": "08 08 35.66 -02 59 01.6",
+                "Vmag": "4.36",
+                "Bayer": "zet",
+                "Const": "Mon"
+            },
+            {
+                "HIP": 30419,
+                "RA/DEC": "06 23 46.10 +04 35 34.2",
+                "Vmag": "4.39",
+                "Bayer": "eps",
+                "Const": "Mon"
+            }
+        ]
+    },
+    {
+        "const": "Mus",
+        "stars": [
+            {
+                "HIP": 61585,
+                "RA/DEC": "12 37 11.08 -69 08 07.9",
+                "Vmag": "2.69",
+                "Bayer": "alf",
+                "Const": "Mus"
+            },
+            {
+                "HIP": 62322,
+                "RA/DEC": "12 46 16.87 -68 06 29.1",
+                "Vmag": "3.04",
+                "Bayer": "bet",
+                "Const": "Mus"
+            },
+            {
+                "HIP": 57363,
+                "RA/DEC": "11 45 36.57 -66 43 43.8",
+                "Vmag": "3.63",
+                "Bayer": "lam",
+                "Const": "Mus"
+            },
+            {
+                "HIP": 61199,
+                "RA/DEC": "12 32 28.11 -72 07 58.7",
+                "Vmag": "3.84",
+                "Bayer": "gam",
+                "Const": "Mus"
+            }
+        ]
+    },
+    {
+        "const": "Nor",
+        "stars": [
+            {
+                "HIP": 80000,
+                "RA/DEC": "16 19 50.57 -50 09 19.4",
+                "Vmag": "4.01",
+                "Bayer": "gam02",
+                "Const": "Nor"
+            },
+            {
+                "HIP": 80582,
+                "RA/DEC": "16 27 11.05 -47 33 17.0",
+                "Vmag": "4.46",
+                "Bayer": "eps",
+                "Const": "Nor"
+            },
+            {
+                "HIP": 78639,
+                "RA/DEC": "16 03 12.86 -49 13 47.0",
+                "Vmag": "4.65",
+                "Bayer": "eta",
+                "Const": "Nor"
+            },
+            {
+                "HIP": 79509,
+                "RA/DEC": "16 13 28.73 -54 37 49.5",
+                "Vmag": "4.95",
+                "Bayer": "kap",
+                "Const": "Nor"
+            }
+        ]
+    },
+    {
+        "const": "Oct",
+        "stars": [
+            {
+                "HIP": 107089,
+                "RA/DEC": "21 41 28.47 -77 23 22.1",
+                "Vmag": "3.73",
+                "Bayer": "nu.",
+                "Const": "Oct"
+            },
+            {
+                "HIP": 112405,
+                "RA/DEC": "22 46 03.72 -81 22 53.8",
+                "Vmag": "4.13",
+                "Bayer": "bet",
+                "Const": "Oct"
+            },
+            {
+                "HIP": 70638,
+                "RA/DEC": "14 26 55.74 -83 40 04.3",
+                "Vmag": "4.31",
+                "Bayer": "del",
+                "Const": "Oct"
+            }
+        ]
+    },
+    {
+        "const": "Oph",
+        "stars": [
+            {
+                "HIP": 86032,
+                "RA/DEC": "17 34 56.00 +12 33 38.1",
+                "Vmag": "2.08",
+                "Bayer": "alf",
+                "Const": "Oph"
+            },
+            {
+                "HIP": 84012,
+                "RA/DEC": "17 10 22.66 -15 43 30.5",
+                "Vmag": "2.43",
+                "Bayer": "eta",
+                "Const": "Oph"
+            },
+            {
+                "HIP": 81377,
+                "RA/DEC": "16 37 09.53 -10 34 01.7",
+                "Vmag": "2.54",
+                "Bayer": "zet",
+                "Const": "Oph"
+            },
+            {
+                "HIP": 86742,
+                "RA/DEC": "17 43 28.38 +04 34 00.9",
+                "Vmag": "2.76",
+                "Bayer": "bet",
+                "Const": "Oph"
+            },
+            {
+                "HIP": 83000,
+                "RA/DEC": "16 57 40.27 +09 22 30.2",
+                "Vmag": "3.19",
+                "Bayer": "kap",
+                "Const": "Oph"
+            },
+            {
+                "HIP": 79882,
+                "RA/DEC": "16 18 19.24 -04 41 33.4",
+                "Vmag": "3.23",
+                "Bayer": "eps",
+                "Const": "Oph"
+            },
+            {
+                "HIP": 85755,
+                "RA/DEC": "17 31 24.95 -23 57 45.3",
+                "Vmag": "4.78",
+                "Bayer": "c",
+                "Const": "Oph"
+            }
+        ]
+    },
+    {
+        "const": "Ori",
+        "stars": [
+            {
+                "HIP": 24436,
+                "RA/DEC": "05 14 32.27 -08 12 05.9",
+                "Vmag": "0.18",
+                "Bayer": "bet",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 27989,
+                "RA/DEC": "05 55 10.29 +07 24 25.3",
+                "Vmag": "0.45",
+                "Bayer": "alf",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 25336,
+                "RA/DEC": "05 25 07.87 +06 20 59.0",
+                "Vmag": "1.64",
+                "Bayer": "gam",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 26311,
+                "RA/DEC": "05 36 12.81 -01 12 06.9",
+                "Vmag": "1.69",
+                "Bayer": "eps",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 26727,
+                "RA/DEC": "05 40 45.52 -01 56 33.3",
+                "Vmag": "1.74",
+                "Bayer": "zet",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 27366,
+                "RA/DEC": "05 47 45.39 -09 40 10.6",
+                "Vmag": "2.07",
+                "Bayer": "kap",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 25930,
+                "RA/DEC": "05 32 00.40 -00 17 56.7",
+                "Vmag": "2.25",
+                "Bayer": "del",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 22449,
+                "RA/DEC": "04 49 50.14 +06 57 40.5",
+                "Vmag": "3.19",
+                "Bayer": "pi.03",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 26207,
+                "RA/DEC": "05 35 08.28 +09 56 03.0",
+                "Vmag": "3.39",
+                "Bayer": "lam",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 22549,
+                "RA/DEC": "04 51 12.37 +05 36 18.4",
+                "Vmag": "3.68",
+                "Bayer": "pi.04",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 28614,
+                "RA/DEC": "06 02 22.99 +09 38 50.5",
+                "Vmag": "4.12",
+                "Bayer": "mu.",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 22509,
+                "RA/DEC": "04 50 36.72 +08 54 00.9",
+                "Vmag": "4.35",
+                "Bayer": "pi.02",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 27913,
+                "RA/DEC": "05 54 23.08 +20 16 35.1",
+                "Vmag": "4.39",
+                "Bayer": "chi01",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 29038,
+                "RA/DEC": "06 07 34.32 +14 46 06.7",
+                "Vmag": "4.42",
+                "Bayer": "nu.",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 29426,
+                "RA/DEC": "06 11 56.40 +14 12 31.7",
+                "Vmag": "4.45",
+                "Bayer": "ksi",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 23123,
+                "RA/DEC": "04 58 32.90 +01 42 50.5",
+                "Vmag": "4.47",
+                "Bayer": "pi.06",
+                "Const": "Ori"
+            },
+            {
+                "HIP": 22845,
+                "RA/DEC": "04 54 53.70 +10 09 04.1",
+                "Vmag": "4.64",
+                "Bayer": "pi.01",
+                "Const": "Ori"
+            }
+        ]
+    },
+    {
+        "const": "Pav",
+        "stars": [
+            {
+                "HIP": 100751,
+                "RA/DEC": "20 25 38.85 -56 44 05.6",
+                "Vmag": "1.94",
+                "Bayer": "alf",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 102395,
+                "RA/DEC": "20 44 57.56 -66 12 11.7",
+                "Vmag": "3.42",
+                "Bayer": "bet",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 99240,
+                "RA/DEC": "20 08 41.86 -66 10 45.6",
+                "Vmag": "3.55",
+                "Bayer": "del",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 86929,
+                "RA/DEC": "17 45 44.00 -64 43 25.4",
+                "Vmag": "3.61",
+                "Bayer": "eta",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 98495,
+                "RA/DEC": "20 00 35.39 -72 54 36.7",
+                "Vmag": "3.97",
+                "Bayer": "eps",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 91792,
+                "RA/DEC": "18 43 02.13 -71 25 39.8",
+                "Vmag": "4.01",
+                "Bayer": "zet",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 105858,
+                "RA/DEC": "21 26 26.49 -65 22 05.3",
+                "Vmag": "4.21",
+                "Bayer": "gam",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 92609,
+                "RA/DEC": "18 52 13.04 -62 11 15.2",
+                "Vmag": "4.22",
+                "Bayer": "lam",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 88866,
+                "RA/DEC": "18 08 34.79 -63 40 05.0",
+                "Vmag": "4.33",
+                "Bayer": "pi.",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 90098,
+                "RA/DEC": "18 23 13.62 -61 29 38.1",
+                "Vmag": "4.35",
+                "Bayer": "ksi",
+                "Const": "Pav"
+            },
+            {
+                "HIP": 93015,
+                "RA/DEC": "18 56 57.04 -67 14 00.7",
+                "Vmag": "4.40",
+                "Bayer": "kap",
+                "Const": "Pav"
+            }
+        ]
+    },
+    {
+        "const": "Peg",
+        "stars": [
+            {
+                "HIP": 107315,
+                "RA/DEC": "21 44 11.14 +09 52 30.0",
+                "Vmag": "2.38",
+                "Bayer": "eps",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 113881,
+                "RA/DEC": "23 03 46.33 +28 04 56.8",
+                "Vmag": "2.44",
+                "Bayer": "bet",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 113963,
+                "RA/DEC": "23 04 45.62 +15 12 19.3",
+                "Vmag": "2.49",
+                "Bayer": "alf",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 1067,
+                "RA/DEC": "00 13 14.15 +15 11 01.0",
+                "Vmag": "2.83",
+                "Bayer": "gam",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 112158,
+                "RA/DEC": "22 43 00.13 +30 13 16.7",
+                "Vmag": "2.93",
+                "Bayer": "eta",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 112029,
+                "RA/DEC": "22 41 27.67 +10 49 53.0",
+                "Vmag": "3.41",
+                "Bayer": "zet",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 112748,
+                "RA/DEC": "22 50 00.10 +24 36 06.1",
+                "Vmag": "3.51",
+                "Bayer": "mu.",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 109427,
+                "RA/DEC": "22 10 11.82 +06 11 52.0",
+                "Vmag": "3.52",
+                "Bayer": "the",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 109176,
+                "RA/DEC": "22 07 00.47 +25 20 42.2",
+                "Vmag": "3.77",
+                "Bayer": "iot",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 112440,
+                "RA/DEC": "22 46 31.84 +23 33 56.4",
+                "Vmag": "3.97",
+                "Bayer": "lam",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 107354,
+                "RA/DEC": "21 44 38.70 +25 38 42.0",
+                "Vmag": "4.14",
+                "Bayer": "kap",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 112447,
+                "RA/DEC": "22 46 41.44 +12 10 26.7",
+                "Vmag": "4.20",
+                "Bayer": "ksi",
+                "Const": "Peg"
+            },
+            {
+                "HIP": 109352,
+                "RA/DEC": "22 09 13.68 +33 10 21.0",
+                "Vmag": "5.58",
+                "Bayer": "pi.01",
+                "Const": "Peg"
+            }
+        ]
+    },
+    {
+        "const": "Per",
+        "stars": [
+            {
+                "HIP": 15863,
+                "RA/DEC": "03 24 19.35 +49 51 40.5",
+                "Vmag": "1.79",
+                "Bayer": "alf",
+                "Const": "Per"
+            },
+            {
+                "HIP": 14576,
+                "RA/DEC": "03 08 10.13 +40 57 20.3",
+                "Vmag": "2.09",
+                "Bayer": "bet",
+                "Const": "Per"
+            },
+            {
+                "HIP": 18246,
+                "RA/DEC": "03 54 07.92 +31 53 01.2",
+                "Vmag": "2.84",
+                "Bayer": "zet",
+                "Const": "Per"
+            },
+            {
+                "HIP": 18532,
+                "RA/DEC": "03 57 51.22 +40 00 37.0",
+                "Vmag": "2.90",
+                "Bayer": "eps",
+                "Const": "Per"
+            },
+            {
+                "HIP": 14328,
+                "RA/DEC": "03 04 47.79 +53 30 23.2",
+                "Vmag": "2.91",
+                "Bayer": "gam",
+                "Const": "Per"
+            },
+            {
+                "HIP": 17358,
+                "RA/DEC": "03 42 55.48 +47 47 15.6",
+                "Vmag": "3.01",
+                "Bayer": "del",
+                "Const": "Per"
+            },
+            {
+                "HIP": 14354,
+                "RA/DEC": "03 05 10.50 +38 50 25.9",
+                "Vmag": "3.32",
+                "Bayer": "rho",
+                "Const": "Per"
+            },
+            {
+                "HIP": 13268,
+                "RA/DEC": "02 50 41.79 +55 53 43.9",
+                "Vmag": "3.77",
+                "Bayer": "eta",
+                "Const": "Per"
+            },
+            {
+                "HIP": 17448,
+                "RA/DEC": "03 44 19.13 +32 17 17.8",
+                "Vmag": "3.84",
+                "Bayer": "omi",
+                "Const": "Per"
+            },
+            {
+                "HIP": 18614,
+                "RA/DEC": "03 58 57.90 +35 47 27.7",
+                "Vmag": "3.98",
+                "Bayer": "ksi",
+                "Const": "Per"
+            }
+        ]
+    },
+    {
+        "const": "Phe",
+        "stars": [
+            {
+                "HIP": 2081,
+                "RA/DEC": "00 26 16.87 -42 18 18.4",
+                "Vmag": "2.40",
+                "Bayer": "alf",
+                "Const": "Phe"
+            },
+            {
+                "HIP": 5165,
+                "RA/DEC": "01 06 05.11 -46 43 06.6",
+                "Vmag": "3.32",
+                "Bayer": "bet",
+                "Const": "Phe"
+            },
+            {
+                "HIP": 6867,
+                "RA/DEC": "01 28 21.94 -43 19 03.8",
+                "Vmag": "3.41",
+                "Bayer": "gam",
+                "Const": "Phe"
+            },
+            {
+                "HIP": 765,
+                "RA/DEC": "00 09 24.54 -45 44 49.2",
+                "Vmag": "3.88",
+                "Bayer": "eps",
+                "Const": "Phe"
+            },
+            {
+                "HIP": 2072,
+                "RA/DEC": "00 26 12.12 -43 40 47.7",
+                "Vmag": "3.93",
+                "Bayer": "kap",
+                "Const": "Phe"
+            },
+            {
+                "HIP": 7083,
+                "RA/DEC": "01 31 14.98 -49 04 23.1",
+                "Vmag": "3.93",
+                "Bayer": "del",
+                "Const": "Phe"
+            },
+            {
+                "HIP": 5348,
+                "RA/DEC": "01 08 23.06 -55 14 45.0",
+                "Vmag": "3.94",
+                "Bayer": "zet",
+                "Const": "Phe"
+            },
+            {
+                "HIP": 8837,
+                "RA/DEC": "01 53 38.82 -46 18 08.8",
+                "Vmag": "4.39",
+                "Bayer": "psi",
+                "Const": "Phe"
+            }
+        ]
+    },
+    {
+        "const": "Pic",
+        "stars": [
+            {
+                "HIP": 32607,
+                "RA/DEC": "06 48 11.54 -61 56 31.1",
+                "Vmag": "3.24",
+                "Bayer": "alf",
+                "Const": "Pic"
+            },
+            {
+                "HIP": 27321,
+                "RA/DEC": "05 47 17.08 -51 04 00.2",
+                "Vmag": "3.85",
+                "Bayer": "bet",
+                "Const": "Pic"
+            },
+            {
+                "HIP": 27530,
+                "RA/DEC": "05 49 49.58 -56 09 59.4",
+                "Vmag": "4.50",
+                "Bayer": "gam",
+                "Const": "Pic"
+            }
+        ]
+    },
+    {
+        "const": "PsA",
+        "stars": [
+            {
+                "HIP": 113368,
+                "RA/DEC": "22 57 38.83 -29 37 18.6",
+                "Vmag": "1.17",
+                "Bayer": "alf",
+                "Const": "PsA"
+            },
+            {
+                "HIP": 111954,
+                "RA/DEC": "22 40 39.33 -27 02 37.0",
+                "Vmag": "4.18",
+                "Bayer": "eps",
+                "Const": "PsA"
+            },
+            {
+                "HIP": 113246,
+                "RA/DEC": "22 55 56.89 -32 32 22.9",
+                "Vmag": "4.20",
+                "Bayer": "del",
+                "Const": "PsA"
+            },
+            {
+                "HIP": 111188,
+                "RA/DEC": "22 31 30.29 -32 20 45.7",
+                "Vmag": "4.29",
+                "Bayer": "bet",
+                "Const": "PsA"
+            },
+            {
+                "HIP": 109422,
+                "RA/DEC": "22 10 08.48 -32 32 54.4",
+                "Vmag": "4.94",
+                "Bayer": "tau",
+                "Const": "PsA"
+            },
+            {
+                "HIP": 107608,
+                "RA/DEC": "21 47 44.17 -30 53 53.9",
+                "Vmag": "5.02",
+                "Bayer": "the",
+                "Const": "PsA"
+            },
+            {
+                "HIP": 108661,
+                "RA/DEC": "22 00 50.22 -28 27 13.5",
+                "Vmag": "5.43",
+                "Bayer": "eta",
+                "Const": "PsA"
+            }
+        ]
+    },
+    {
+        "const": "Psc",
+        "stars": [
+            {
+                "HIP": 7097,
+                "RA/DEC": "01 31 28.99 +15 20 45.0",
+                "Vmag": "3.62",
+                "Bayer": "eta",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 114971,
+                "RA/DEC": "23 17 09.49 +03 16 56.1",
+                "Vmag": "3.70",
+                "Bayer": "gam",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 9487,
+                "RA/DEC": "02 02 02.80 +02 45 49.5",
+                "Vmag": "3.82",
+                "Bayer": "alf",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 118268,
+                "RA/DEC": "23 59 18.60 +06 51 48.9",
+                "Vmag": "4.03",
+                "Bayer": "ome",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 116771,
+                "RA/DEC": "23 39 56.82 +05 37 38.5",
+                "Vmag": "4.13",
+                "Bayer": "iot",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 8198,
+                "RA/DEC": "01 45 23.59 +09 09 27.5",
+                "Vmag": "4.26",
+                "Bayer": "omi",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 4906,
+                "RA/DEC": "01 02 56.66 +07 53 24.3",
+                "Vmag": "4.27",
+                "Bayer": "eps",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 115830,
+                "RA/DEC": "23 27 58.17 +06 22 44.8",
+                "Vmag": "4.27",
+                "Bayer": "the",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 3786,
+                "RA/DEC": "00 48 40.90 +07 35 06.7",
+                "Vmag": "4.44",
+                "Bayer": "del",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 7884,
+                "RA/DEC": "01 41 25.91 +05 29 15.4",
+                "Vmag": "4.45",
+                "Bayer": "nu.",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 116928,
+                "RA/DEC": "23 42 02.88 +01 46 49.5",
+                "Vmag": "4.49",
+                "Bayer": "lam",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 8833,
+                "RA/DEC": "01 53 33.34 +03 11 14.9",
+                "Vmag": "4.61",
+                "Bayer": "ksi",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 5742,
+                "RA/DEC": "01 13 44.94 +24 35 01.6",
+                "Vmag": "4.67",
+                "Bayer": "phi",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 6193,
+                "RA/DEC": "01 19 27.98 +27 15 50.7",
+                "Vmag": "4.74",
+                "Bayer": "ups",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 7007,
+                "RA/DEC": "01 30 10.94 +06 08 38.2",
+                "Vmag": "4.84",
+                "Bayer": "mu.",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 115738,
+                "RA/DEC": "23 26 55.91 +01 15 21.0",
+                "Vmag": "4.95",
+                "Bayer": "kap",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 1645,
+                "RA/DEC": "00 20 35.86 +08 11 24.9",
+                "Vmag": "5.38",
+                "Bayer": "d",
+                "Const": "Psc"
+            },
+            {
+                "HIP": 4889,
+                "RA/DEC": "01 02 49.09 +31 48 15.6",
+                "Vmag": "5.50",
+                "Bayer": "sig",
+                "Const": "Psc"
+            }
+        ]
+    },
+    {
+        "const": "Pup",
+        "stars": [
+            {
+                "HIP": 39429,
+                "RA/DEC": "08 03 35.07 -40 00 11.5",
+                "Vmag": "2.21",
+                "Bayer": "zet",
+                "Const": "Pup"
+            },
+            {
+                "HIP": 35264,
+                "RA/DEC": "07 17 08.56 -37 05 51.0",
+                "Vmag": "2.71",
+                "Bayer": "pi.",
+                "Const": "Pup"
+            },
+            {
+                "HIP": 39757,
+                "RA/DEC": "08 07 32.70 -24 18 16.0",
+                "Vmag": "2.83",
+                "Bayer": "rho",
+                "Const": "Pup"
+            },
+            {
+                "HIP": 32768,
+                "RA/DEC": "06 49 56.14 -50 36 51.8",
+                "Vmag": "2.94",
+                "Bayer": "tau",
+                "Const": "Pup"
+            },
+            {
+                "HIP": 31685,
+                "RA/DEC": "06 37 45.67 -43 11 45.3",
+                "Vmag": "3.17",
+                "Bayer": "nu.",
+                "Const": "Pup"
+            },
+            {
+                "HIP": 36377,
+                "RA/DEC": "07 29 13.88 -43 18 06.8",
+                "Vmag": "3.25",
+                "Bayer": "sig",
+                "Const": "Pup"
+            }
+        ]
+    },
+    {
+        "const": "Pyx",
+        "stars": [
+            {
+                "HIP": 42828,
+                "RA/DEC": "08 43 35.55 -33 11 11.1",
+                "Vmag": "3.68",
+                "Bayer": "alf",
+                "Const": "Pyx"
+            },
+            {
+                "HIP": 42515,
+                "RA/DEC": "08 40 06.14 -35 18 29.9",
+                "Vmag": "3.97",
+                "Bayer": "bet",
+                "Const": "Pyx"
+            },
+            {
+                "HIP": 43409,
+                "RA/DEC": "08 50 32.01 -27 42 36.2",
+                "Vmag": "4.02",
+                "Bayer": "gam",
+                "Const": "Pyx"
+            }
+        ]
+    },
+    {
+        "const": "Ret",
+        "stars": [
+            {
+                "HIP": 19780,
+                "RA/DEC": "04 14 25.43 -62 28 26.3",
+                "Vmag": "3.33",
+                "Bayer": "alf",
+                "Const": "Ret"
+            },
+            {
+                "HIP": 17440,
+                "RA/DEC": "03 44 11.55 -64 48 25.5",
+                "Vmag": "3.84",
+                "Bayer": "bet",
+                "Const": "Ret"
+            },
+            {
+                "HIP": 19921,
+                "RA/DEC": "04 16 29.08 -59 18 06.3",
+                "Vmag": "4.44",
+                "Bayer": "eps",
+                "Const": "Ret"
+            },
+            {
+                "HIP": 18597,
+                "RA/DEC": "03 58 44.74 -61 24 00.5",
+                "Vmag": "4.56",
+                "Bayer": "del",
+                "Const": "Ret"
+            }
+        ]
+    },
+    {
+        "const": "Scl",
+        "stars": [
+            {
+                "HIP": 4577,
+                "RA/DEC": "00 58 36.35 -29 21 26.9",
+                "Vmag": "4.30",
+                "Bayer": "alf",
+                "Const": "Scl"
+            },
+            {
+                "HIP": 116231,
+                "RA/DEC": "23 32 58.19 -37 49 06.1",
+                "Vmag": "4.38",
+                "Bayer": "bet",
+                "Const": "Scl"
+            },
+            {
+                "HIP": 115102,
+                "RA/DEC": "23 18 49.43 -32 31 54.6",
+                "Vmag": "4.41",
+                "Bayer": "gam",
+                "Const": "Scl"
+            }
+        ]
+    },
+    {
+        "const": "Sco",
+        "stars": [
+            {
+                "HIP": 80763,
+                "RA/DEC": "16 29 24.47 -26 25 55.0",
+                "Vmag": "1.06",
+                "Bayer": "alf",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 85927,
+                "RA/DEC": "17 33 36.53 -37 06 13.5",
+                "Vmag": "1.62",
+                "Bayer": "lam",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 86228,
+                "RA/DEC": "17 37 19.13 -42 59 52.2",
+                "Vmag": "1.86",
+                "Bayer": "the",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 78401,
+                "RA/DEC": "16 00 20.01 -22 37 17.8",
+                "Vmag": "2.29",
+                "Bayer": "del",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 82396,
+                "RA/DEC": "16 50 10.24 -34 17 33.4",
+                "Vmag": "2.29",
+                "Bayer": "eps",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 86670,
+                "RA/DEC": "17 42 29.28 -39 01 47.7",
+                "Vmag": "2.39",
+                "Bayer": "kap",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 78820,
+                "RA/DEC": "16 05 26.23 -19 48 19.4",
+                "Vmag": "2.56",
+                "Bayer": "bet01",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 81266,
+                "RA/DEC": "16 35 52.96 -28 12 57.5",
+                "Vmag": "2.82",
+                "Bayer": "tau",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 78265,
+                "RA/DEC": "15 58 51.12 -26 06 50.6",
+                "Vmag": "2.89",
+                "Bayer": "pi.",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 87073,
+                "RA/DEC": "17 47 35.08 -40 07 37.1",
+                "Vmag": "2.99",
+                "Bayer": "iot01",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 82514,
+                "RA/DEC": "16 51 52.24 -38 02 50.4",
+                "Vmag": "3.00",
+                "Bayer": "mu.01",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 84143,
+                "RA/DEC": "17 12 09.18 -43 14 18.6",
+                "Vmag": "3.32",
+                "Bayer": "eta",
+                "Const": "Sco"
+            },
+            {
+                "HIP": 82671,
+                "RA/DEC": "16 53 59.73 -42 21 43.3",
+                "Vmag": "4.70",
+                "Bayer": "zet01",
+                "Const": "Sco"
+            }
+        ]
+    },
+    {
+        "const": "Sct",
+        "stars": [
+            {
+                "HIP": 91117,
+                "RA/DEC": "18 35 12.44 -08 14 35.9",
+                "Vmag": "3.85",
+                "Bayer": "alf",
+                "Const": "Sct"
+            },
+            {
+                "HIP": 92175,
+                "RA/DEC": "18 47 10.48 -04 44 52.2",
+                "Vmag": "4.22",
+                "Bayer": "bet",
+                "Const": "Sct"
+            },
+            {
+                "HIP": 90595,
+                "RA/DEC": "18 29 11.85 -14 33 56.9",
+                "Vmag": "4.67",
+                "Bayer": "gam",
+                "Const": "Sct"
+            },
+            {
+                "HIP": 92202,
+                "RA/DEC": "18 47 28.98 -05 42 18.3",
+                "Vmag": "5.38",
+                "Bayer": "R",
+                "Const": "Sct"
+            }
+        ]
+    },
+    {
+        "const": "Ser",
+        "stars": [
+            {
+                "HIP": 77070,
+                "RA/DEC": "15 44 16.00 +06 25 31.9",
+                "Vmag": "2.63",
+                "Bayer": "alf",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 89962,
+                "RA/DEC": "18 21 18.92 -02 53 49.6",
+                "Vmag": "3.23",
+                "Bayer": "eta",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 77516,
+                "RA/DEC": "15 49 37.27 -03 25 48.5",
+                "Vmag": "3.54",
+                "Bayer": "mu.",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 86263,
+                "RA/DEC": "17 37 35.23 -15 23 54.3",
+                "Vmag": "3.54",
+                "Bayer": "ksi",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 77233,
+                "RA/DEC": "15 46 11.21 +15 25 18.9",
+                "Vmag": "3.65",
+                "Bayer": "bet",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 77622,
+                "RA/DEC": "15 50 48.89 +04 28 39.3",
+                "Vmag": "3.71",
+                "Bayer": "eps",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 76276,
+                "RA/DEC": "15 34 48.19 +10 32 19.9",
+                "Vmag": "3.80",
+                "Bayer": "del",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 78072,
+                "RA/DEC": "15 56 26.99 +15 39 53.0",
+                "Vmag": "3.85",
+                "Bayer": "gam",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 77450,
+                "RA/DEC": "15 48 44.41 +18 08 30.4",
+                "Vmag": "4.09",
+                "Bayer": "kap",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 86565,
+                "RA/DEC": "17 41 24.92 -12 52 30.6",
+                "Vmag": "4.24",
+                "Bayer": "omi",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 84880,
+                "RA/DEC": "17 20 49.64 -12 50 48.8",
+                "Vmag": "4.32",
+                "Bayer": "nu.",
+                "Const": "Ser"
+            },
+            {
+                "HIP": 92946,
+                "RA/DEC": "18 56 13.16 +04 12 12.7",
+                "Vmag": "4.62",
+                "Bayer": "the01",
+                "Const": "Ser"
+            }
+        ]
+    },
+    {
+        "const": "Sex",
+        "stars": [
+            {
+                "HIP": 49641,
+                "RA/DEC": "10 07 56.30 -00 22 17.9",
+                "Vmag": "4.48",
+                "Bayer": "alf",
+                "Const": "Sex"
+            },
+            {
+                "HIP": 51437,
+                "RA/DEC": "10 30 17.50 -00 38 13.1",
+                "Vmag": "5.08",
+                "Bayer": "bet",
+                "Const": "Sex"
+            }
+        ]
+    },
+    {
+        "const": "Sge",
+        "stars": [
+            {
+                "HIP": 98337,
+                "RA/DEC": "19 58 45.39 +19 29 31.5",
+                "Vmag": "3.51",
+                "Bayer": "gam",
+                "Const": "Sge"
+            },
+            {
+                "HIP": 97365,
+                "RA/DEC": "19 47 23.27 +18 32 03.3",
+                "Vmag": "3.68",
+                "Bayer": "del",
+                "Const": "Sge"
+            },
+            {
+                "HIP": 96757,
+                "RA/DEC": "19 40 05.78 +18 00 50.2",
+                "Vmag": "4.39",
+                "Bayer": "alf",
+                "Const": "Sge"
+            },
+            {
+                "HIP": 96837,
+                "RA/DEC": "19 41 02.93 +17 28 34.0",
+                "Vmag": "4.39",
+                "Bayer": "bet",
+                "Const": "Sge"
+            },
+            {
+                "HIP": 98920,
+                "RA/DEC": "20 05 09.47 +19 59 27.2",
+                "Vmag": "5.09",
+                "Bayer": "eta",
+                "Const": "Sge"
+            }
+        ]
+    },
+    {
+        "const": "Sgr",
+        "stars": [
+            {
+                "HIP": 90185,
+                "RA/DEC": "18 24 10.35 -34 23 03.5",
+                "Vmag": "1.79",
+                "Bayer": "eps",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 92855,
+                "RA/DEC": "18 55 15.92 -26 17 47.7",
+                "Vmag": "2.05",
+                "Bayer": "sig",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 93506,
+                "RA/DEC": "19 02 36.72 -29 52 48.4",
+                "Vmag": "2.60",
+                "Bayer": "zet",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 89931,
+                "RA/DEC": "18 20 59.62 -29 49 40.9",
+                "Vmag": "2.72",
+                "Bayer": "del",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 90496,
+                "RA/DEC": "18 27 58.27 -25 25 16.5",
+                "Vmag": "2.82",
+                "Bayer": "lam",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 88635,
+                "RA/DEC": "18 05 48.52 -30 25 25.1",
+                "Vmag": "2.98",
+                "Bayer": "gam",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 89642,
+                "RA/DEC": "18 17 37.73 -36 45 40.6",
+                "Vmag": "3.10",
+                "Bayer": "eta",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 92041,
+                "RA/DEC": "18 45 39.35 -26 59 26.8",
+                "Vmag": "3.17",
+                "Bayer": "phi",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 93864,
+                "RA/DEC": "19 06 56.44 -27 40 11.3",
+                "Vmag": "3.32",
+                "Bayer": "tau",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 93085,
+                "RA/DEC": "18 57 43.78 -21 06 23.8",
+                "Vmag": "3.52",
+                "Bayer": "ksi02",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 93683,
+                "RA/DEC": "19 04 40.93 -21 44 28.9",
+                "Vmag": "3.76",
+                "Bayer": "omi",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 89341,
+                "RA/DEC": "18 13 45.81 -21 03 31.8",
+                "Vmag": "3.84",
+                "Bayer": "mu.",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 95168,
+                "RA/DEC": "19 21 40.38 -17 50 50.1",
+                "Vmag": "3.92",
+                "Bayer": "rho01",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 95347,
+                "RA/DEC": "19 23 53.15 -40 36 56.3",
+                "Vmag": "3.96",
+                "Bayer": "alf",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 98032,
+                "RA/DEC": "19 55 15.68 -41 52 06.3",
+                "Vmag": "4.12",
+                "Bayer": "iot",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 95294,
+                "RA/DEC": "19 23 13.06 -44 47 58.7",
+                "Vmag": "4.27",
+                "Bayer": "bet02",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 98412,
+                "RA/DEC": "19 59 44.17 -35 16 34.5",
+                "Vmag": "4.37",
+                "Bayer": "the01",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 98688,
+                "RA/DEC": "20 02 39.46 -27 42 35.6",
+                "Vmag": "4.43",
+                "Bayer": "c",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 87072,
+                "RA/DEC": "17 47 33.63 -27 49 50.7",
+                "Vmag": "4.53",
+                "Bayer": "X",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 94820,
+                "RA/DEC": "19 17 38.09 -18 57 10.4",
+                "Vmag": "4.88",
+                "Bayer": "d",
+                "Const": "Sgr"
+            },
+            {
+                "HIP": 96406,
+                "RA/DEC": "19 36 01.65 -24 43 08.5",
+                "Vmag": "5.64",
+                "Bayer": "h01",
+                "Const": "Sgr"
+            }
+        ]
+    },
+    {
+        "const": "Tau",
+        "stars": [
+            {
+                "HIP": 21421,
+                "RA/DEC": "04 35 55.20 +16 30 35.1",
+                "Vmag": "0.87",
+                "Bayer": "alf",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 25428,
+                "RA/DEC": "05 26 17.50 +28 36 28.3",
+                "Vmag": "1.65",
+                "Bayer": "bet",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 26451,
+                "RA/DEC": "05 37 38.68 +21 08 33.3",
+                "Vmag": "2.97",
+                "Bayer": "zet",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 20894,
+                "RA/DEC": "04 28 39.67 +15 52 15.4",
+                "Vmag": "3.40",
+                "Bayer": "the02",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 18724,
+                "RA/DEC": "04 00 40.82 +12 29 25.4",
+                "Vmag": "3.41",
+                "Bayer": "lam",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 20889,
+                "RA/DEC": "04 28 36.93 +19 10 49.9",
+                "Vmag": "3.53",
+                "Bayer": "eps",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 15900,
+                "RA/DEC": "03 24 48.84 +09 01 44.6",
+                "Vmag": "3.61",
+                "Bayer": "omi",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 20205,
+                "RA/DEC": "04 19 47.53 +15 37 39.7",
+                "Vmag": "3.65",
+                "Bayer": "gam",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 20455,
+                "RA/DEC": "04 22 56.03 +17 32 33.3",
+                "Vmag": "3.77",
+                "Bayer": "del",
+                "Const": "Tau"
+            },
+            {
+                "HIP": 21881,
+                "RA/DEC": "04 42 14.70 +22 57 25.1",
+                "Vmag": "4.27",
+                "Bayer": "tau",
+                "Const": "Tau"
+            }
+        ]
+    },
+    {
+        "const": "Tel",
+        "stars": [
+            {
+                "HIP": 90422,
+                "RA/DEC": "18 26 58.43 -45 58 06.0",
+                "Vmag": "3.49",
+                "Bayer": "alf",
+                "Const": "Tel"
+            },
+            {
+                "HIP": 90568,
+                "RA/DEC": "18 28 49.74 -49 04 12.1",
+                "Vmag": "4.10",
+                "Bayer": "zet",
+                "Const": "Tel"
+            }
+        ]
+    },
+    {
+        "const": "TrA",
+        "stars": [
+            {
+                "HIP": 82273,
+                "RA/DEC": "16 48 39.87 -69 01 39.5",
+                "Vmag": "1.91",
+                "Bayer": "alf",
+                "Const": "TrA"
+            },
+            {
+                "HIP": 77952,
+                "RA/DEC": "15 55 08.81 -63 25 47.1",
+                "Vmag": "2.83",
+                "Bayer": "bet",
+                "Const": "TrA"
+            },
+            {
+                "HIP": 74946,
+                "RA/DEC": "15 18 54.69 -68 40 46.1",
+                "Vmag": "2.87",
+                "Bayer": "gam",
+                "Const": "TrA"
+            }
+        ]
+    },
+    {
+        "const": "Tri",
+        "stars": [
+            {
+                "HIP": 10064,
+                "RA/DEC": "02 09 32.52 +34 59 14.6",
+                "Vmag": "3.00",
+                "Bayer": "bet",
+                "Const": "Tri"
+            },
+            {
+                "HIP": 8796,
+                "RA/DEC": "01 53 04.90 +29 34 45.8",
+                "Vmag": "3.42",
+                "Bayer": "alf",
+                "Const": "Tri"
+            },
+            {
+                "HIP": 10670,
+                "RA/DEC": "02 17 18.84 +33 50 50.4",
+                "Vmag": "4.03",
+                "Bayer": "gam",
+                "Const": "Tri"
+            }
+        ]
+    },
+    {
+        "const": "Tuc",
+        "stars": [
+            {
+                "HIP": 110130,
+                "RA/DEC": "22 18 30.18 -60 15 34.2",
+                "Vmag": "2.87",
+                "Bayer": "alf",
+                "Const": "Tuc"
+            },
+            {
+                "HIP": 114996,
+                "RA/DEC": "23 17 25.81 -58 14 09.3",
+                "Vmag": "3.99",
+                "Bayer": "gam",
+                "Const": "Tuc"
+            },
+            {
+                "HIP": 1599,
+                "RA/DEC": "00 20 01.91 -64 52 39.4",
+                "Vmag": "4.23",
+                "Bayer": "zet",
+                "Const": "Tuc"
+            },
+            {
+                "HIP": 2484,
+                "RA/DEC": "00 31 32.56 -62 57 29.1",
+                "Vmag": "4.36",
+                "Bayer": "bet01",
+                "Const": "Tuc"
+            }
+        ]
+    },
+    {
+        "const": "UMa",
+        "stars": [
+            {
+                "HIP": 62956,
+                "RA/DEC": "12 54 01.63 +55 57 35.4",
+                "Vmag": "1.76",
+                "Bayer": "eps",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 54061,
+                "RA/DEC": "11 03 43.84 +61 45 04.0",
+                "Vmag": "1.81",
+                "Bayer": "alf",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 67301,
+                "RA/DEC": "13 47 32.55 +49 18 47.9",
+                "Vmag": "1.85",
+                "Bayer": "eta",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 65378,
+                "RA/DEC": "13 23 55.42 +54 55 31.5",
+                "Vmag": "2.23",
+                "Bayer": "zet",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 53910,
+                "RA/DEC": "11 01 50.39 +56 22 56.4",
+                "Vmag": "2.34",
+                "Bayer": "bet",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 58001,
+                "RA/DEC": "11 53 49.74 +53 41 41.0",
+                "Vmag": "2.41",
+                "Bayer": "gam",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 54539,
+                "RA/DEC": "11 09 39.86 +44 29 54.8",
+                "Vmag": "3.00",
+                "Bayer": "psi",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 50801,
+                "RA/DEC": "10 22 19.80 +41 29 58.0",
+                "Vmag": "3.06",
+                "Bayer": "mu.",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 44127,
+                "RA/DEC": "08 59 12.84 +48 02 32.5",
+                "Vmag": "3.12",
+                "Bayer": "iot",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 46853,
+                "RA/DEC": "09 32 52.33 +51 40 43.0",
+                "Vmag": "3.17",
+                "Bayer": "the",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 59774,
+                "RA/DEC": "12 15 25.45 +57 01 57.4",
+                "Vmag": "3.32",
+                "Bayer": "del",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 41704,
+                "RA/DEC": "08 30 16.03 +60 43 06.4",
+                "Vmag": "3.35",
+                "Bayer": "omi",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 50372,
+                "RA/DEC": "10 17 05.93 +42 54 52.1",
+                "Vmag": "3.45",
+                "Bayer": "lam",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 44471,
+                "RA/DEC": "09 03 37.56 +47 09 24.0",
+                "Vmag": "3.57",
+                "Bayer": "kap",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 46733,
+                "RA/DEC": "09 31 31.57 +63 03 42.5",
+                "Vmag": "3.65",
+                "Bayer": "h",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 57399,
+                "RA/DEC": "11 46 03.13 +47 46 45.6",
+                "Vmag": "3.69",
+                "Bayer": "chi",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 48319,
+                "RA/DEC": "09 50 59.69 +59 02 20.8",
+                "Vmag": "3.78",
+                "Bayer": "ups",
+                "Const": "UMa"
+            },
+            {
+                "HIP": 48402,
+                "RA/DEC": "09 52 06.36 +54 03 51.4",
+                "Vmag": "4.55",
+                "Bayer": "phi",
+                "Const": "UMa"
+            }
+        ]
+    },
+    {
+        "const": "UMi",
+        "stars": [
+            {
+                "HIP": 11767,
+                "RA/DEC": "02 31 47.08 +89 15 50.9",
+                "Vmag": "1.97",
+                "Bayer": "alf",
+                "Const": "UMi"
+            },
+            {
+                "HIP": 72607,
+                "RA/DEC": "14 50 42.40 +74 09 19.7",
+                "Vmag": "2.07",
+                "Bayer": "bet",
+                "Const": "UMi"
+            },
+            {
+                "HIP": 75097,
+                "RA/DEC": "15 20 43.75 +71 50 02.3",
+                "Vmag": "3.00",
+                "Bayer": "gam",
+                "Const": "UMi"
+            },
+            {
+                "HIP": 82080,
+                "RA/DEC": "16 45 58.16 +82 02 14.1",
+                "Vmag": "4.21",
+                "Bayer": "eps",
+                "Const": "UMi"
+            },
+            {
+                "HIP": 77055,
+                "RA/DEC": "15 44 03.46 +77 47 40.2",
+                "Vmag": "4.29",
+                "Bayer": "zet",
+                "Const": "UMi"
+            },
+            {
+                "HIP": 85822,
+                "RA/DEC": "17 32 12.90 +86 35 10.8",
+                "Vmag": "4.35",
+                "Bayer": "del",
+                "Const": "UMi"
+            },
+            {
+                "HIP": 79822,
+                "RA/DEC": "16 17 30.50 +75 45 16.9",
+                "Vmag": "4.95",
+                "Bayer": "eta",
+                "Const": "UMi"
+            }
+        ]
+    },
+    {
+        "const": "Vel",
+        "stars": [
+            {
+                "HIP": 39953,
+                "RA/DEC": "08 09 31.96 -47 20 11.8",
+                "Vmag": "1.75",
+                "Bayer": "gam02",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 42913,
+                "RA/DEC": "08 44 42.20 -54 42 30.8",
+                "Vmag": "1.93",
+                "Bayer": "del",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 44816,
+                "RA/DEC": "09 07 59.78 -43 25 57.4",
+                "Vmag": "2.23",
+                "Bayer": "lam",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 45941,
+                "RA/DEC": "09 22 06.83 -55 00 38.5",
+                "Vmag": "2.47",
+                "Bayer": "kap",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 52727,
+                "RA/DEC": "10 46 46.12 -49 25 12.5",
+                "Vmag": "2.69",
+                "Bayer": "mu.",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 48774,
+                "RA/DEC": "09 56 51.75 -54 34 04.1",
+                "Vmag": "3.52",
+                "Bayer": "phi",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 42536,
+                "RA/DEC": "08 40 17.61 -52 55 19.1",
+                "Vmag": "3.60",
+                "Bayer": "omi",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 46651,
+                "RA/DEC": "09 30 42.11 -40 28 00.8",
+                "Vmag": "3.60",
+                "Bayer": "psi",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 51986,
+                "RA/DEC": "10 37 18.26 -48 13 32.2",
+                "Vmag": "3.84",
+                "Bayer": "p",
+                "Const": "Vel"
+            },
+            {
+                "HIP": 50191,
+                "RA/DEC": "10 14 44.27 -42 07 19.4",
+                "Vmag": "3.85",
+                "Bayer": "q",
+                "Const": "Vel"
+            }
+        ]
+    },
+    {
+        "const": "Vir",
+        "stars": [
+            {
+                "HIP": 65474,
+                "RA/DEC": "13 25 11.60 -11 09 40.5",
+                "Vmag": "0.98",
+                "Bayer": "alf",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 61941,
+                "RA/DEC": "12 41 40.00 -01 26 58.3",
+                "Vmag": "2.74",
+                "Bayer": "gam",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 63608,
+                "RA/DEC": "13 02 10.76 +10 57 32.8",
+                "Vmag": "2.85",
+                "Bayer": "eps",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 66249,
+                "RA/DEC": "13 34 41.75 -00 35 45.4",
+                "Vmag": "3.38",
+                "Bayer": "zet",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 63090,
+                "RA/DEC": "12 55 36.48 +03 23 51.4",
+                "Vmag": "3.39",
+                "Bayer": "del",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 71957,
+                "RA/DEC": "14 43 03.56 -05 39 26.7",
+                "Vmag": "3.87",
+                "Bayer": "mu.",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 57380,
+                "RA/DEC": "11 45 51.57 +06 31 47.3",
+                "Vmag": "4.04",
+                "Bayer": "nu.",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 69701,
+                "RA/DEC": "14 16 00.88 -05 59 58.3",
+                "Vmag": "4.07",
+                "Bayer": "iot",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 69427,
+                "RA/DEC": "14 12 53.74 -10 16 26.6",
+                "Vmag": "4.18",
+                "Bayer": "kap",
+                "Const": "Vir"
+            },
+            {
+                "HIP": 68520,
+                "RA/DEC": "14 01 38.78 +01 32 40.5",
+                "Vmag": "4.23",
+                "Bayer": "tau",
+                "Const": "Vir"
+            }
+        ]
+    },
+    {
+        "const": "Vol",
+        "stars": [
+            {
+                "HIP": 41312,
+                "RA/DEC": "08 25 44.25 -66 08 11.5",
+                "Vmag": "3.77",
+                "Bayer": "bet",
+                "Const": "Vol"
+            },
+            {
+                "HIP": 34481,
+                "RA/DEC": "07 08 44.82 -70 29 57.1",
+                "Vmag": "3.78",
+                "Bayer": "gam02",
+                "Const": "Vol"
+            },
+            {
+                "HIP": 37504,
+                "RA/DEC": "07 41 49.20 -72 36 22.1",
+                "Vmag": "3.93",
+                "Bayer": "zet",
+                "Const": "Vol"
+            },
+            {
+                "HIP": 35228,
+                "RA/DEC": "07 16 49.83 -67 57 25.8",
+                "Vmag": "3.97",
+                "Bayer": "del",
+                "Const": "Vol"
+            },
+            {
+                "HIP": 44382,
+                "RA/DEC": "09 02 26.80 -66 23 45.0",
+                "Vmag": "4.00",
+                "Bayer": "alf",
+                "Const": "Vol"
+            },
+            {
+                "HIP": 39794,
+                "RA/DEC": "08 07 55.84 -68 37 01.7",
+                "Vmag": "4.35",
+                "Bayer": "eps",
+                "Const": "Vol"
+            }
+        ]
+    },
+    {
+        "const": "Vul",
+        "stars": [
+            {
+                "HIP": 95771,
+                "RA/DEC": "19 28 42.41 +24 39 54.6",
+                "Vmag": "4.44",
+                "Bayer": "alf",
+                "Const": "Vul"
+            }
+        ]
+    }
+]

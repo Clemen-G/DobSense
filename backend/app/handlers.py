@@ -40,3 +40,9 @@ class AlignmentsHandler(AppHandler):
         alignment_points.append(alignment)
         logging.info(alignment_points)
         self.write(dict(alignment_points=alignment_points))
+
+
+class AlignmentHandler(AppHandler):
+    def get(self):
+        self.set_status(200)
+        self.finish()

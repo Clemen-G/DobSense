@@ -57,6 +57,36 @@ export default function AlignmentView({constellationsStars}) {
         }); 
       }
     
+    function submitAlignment(e) {
+        const payload = {
+          hip: selectedStar,
+          timestamp: new Date().getTime()
+        }
+        axios.put('/api/alignments', payload)
+        .then(function (response) {
+          setAlignments(response.data.alignment_points)
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        }); 
+    }
+
+    function requestAlignment(e) {
+        axios.get('/api/alignment')
+        .then(function (response) {
+            console.log("alignment requested");
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        }); 
+    }
+
     return <div>
         <div>
             <select onChange={constSelectedHandler}>{constsOptions}</select>
@@ -67,6 +97,8 @@ export default function AlignmentView({constellationsStars}) {
         <button disabled={selectedStar == ""} onClick={submitAlignment}>
             Confirm centered
         </button>
-        <button disabled={alignments.length < 3}>Align telescope</button>
+        <button disabled={alignments.length < 3} onClick={requestAlignment}>
+            Align telescope
+        </button>
       </div>
   }

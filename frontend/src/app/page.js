@@ -10,6 +10,7 @@ export default function Page() {
 
   function handshake(pos) {
     const coords = pos.coords;
+    console.log("hello")
     const payload = {
         position: {
           accuracy: coords.accuracy,

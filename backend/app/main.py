@@ -3,7 +3,7 @@ import logging
 import asyncio
 import json
 import tornado
-from handlers import *
+from handlers import HandshakeHandler, AlignmentHandler, AlignmentsHandler
 
 
 from tornado.options import define, options, parse_command_line
@@ -17,12 +17,9 @@ GLOBALS = {
 
 async def main():
     application = tornado.web.Application([
-        # the / url redirects to a landing page that will load the app manifest
-        # (r"/()", tornado.web.StaticFileHandler, dict(path="./static", default_filename='landing.html')),
-        # (r"/(manifest\.json)", tornado.web.StaticFileHandler, dict(path='.')),
-        # (r"/static/(.+)", tornado.web.StaticFileHandler, dict(path='./static')),
         (r"/api/handshake", HandshakeHandler, dict(globals=GLOBALS)),
         (r"/api/alignments", AlignmentsHandler, dict(globals=GLOBALS)),
+        (r"/api/alignment", AlignmentHandler, dict(globals=GLOBALS)),
     ], debug=options.debug)
 
     server = tornado.web.HTTPServer(application)

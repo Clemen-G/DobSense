@@ -1,7 +1,10 @@
 import tornado
 import logging
+import uuid
+import json
 
-class HandshakeHandler(tornado.web.RequestHandler):
+
+class AppHandler(tornado.web.RequestHandler):
     def initialize(self, globals):
         self.globals = globals
 
@@ -11,6 +14,8 @@ class HandshakeHandler(tornado.web.RequestHandler):
         self.set_header("Access-Control-Allow-Headers", "*")
         self.set_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
 
+
+class HandshakeHandler(AppHandler):
     # https://stackoverflow.com/questions/35254742/tornado-server-enable-cors-requests
     def options(self):
         self.set_status(204)
@@ -18,8 +23,20 @@ class HandshakeHandler(tornado.web.RequestHandler):
 
     def post(self):
         logging.info(self.request.body)
+        payload = json.loads(self.request.body)
+        self.globals["position"] = payload["position"]
         self.write(dict(constellation_data=self.globals["constellation_data"]))
 
     def get(self):
         logging.info("hello")
         self.finish()
+
+
+class AlignmentsHandler(AppHandler):
+    def put(self):
+        alignment = json.loads(self.request.body)
+        alignment["id"] = str(uuid.uuid4())
+        alignment_points = self.globals["alignment_points"]
+        alignment_points.append(alignment)
+        logging.info(alignment_points)
+        self.write(dict(alignment_points=alignment_points))

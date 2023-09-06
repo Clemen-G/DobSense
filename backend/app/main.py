@@ -22,6 +22,7 @@ async def main():
         # (r"/(manifest\.json)", tornado.web.StaticFileHandler, dict(path='.')),
         # (r"/static/(.+)", tornado.web.StaticFileHandler, dict(path='./static')),
         (r"/api/handshake", HandshakeHandler, dict(globals=GLOBALS)),
+        (r"/api/alignments", AlignmentsHandler, dict(globals=GLOBALS)),
     ], debug=options.debug)
 
     server = tornado.web.HTTPServer(application)

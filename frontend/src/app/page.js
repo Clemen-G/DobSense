@@ -11,7 +11,6 @@ export default function Page() {
   function handshake(pos) {
     const coords = pos.coords;
     const payload = {
-      params: {
         position: {
           accuracy: coords.accuracy,
           altitude: coords.altitude,
@@ -21,7 +20,6 @@ export default function Page() {
           isSecureContext: window.isSecureContext
         },
         datetime: new Date().getTime(),
-      }
     }
     axios.post('/api/handshake', payload)
     .then(function (response) {

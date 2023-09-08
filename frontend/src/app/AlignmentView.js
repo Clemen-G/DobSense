@@ -59,7 +59,7 @@ export default function AlignmentView({constellationsStars}) {
     
     function submitAlignment(e) {
         const payload = {
-          hip: selectedStar,
+          object_id: selectedStar,
           timestamp: new Date().getTime()
         }
         axios.put('/api/alignments', payload)

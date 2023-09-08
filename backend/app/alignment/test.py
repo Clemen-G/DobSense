@@ -35,27 +35,29 @@ def get_star_coords_from_taz(R_azO_s, R_altO_s, R_tilt_s, telescope_angles):
     return np.vstack(points)
 
 
+def generate_alignment_sample(azO_X_angle, azO_Y_angle, tilt_angle,
+                                altO_angle, taz_angles):
+
+    R_azO = (rot(X, r(azO_X_angle)) @ rot(Y, r(azO_Y_angle))).T
+    R_tilt = rot(Y, r(tilt_angle)).T
+    R_altO = rot(X, r(altO_angle)).T
+
+    star_coordinates = get_star_coords_from_taz(
+        R_azO, R_altO, R_tilt, taz_angles)
+    angle_cosines = np.hstack(
+        (np.cos(r(taz_angles)), np.sin(r(taz_angles))))
+    angle_cosines[:, [2, 1]] = angle_cosines[:, [1, 2]]
+
+    taz_star_coordinates = np.hstack((angle_cosines, star_coordinates))
+    return {
+        "R_azO": R_azO,
+        "R_altO": R_altO,
+        "R_tilt": R_tilt,
+        "taz_star_coordinates": taz_star_coordinates
+    }
+
+
 def generate_alignment_samples(n_samples=1, base_seed=None, index=None):
-    def generate_alignment_sample(azO_X_angle, azO_Y_angle, tilt_angle,
-                                  altO_angle, taz_angles):
-
-        R_azO = (rot(X, r(azO_X_angle)) @ rot(Y, r(azO_Y_angle))).T
-        R_tilt = rot(Y, r(tilt_angle)).T
-        R_altO = rot(X, r(altO_angle)).T
-
-        star_coordinates = get_star_coords_from_taz(
-            R_azO, R_altO, R_tilt, taz_angles)
-        angle_cosines = np.hstack(
-            (np.cos(r(taz_angles)), np.sin(r(taz_angles))))
-        angle_cosines[:, [2, 1]] = angle_cosines[:, [1, 2]]
-
-        taz_star_coordinates = np.hstack((angle_cosines, star_coordinates))
-        return {
-            "R_azO": R_azO,
-            "R_altO": R_altO,
-            "R_tilt": R_tilt,
-            "taz_star_coordinates": taz_star_coordinates
-        }
     if base_seed is None:
         base_seed = np.random.default_rng().integers(0, 100000000)
     rng = np.random.default_rng(base_seed)
@@ -64,7 +66,7 @@ def generate_alignment_samples(n_samples=1, base_seed=None, index=None):
     MAX_AZO_Y_AMPL = 10
     MAX_TILT = 5
     MAX_ALTO = 90
-    NUM_OBS_PER_ALIGNMENT = 4
+    NUM_OBS_PER_ALIGNMENT = 5
 
     azO_X_angles = (rng.random(n_samples) - .5) * MAX_AZO_X_AMPL
     azO_Y_angles = (rng.random(n_samples) - .5) * MAX_AZO_Y_AMPL
@@ -276,4 +278,36 @@ print
 print(norm(R_azO_est - R_azO_s))
 print(norm(R_altO_est - R_altO_s))
 print(norm(R_tilt_est - R_tilt_s))
+# %%
+
+# test_sample = generate_alignment_samples(base_seed=1)[0]
+test_sample = generate_alignment_sample(azO_X_angle=45,
+                                        azO_Y_angle=30,
+                                        tilt_angle=0,
+                                        altO_angle=0,
+                                        taz_angles=np.array([[0, 0]]))
+
+R_azO = test_sample["R_azO"].T
+R_altO = test_sample["R_altO"].T
+R_tilt = test_sample["R_tilt"].T
+taz_star_coordinates = test_sample["taz_star_coordinates"]
+# format: cos(taz), sin(taz), cos(talt), sin(talt)
+t_co_sines = taz_star_coordinates[0, 0:4].reshape((-1))
+obj_az = taz_star_coordinates[0, 4:].reshape((-1, 1))
+R_taz = np.array([[t_co_sines[0], -t_co_sines[1], 0],
+                  [t_co_sines[1], t_co_sines[0], 0],
+                  [0, 0, 1]])
+R_talt = np.array([[1, 0, 0],
+                  [0, t_co_sines[2], -t_co_sines[3]],
+                  [0, t_co_sines[3], t_co_sines[2]]])
+
+print(R_azO)
+print(R_taz)
+print(R_tilt)
+print(R_altO)
+print(R_talt)
+
+print("Obj az: \n", obj_az)
+# R_talt @ R_altO @ R_tilt @ R_taz @ R_azO @ obj_az
+R_azO @ R_taz @ R_tilt @ R_altO @  R_talt @ obj_az
 # %%

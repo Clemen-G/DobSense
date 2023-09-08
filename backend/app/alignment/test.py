@@ -15,7 +15,7 @@ from loss_function_generators import gradient_optimized_err_lambda, \
 # test data generators
 
 def get_star_coords_from_taz(R_azO_s, R_altO_s, R_tilt_s, telescope_angles):
-    """Generates points that would be transformed into [0, 1, 0]
+    """Generates points that would be transformed into [1, 0, 0]
 
     Arguments:
         R_azO_s: azO matrix as a change of basis matrix
@@ -29,7 +29,7 @@ def get_star_coords_from_taz(R_azO_s, R_altO_s, R_tilt_s, telescope_angles):
         transformed into [0, 1, 0] in the given telescope setup.
     """
 
-    points = [R_azO_s.T @ rot(Z, r(alpha)) @ R_tilt_s.T @ R_altO_s.T @ rot(X, r(beta)) @ Y
+    points = [R_azO_s.T @ rot(Z, r(alpha)) @ R_tilt_s.T @ R_altO_s.T @ rot(Y, r(beta)) @ X
               for (alpha, beta) in telescope_angles[:]]
 
     return np.vstack(points)
@@ -39,8 +39,8 @@ def generate_alignment_sample(azO_X_angle, azO_Y_angle, tilt_angle,
                                 altO_angle, taz_angles):
 
     R_azO = (rot(X, r(azO_X_angle)) @ rot(Y, r(azO_Y_angle))).T
-    R_tilt = rot(Y, r(tilt_angle)).T
-    R_altO = rot(X, r(altO_angle)).T
+    R_tilt = rot(X, r(tilt_angle)).T
+    R_altO = rot(Y, r(altO_angle)).T
 
     star_coordinates = get_star_coords_from_taz(
         R_azO, R_altO, R_tilt, taz_angles)
@@ -207,14 +207,14 @@ ppp((R_altO_s_est-R_altO_s)/R_altO_s * 100)
 # sim_data tests
 # array format: taz_cos, taz_sin, talt_cos, talt_sin, p_x, p_y, p_z
 
-# The az point [0, 1, 0] should have taz = 0, talt=0
-td_0 = np.array([0, 0, 0, 1, 0])
+# taz = 0, talt=0 should give az point [1, 0, 0]
+td_0 = np.array([0, 0, 1, 0, 0])
 
-# The az point [1, 0, 0] should have taz = -90, talt=0
-td_1 = np.array([-90, 0, 1, 0, 0])
+# taz = -90, talt=0 should give az point [0, 1, 0] 
+td_1 = np.array([90, 0, 0, 1, 0])
 
-# The az point [0, 0, 1] should have taz = 0, talt=90
-td_2 = np.array([0, 90, 0, 0, 1])
+# taz = 0, talt=-90 should give az point [0, 0, 1] 
+td_2 = np.array([0, -90, 0, 0, 1])
 
 for t in [td_0, td_1, td_2]:
     if not np.allclose(t[2:5], get_star_coords_from_taz(np.identity(3),

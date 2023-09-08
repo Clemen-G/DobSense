@@ -15,23 +15,23 @@ R_azO = sp.Matrix([[t11, t12, t13],
 
 taz_cos, taz_sin = sp.symbols("taz_cos taz_sin", real=True)
 R_az = sp.Matrix([[taz_cos, -taz_sin, 0],
-                 [taz_sin, taz_cos, 0],
-                 [0, 0, 1]]).transpose()
+                  [taz_sin, taz_cos , 0],
+                  [0      , 0       , 1]]).transpose()
 
 t1, t2 = sp.symbols("t1 t2", real=True)
-R_tilt = sp.Matrix([[t1, 0, t2],
-                    [0, 1, 0],
-                    [-t2, 0, t1]]).transpose()
+R_tilt = sp.Matrix([[1, 0 , 0  ],
+                    [0, t1, -t2],
+                    [0, t2, t1 ]]).transpose()
 
 t3, t4 = sp.symbols("t3 t4", real=True)
-R_altO = sp.Matrix([[1, 0, 0],
-                    [0, t3, -t4],
-                    [0, t4, t3]]).transpose()
+R_altO = sp.Matrix([[t3 , 0, t4],
+                    [0  , 1, 0 ],
+                    [-t4, 0, t3]]).transpose()
 
 talt_cos, talt_sin = sp.symbols("talt_cos talt_sin", real=True)
-R_alt = sp.Matrix([[1, 0, 0],
-                   [0, talt_cos, -talt_sin],
-                   [0, talt_sin, talt_cos]]).transpose()
+R_alt = sp.Matrix([[talt_cos , 0, talt_sin],
+                   [0        , 1, 0       ],
+                   [-talt_sin, 0, talt_cos]]).transpose()
 # %%
 
 # Using matrices to simplify the penalties creation
@@ -77,7 +77,7 @@ penalties = R_azO_penalties \
 s1, s2, s3 = sp.symbols("s1 s2 s3", real=True)
 az_coordinates = [s1, s2, s3]
 P = sp.Matrix([[s1], [s2], [s3]], real=True)
-T = sp.Matrix([[0], [1], [0]], real=True)
+T = sp.Matrix([[1], [0], [0]], real=True)
 err = ((T - R_alt @ R_altO @ R_tilt @ R_az @ R_azO @ P).norm())**2
 optimized_err = ((R_az.T @ R_tilt.T @ R_altO.T @
                  R_alt.T @ T - R_azO @ P).norm())**2

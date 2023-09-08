@@ -58,12 +58,16 @@ class AlignmentFinder():
             theta_v = theta_v - self.hyperparameters["alpha"] * v
 
         R_azO_s_est = theta_v[0:9].reshape(3, 3).T
-        R_tilt_s_est = np.array([[theta_v[9], 0, -theta_v[10]],
-                                 [0, 1, 0],
-                                 [theta_v[10], 0, theta_v[9]]])
-        R_altO_s_est = np.array([[1, 0, 0],
-                                 [0, theta_v[11], theta_v[12]],
-                                 [0, -theta_v[12], theta_v[11]]])
+        t1 = theta_v[9]
+        t2 = theta_v[10]
+        t3 = theta_v[11]
+        t4 = theta_v[12]
+        R_tilt_s_est = np.array([[1, 0  , 0 ],
+                                 [0, t1 , t2],
+                                 [0, -t2, t1]])
+        R_altO_s_est = np.array([[t3, 0, -t4],
+                                 [0 , 1, 0  ],
+                                 [t4, 0, t3 ]])
         # R_tilt_s_est = np.array(
         #     R_tilt.subs([(t1, theta_v[9]), (t2, theta_v[10])]).evalf()
         # ).astype(np.float64)

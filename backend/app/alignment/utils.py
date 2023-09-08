@@ -42,3 +42,14 @@ def r(deg):
         angle in radians
     """
     return 2 * pi * deg/360
+
+def deg(rad):
+    """Converts an angle radians -> deg
+
+    Arguments:
+        deg -- Angle in radians
+
+    Returns:
+        angle in degree
+    """
+    return 180 * rad / pi

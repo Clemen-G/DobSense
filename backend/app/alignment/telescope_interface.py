@@ -1,4 +1,5 @@
-from utils import rot, r, X, Y, Z, norm
+# %%
+from utils import rot, r, deg, X, Y, Z, norm
 import math
 import numpy as np
 
@@ -6,12 +7,12 @@ class TelescopeInterface:
     def __init__(self,azO_X_angle=5,azO_Y_angle=3,azO_Z_angle=0,tilt_angle=0,altO_angle=30):
         self.altO_angle = altO_angle
         self.R_azO = ( rot(Z, r(azO_Z_angle)) @ rot(Y, r(azO_Y_angle)) @ rot(X, r(azO_X_angle)) ).T
-        self.R_tilt = rot(Y, r(tilt_angle)).T
-        self.R_altO = rot(X, r(altO_angle)).T
+        self.R_tilt = rot(X, r(tilt_angle)).T
+        self.R_altO = rot(Y, r(altO_angle)).T
 
-        print("R_azO\n", self.R_azO)
-        print("R_tilt\n", self.R_tilt)
-        print("R_altO\n", self.R_altO)
+        # print("R_azO\n", self.R_azO)
+        # print("R_tilt\n", self.R_tilt)
+        # print("R_altO\n", self.R_altO)
 
     def _find_roots(self, a, b, c):
         def _eq(a, b, epsilon = 0.000001):
@@ -31,36 +32,37 @@ class TelescopeInterface:
             [-taz_sin, taz_cos,  0],
             [0       , 0      ,  1]
         ])
+        # print("_find_talt - s:", s)
         v = self.R_tilt @ R_az @ self.R_azO @ s
-        [[_, _ , _ ],
-         [_, t3, t4],
-         [_, _ , _ ]] = self.R_altO
+        [[t3, _, _],
+         [_ , _, _],
+         [t4, _, _]] = self.R_altO
         
-        print("v: \n", v)
-        v2 = v[1].item()
+        # print("v: \n", v)
+        v1 = v[0].item()
         v3 = v[2].item()
-        print("v2: ", v2, "v3:", v3)
-        print("t3,t4: ", t3, t4)
-        talt_sin = (v3 - t4 / t3 * v2) / (t3 + t4 / t3 * t4)
-        talt_cos = (v2 + t4 * talt_sin) / t3
+        # print("v1: ", v1, "v3:", v3)
+        # print("t3,t4: ", t3, t4)
+        talt_sin = -(v3 + t4 / t3 * v1) / (t3 + t4 / t3 * t4)
+        talt_cos = (v1 + t4 * talt_sin) / t3
         return [talt_cos, talt_sin]
     
     def get_telescope_angles(self, s1, s2, s3):
         [[t11, t12,t13],
          [t21, t22,t23],
          [t31, t32,t33]] = self.R_azO.T
-        [[_, _, _ ],
-         [_, t3,t4],
-         [_, _, _]] = self.R_altO
-        [[t1, _, _],
+        [[t3, _, _],
          [_ , _, _],
-         [t2, _, _]] = self.R_tilt
-        print("t1,t2: ", t1, t2)
-        print("t3,t4: ", t3, t4)
-        c = -s1*t13*t2 - s2*t2*t23 - s3*t2*t33 
-        b = s1*t1*t11 + s2*t1*t21 + s3*t1*t31
-        a = s1*t1*t12 + s2*t1*t22 + s3*t1*t32
-        print(a,b,c)
+         [t4, _, _]] = self.R_altO
+        [[_, _ , _ ],
+         [_, t1, t2],
+         [_, _ , _ ]] = self.R_tilt
+        # print("t1,t2: ", t1, t2)
+        # print("t3,t4: ", t3, t4)
+        c = s1*t13*t2 + s2*t2*t23 + s3*t2*t33
+        b = s1*t1*t12 + s2*t1*t22 + s3*t1*t32
+        a = -s1*t1*t11 - s2*t1*t21 - s3*t1*t31
+        # print("a, b, c:", a, b, c)
 
         if a == 0:
             cosines = [-c/b]
@@ -68,7 +70,7 @@ class TelescopeInterface:
             a1 = ((b/a)**2 + 1)
             b1 = 2 * (b * c)/(a**2)
             c1 = c**2 / a**2 - 1
-            print(a1,b1,c1)
+            # print("a1, b1, c1:",a1, b1, c1)
             cosines = self._find_roots(a1, b1, c1)
             
         co_sines = []
@@ -78,20 +80,25 @@ class TelescopeInterface:
             co_sines.append([c, -s])
         for [taz_cos, taz_sin] in co_sines:
             [talt_cos, talt_sin] = self._find_talt(taz_cos, taz_sin, np.array([[s1, s2, s3]]).T)
-            print ("result: taz", taz_cos, taz_sin, "talt:", talt_cos, talt_sin)
+            print("result: taz", taz_cos, taz_sin,
+                  "talt:", talt_cos, talt_sin,
+                  "\nangles: ",
+                  -deg(math.atan2(taz_sin, taz_cos)), " | ",
+                  -deg(math.atan2(talt_sin, talt_cos)))
 
 
 def get_unit_vector(az, alt):
-    return rot(Z, r(az)) @ rot(Y, r(alt)) @ np.array([1,0,0]).reshape([3,-1])
+    return rot(Z, r(-az)) @ rot(Y, r(-alt)) @ np.array([1, 0, 0]).reshape([3, -1])
 
-s = get_unit_vector(45, -45).reshape(-1)
+s = get_unit_vector(45, 0).reshape(-1)
 print("input s:", s)
 TelescopeInterface(azO_X_angle=0,
                    azO_Y_angle=0,
-                   azO_Z_angle=45,
+                   azO_Z_angle=0,
                    tilt_angle=0,
-                   altO_angle=-45)\
+                   altO_angle=0)\
     .get_telescope_angles(*s)
+# %%
 '''
 # large discrepancy in cosines, investigate
 TelescopeInterface(azO_X_angle=21, azO_Y_angle=10, azO_Z_angle=-5,tilt_angle=7,altO_angle=26)\

@@ -147,3 +147,5 @@ gradient_penalties_lambda = lambdify(theta,
 gradient_penalties_lambda = wrap_with_numpy(
     gradient_penalties_lambda)
 
+
+# %%

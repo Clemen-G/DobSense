@@ -42,25 +42,8 @@ export default function AlignmentView({constellationsStars}) {
 
     function submitAlignment(e) {
         const payload = {
-          hip: selectedStar,
-          timestamp: new Date().getTime()
-        }
-        axios.put('/api/alignments', payload)
-        .then(function (response) {
-          setAlignments(response.data.alignment_points)
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-        .finally(function () {
-          // always executed
-        }); 
-      }
-    
-    function submitAlignment(e) {
-        const payload = {
-          object_id: selectedStar,
-          timestamp: new Date().getTime()
+          object_id: parseInt(selectedStar),
+          timestamp: new Date().getTime() / 1000.0
         }
         axios.put('/api/alignments', payload)
         .then(function (response) {

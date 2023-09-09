@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 tornado = "*"
 astropy = "*"
+numpy = "*"
+sympy = "*"
+scipy = "*"
 
 [dev-packages]
 numpy = "*"

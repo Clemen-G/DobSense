@@ -20,7 +20,7 @@ export default function Page() {
           longitude: coords.longitude,
           isSecureContext: window.isSecureContext
         },
-        datetime: new Date().getTime(),
+        datetime: new Date().getTime() / 1000.0,
     }
     axios.post('/api/handshake', payload)
     .then(function (response) {

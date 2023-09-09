@@ -9,7 +9,7 @@ def eq_to_alt_az(eq_coordinates_str, location, timestamp):
     Args:
         eq_coordinates_str: str "00 08 23.17 +29 05 27.0" hh mm ss deg min sec
         location: {"altitude":342.36, "latitude":42.6, "longitude":13.693}
-        timestamp: unix_epoch
+        timestamp: unix_epoch in seconds
 
     Returns:
         A SkyCoords object whose .az.value and .alt.value represent the alt/az

@@ -1,21 +1,8 @@
 # %%
-from alignment.utils import rot, r, deg, X, Y, Z, norm
+from alignment.utils import rot, r, deg, X, Y, Z, norm, get_unit_vector
 import math
 import numpy as np
 import logging
-
-
-def get_unit_vector(az, alt):
-    """Converts alt-az angles to a unit vector
-
-    Args:
-        az: azimuth
-        alt: altitude
-
-    Returns:
-        A (3, 1) unitary vector
-    """
-    return rot(Z, r(-az)) @ rot(Y, r(-alt)) @ np.array([1, 0, 0]).reshape([3, -1])
 
 
 class TelescopeInterface:
@@ -25,9 +12,9 @@ class TelescopeInterface:
         self.R_altO = R_altO
         self.altO = -deg(math.atan2(self.R_altO[2, 0], self.R_altO[0, 0]))
 
-        # print("R_azO\n", self.R_azO)
-        # print("R_tilt\n", self.R_tilt)
-        # print("R_altO\n", self.R_altO)
+        print("R_azO\n", self.R_azO)
+        print("R_tilt\n", self.R_tilt)
+        print("R_altO\n", self.R_altO)
         print(self.altO)
 
     def get_telescope_angles_from_alt_az_angles(self, az, alt):

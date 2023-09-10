@@ -43,6 +43,7 @@ def r(deg):
     """
     return 2 * pi * deg/360
 
+
 def deg(rad):
     """Converts an angle radians -> deg
 
@@ -53,3 +54,16 @@ def deg(rad):
         angle in degree
     """
     return 180 * rad / pi
+
+
+def get_unit_vector(az, alt):
+    """Converts alt-az angles to a unit vector
+
+    Args:
+        az: azimuth
+        alt: altitude
+
+    Returns:
+        A (3, 1) unitary vector
+    """
+    return rot(Z, r(-az)) @ rot(Y, r(-alt)) @ np.array([1, 0, 0]).reshape([3, -1])

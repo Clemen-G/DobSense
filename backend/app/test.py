@@ -4,9 +4,9 @@
 import numpy as np
 import timeit
 
-from alignment_finder import AlignmentFinder
-from utils import X, Y, Z, rot, r, ppp, norm
-from loss_function_generators import gradient_optimized_err_lambda, \
+from alignment.alignment_finder import AlignmentFinder
+from alignment.utils import X, Y, Z, rot, r, ppp, norm
+from alignment.loss_function_generators import gradient_optimized_err_lambda, \
     gradient_penalties_lambda
 
 

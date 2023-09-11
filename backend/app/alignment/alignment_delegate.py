@@ -28,10 +28,10 @@ class AlignmentDelegate:
 
     def _set_current_coordinates(self, alignment_points):
         alignment_points = [[
-                -p['taz_coords']['taz'],
-                -p['taz_coords']['talt'],
-                p['alt_az_coords']['az'],
-                p['alt_az_coords']['alt']]
+                -p.taz_coords.taz,
+                -p.taz_coords.talt,
+                p.alt_az_coords.az,
+                p.alt_az_coords.alt]
                 for p in alignment_points]
         alignment_points = np.array(alignment_points)
         taz_co_sines = np.hstack((

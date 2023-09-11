@@ -96,13 +96,13 @@ class AlignmentHandler(AppHandler):
         return super().initialize(globals)
 
     def get(self):
-        alignment_points = self.globals["alignment_points"]
+        alignment_points = self.globals["alignment_points"].alignment_points
         self._validate_get_input(alignment_points)
         self.alignment_delegate.start_alignment_procedure(alignment_points)
         self.set_status(200)
         self.finish()
 
     def _validate_get_input(self, alignment_points):
-        if len(set((s["object_id"] for s in alignment_points))) < 3:
+        if len(set((p.object_id for p in alignment_points))) < 3:
             raise UserException(http_code=400,
                                 user_message="Alignment requires at least 3 distinct objects")

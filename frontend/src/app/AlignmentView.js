@@ -1,10 +1,13 @@
 'use client'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from './appContext.js';
+
 
 export default function AlignmentView({constellationsStars}) {
     const [selectedConst, setSelectedConst] = useState("");
     const [selectedStar, setSelectedStar] = useState("");
     const [alignments, setAlignments] = useState([]);
+    const appContext = useContext(AppContext);
 
     function constSelectedHandler(e) {
         e.stopPropagation();
@@ -50,7 +53,7 @@ export default function AlignmentView({constellationsStars}) {
           setAlignments(response.data.alignment_points)
         })
         .catch(function (error) {
-          console.log(error);
+          appContext.apiErrorHandler(error);
         })
         .finally(function () {
           // always executed
@@ -63,7 +66,7 @@ export default function AlignmentView({constellationsStars}) {
             console.log("alignment requested");
         })
         .catch(function (error) {
-          console.log(error);
+          appContext.apiErrorHandler(error);
         })
         .finally(function () {
           // always executed

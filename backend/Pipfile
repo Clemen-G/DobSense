@@ -9,6 +9,7 @@ astropy = "*"
 numpy = "*"
 sympy = "*"
 scipy = "*"
+pydantic = "*"
 
 [dev-packages]
 numpy = "*"

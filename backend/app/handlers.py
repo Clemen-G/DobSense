@@ -4,6 +4,7 @@ import uuid
 import json
 from exceptions import UserException
 from alignment.coordinates import eq_to_alt_az
+from data_model import AlignmentPoint
 
 
 class AppHandler(tornado.web.RequestHandler):
@@ -59,8 +60,9 @@ class AlignmentsHandler(AppHandler):
 
         alignment_points = self.globals["alignment_points"]
         logging.info(f"Adding alignment point {alignment_point}")
-        alignment_points.append(alignment_point)
-        self.write(dict(alignment_points=alignment_points))
+        alignment_points.alignment_points.append(
+            AlignmentPoint(**alignment_point))
+        self.write(alignment_points.model_dump_json())
 
     def _add_current_alt_az_coords(self, alignment):
         logging.info(f"Aligning hip object {alignment['object_id']}")
@@ -74,17 +76,15 @@ class AlignmentsHandler(AppHandler):
                                      alignment["timestamp"])
         alt_az_coords = {"az": alt_az_sky_coords.az.value,
                          "alt": alt_az_sky_coords.alt.value}
+        logging.info(f"Alt-az coordinates: {alt_az_coords}")
         if alt_az_coords["alt"] < 0:
             raise UserException(409,
                                 "Alignment objects must be above the horizon")
-        logging.info(f"Alt-az coordinates: az: {alt_az_coords['az']},\
-                     alt: {alt_az_coords['alt']}")
         taz_coords = (self.telescope_interface.get_taz_from_alt_az(
                 alt_az_coords["az"],
                 alt_az_coords["alt"]))
         if taz_coords is None:
             raise UserException(409, "The scope can't point to this object")
-        logging.info(f"Alt-az coordinates: {alt_az_coords}")
         logging.info(f"Taz coordinates: {taz_coords}")
         alignment["taz_coords"] = taz_coords
         alignment["alt_az_coords"] = alt_az_coords

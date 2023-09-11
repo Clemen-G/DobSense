@@ -9,8 +9,9 @@ from tornado.options import define, options, parse_command_line
 from alignment.telescope_interface import TelescopeInterface, generate_matrices
 from alignment.alignment_finder import AlignmentFinder
 from alignment.loss_function_generators import gradient_optimized_err_lambda, gradient_penalties_lambda
+from alignment.alignment_delegate import AlignmentDelegate
 
-telescope_interface = TelescopeInterface(**generate_matrices())
+telescope_interface = TelescopeInterface(generate_matrices())
 
 hyperparameters = {
     "num_steps": 200,
@@ -23,6 +24,8 @@ alignment_finder = AlignmentFinder(
     gradient_optimized_err_lambda=gradient_optimized_err_lambda,
     gradient_penalties_lambda=gradient_penalties_lambda,
     hyperparameters=hyperparameters)
+
+alignment_delegate = AlignmentDelegate(alignment_finder)
 
 GLOBALS = {
     "location": None,
@@ -48,7 +51,7 @@ async def main():
         (r"/api/alignment", AlignmentHandler,
          dict(
             globals=GLOBALS,
-            alignment_finder=alignment_finder)),
+            alignment_delegate=alignment_delegate)),
     ], debug=options.debug)
 
     server = tornado.web.HTTPServer(application)

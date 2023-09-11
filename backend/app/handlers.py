@@ -2,8 +2,8 @@ import tornado
 import logging
 import uuid
 import json
-from alignment.coordinates import eq_to_alt_az
 from exceptions import UserException
+from alignment.coordinates import eq_to_alt_az
 
 
 class AppHandler(tornado.web.RequestHandler):
@@ -74,11 +74,16 @@ class AlignmentsHandler(AppHandler):
                                      alignment["timestamp"])
         alt_az_coords = {"az": alt_az_sky_coords.az.value,
                          "alt": alt_az_sky_coords.alt.value}
-        logging.info(f"Alt-az coordinates: az: {alt_az_coords['az']}, alt: {alt_az_coords['alt']}")
-        taz_coords = self.telescope_interface.\
-            get_telescope_angles_from_alt_az_angles(
+        if alt_az_coords["alt"] < 0:
+            raise UserException(409,
+                                "Alignment objects must be above the horizon")
+        logging.info(f"Alt-az coordinates: az: {alt_az_coords['az']},\
+                     alt: {alt_az_coords['alt']}")
+        taz_coords = (self.telescope_interface.get_taz_from_alt_az(
                 alt_az_coords["az"],
-                alt_az_coords["alt"])
+                alt_az_coords["alt"]))
+        if taz_coords is None:
+            raise UserException(409, "The scope can't point to this object")
         logging.info(f"Alt-az coordinates: {alt_az_coords}")
         logging.info(f"Taz coordinates: {taz_coords}")
         alignment["taz_coords"] = taz_coords
@@ -86,12 +91,18 @@ class AlignmentsHandler(AppHandler):
 
 
 class AlignmentHandler(AppHandler):
-    def initialize(self, globals, alignment_finder):
-        self.alignment_finder = alignment_finder
+    def initialize(self, globals, alignment_delegate):
+        self.alignment_delegate = alignment_delegate
         return super().initialize(globals)
 
     def get(self):
-        self.alignment_finder.start_alignment_procedure(
-            self.globals["alignment_points"])
+        alignment_points = self.globals["alignment_points"]
+        self._validate_get_input(alignment_points)
+        self.alignment_delegate.start_alignment_procedure(alignment_points)
         self.set_status(200)
         self.finish()
+
+    def _validate_get_input(self, alignment_points):
+        if len(set((s["object_id"] for s in alignment_points))) < 3:
+            raise UserException(http_code=400,
+                                user_message="Alignment requires at least 3 distinct objects")

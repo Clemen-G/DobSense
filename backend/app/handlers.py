@@ -1,4 +1,5 @@
 import tornado
+from tornado import websocket
 import logging
 import uuid
 import json
@@ -106,3 +107,26 @@ class AlignmentHandler(AppHandler):
         if len(set((p.object_id for p in alignment_points))) < 3:
             raise UserException(http_code=400,
                                 user_message="Alignment requires at least 3 distinct objects")
+
+
+class RealTimeMessagesWebSocket(websocket.WebSocketHandler):
+    def initialize(self, globals, telescope_interface):
+        self.globals = globals
+        self.telescope_interface = telescope_interface
+
+    def write_taz(self, taz, talt):
+        self.write_message({"taz": taz, "talt": talt})
+    
+    def open(self):
+        logging.info("WebSocket opened")
+        self.telescope_interface.event_listener = self.write_taz
+
+    def on_message(self, message):
+        self.write_message(u"You said: " + message)
+
+    def on_close(self):
+        self.telescope_interface.event_listener = None
+        logging.info("WebSocket closed")
+
+    def check_origin(self, origin):
+        return True

@@ -21,12 +21,20 @@ export dev_mode
 echo starting nginx
 nginx -c $SCRIPT_DIR/nginx/nginx.conf || exit 1
 
+# enables job control. required to use fg below
+set -m
 
+# !!! WARNING !!!
+# I've broken this routine to simulate telescope movements via keyboard
+# Last working version was at commit-id 38fd9ce
 while true; do
     cd $SCRIPT_DIR/backend && pipenv run python ./app/main.py --debug &
     TORNADO_PID=$!
     echo starting tornado server with pid: $TORNADO_PID
+    
+    # wait $TORNADO_PID
 
-    wait $TORNADO_PID
+    # needed to allow tornado to read from the keyboard
+    fg
     sleep 5
 done

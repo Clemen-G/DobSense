@@ -5,13 +5,34 @@ from alignment.taz_coordinates_calculator import TazCoordinatesCalculator
 
 
 class TelescopeInterface:
-    def __init__(self, alignment_matrices):
+    def __init__(self, alignment_matrices, key_reader):
         print(alignment_matrices)
         self.alignment_matrices = alignment_matrices
+        self.key_reader = key_reader
+        key_reader.callback = self.handle_event
+        self.event_listener = None
+        self.taz = 0
+        self.talt = 0
 
     def get_taz_from_alt_az(self, alt, az):
         return (TazCoordinatesCalculator(self.alignment_matrices)
                     .get_taz_from_alt_az(alt, az))
+
+    def handle_event(self, ch):
+        if ch not in ["h", "j", "k", "l"]:
+            return
+
+        if ch == "h":
+            self.taz -= 1
+        elif ch == "l":
+            self.taz += 1
+        elif ch == "k":
+            self.talt += 1
+        else:
+            self.talt -= 1
+        print(self.taz, self.talt)
+        if self.event_listener is not None:
+            self.event_listener(self.taz, self.talt)
 
 
 def generate_matrices(azO_X_angle=0, azO_Y_angle=0, azO_Z_angle=-10,

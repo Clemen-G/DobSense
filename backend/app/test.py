@@ -26,10 +26,10 @@ def get_star_coords_from_taz(R_azO_s, R_altO_s, R_tilt_s, telescope_angles):
 
     Returns:
         (n,3) matrix where each row represents a versor that would be
-        transformed into [0, 1, 0] in the given telescope setup.
+        transformed into [1, 0, 0] in the given telescope setup.
     """
 
-    points = [R_azO_s.T @ rot(Z, r(alpha)) @ R_tilt_s.T @ R_altO_s.T @ rot(Y, r(beta)) @ X
+    points = [R_azO_s.T @ rot(Z, r(-alpha)) @ R_tilt_s.T @ R_altO_s.T @ rot(Y, r(-beta)) @ X
               for (alpha, beta) in telescope_angles[:]]
 
     return np.vstack(points)
@@ -45,7 +45,7 @@ def generate_alignment_sample(azO_X_angle, azO_Y_angle, tilt_angle,
     star_coordinates = get_star_coords_from_taz(
         R_azO, R_altO, R_tilt, taz_angles)
     angle_cosines = np.hstack(
-        (np.cos(r(taz_angles)), np.sin(r(taz_angles))))
+        (np.cos(r(-taz_angles)), np.sin(r(-taz_angles))))
     angle_cosines[:, [2, 1]] = angle_cosines[:, [1, 2]]
 
     taz_star_coordinates = np.hstack((angle_cosines, star_coordinates))

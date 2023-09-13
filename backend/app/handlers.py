@@ -1,11 +1,14 @@
+import time
+import json
+import asyncio
 import tornado
 from tornado import websocket
 import logging
 import uuid
-import json
 from exceptions import UserException
 from alignment.coordinates import eq_to_alt_az
-from data_model import AlignmentPoint
+from data_model import AlignmentPoint, Hello, TelescopeCoords, TazCoords
+from data_model import TazCoords, AltAzCoords
 
 
 class AppHandler(tornado.web.RequestHandler):
@@ -75,17 +78,22 @@ class AlignmentsHandler(AppHandler):
         alt_az_sky_coords = eq_to_alt_az(ra_dec_coords, 
                                      self.globals["location"],
                                      alignment["timestamp"])
-        alt_az_coords = {"az": alt_az_sky_coords.az.value,
-                         "alt": alt_az_sky_coords.alt.value}
+        alt_az_coords = AltAzCoords(az=alt_az_sky_coords.az.value,
+                                    alt=alt_az_sky_coords.alt.value)
         logging.info(f"Alt-az coordinates: {alt_az_coords}")
-        if alt_az_coords["alt"] < 0:
+        if alt_az_coords.alt < 0:
             raise UserException(409,
                                 "Alignment objects must be above the horizon")
         taz_coords = (self.telescope_interface.get_taz_from_alt_az(
-                alt_az_coords["az"],
-                alt_az_coords["alt"]))
+                alt_az_coords.az,
+                alt_az_coords.alt))
         if taz_coords is None:
             raise UserException(409, "The scope can't point to this object")
+
+        # simulator: "set" telescope angles to match aligned object
+        self.telescope_interface.set_taz_coords(taz_coords)
+
+        taz_coords = TazCoords(taz=taz_coords.taz, talt=taz_coords.talt)
         logging.info(f"Taz coordinates: {taz_coords}")
         alignment["taz_coords"] = taz_coords
         alignment["alt_az_coords"] = alt_az_coords
@@ -99,7 +107,8 @@ class AlignmentHandler(AppHandler):
     def get(self):
         alignment_points = self.globals["alignment_points"].alignment_points
         self._validate_get_input(alignment_points)
-        self.alignment_delegate.start_alignment_procedure(alignment_points)
+        self.alignment_delegate.start_alignment_procedure(alignment_points,
+                                                          synchronous=True)
         self.set_status(200)
         self.finish()
 
@@ -113,20 +122,56 @@ class RealTimeMessagesWebSocket(websocket.WebSocketHandler):
     def initialize(self, globals, telescope_interface):
         self.globals = globals
         self.telescope_interface = telescope_interface
+        self.send_task = None
 
-    def write_taz(self, taz, talt):
-        self.write_message({"taz": taz, "talt": talt})
+    # def write_taz(self, taz, talt):
+    #    self.write_message({"taz": taz, "talt": talt})
     
     def open(self):
         logging.info("WebSocket opened")
-        self.telescope_interface.event_listener = self.write_taz
+        # self.telescope_interface.event_listener = self.write_taz
+        isAligned = self.globals["alignment_matrices"] is not None
+        self.write_message(Hello(isTelescopeAligned=isAligned).model_dump_json())
+        if isAligned:
+            self.send_task = asyncio.create_task(self._send_coordinates())
+        else:
+            self.close()
 
     def on_message(self, message):
-        self.write_message(u"You said: " + message)
+        raise ValueError(f"unexpected message {message}")
 
     def on_close(self):
-        self.telescope_interface.event_listener = None
+        #self.telescope_interface.event_listener = None
         logging.info("WebSocket closed")
+        if self.send_task:
+            self.send_task.cancel()
+            self.send_task = None
 
     def check_origin(self, origin):
         return True
+    
+    async def _send_coordinates(self):
+        SLEEP_INTERVAL = .5
+        PING_INTERVAL = 10
+        previous_taz_coords = None
+        previous_time = 0
+        while True:
+            current_taz_coords = self.telescope_interface.get_taz_coords()
+            current_time = time.time()
+            if (current_taz_coords != previous_taz_coords or
+                current_time - previous_time > PING_INTERVAL):
+                try:
+                    self.write_message(
+                        TazCoords(taz=current_taz_coords.taz,
+                                  talt=current_taz_coords.talt)
+                                      .model_dump_json())
+                    previous_taz_coords = current_taz_coords
+                    previous_time = current_time
+                except websocket.WebSocketClosedError:
+                    logging.warn("failed to send coordinates")
+                    break
+            try:
+                await asyncio.sleep(SLEEP_INTERVAL)
+            except asyncio.CancelledError as e:
+                logging.info("_send_coordinates canceled")
+                raise e

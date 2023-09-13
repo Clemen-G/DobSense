@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict, TypeAdapter
+from pydantic import BaseModel, ConfigDict, Field
 from typing import List
 
 
@@ -27,3 +27,26 @@ class AlignmentPoint(BaseModel):
 
 class AlignmentPoints(BaseModel):
     alignment_points: List[AlignmentPoint] = []
+
+
+class Hello(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    isTelescopeAligned: bool
+    messageType: str = Field(default="Hello",
+                             init_var=False)
+
+
+class TelescopeCoords(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    taz_coords: TazCoords
+    alt_az_coords: AltAzCoords
+    messageType: str = Field(default="TelescopeCoords",
+                             init_var=False)
+
+
+class TargetCoords(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    taz_coords: TazCoords
+    alt_az_coords: AltAzCoords
+    messageType: str = Field(default="TargetCoords",
+                             init_var=False)

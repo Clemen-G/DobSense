@@ -7,21 +7,26 @@ from exceptions import UserException
 
 
 class AlignmentDelegate:
-    def __init__(self, alignment_finder) -> None:
+    def __init__(self, alignment_finder, globals) -> None:
         self.provided_coordinates = None
         self.lock = Lock()
         self.alignment_finder = alignment_finder
+        self.globals = globals
 
-    def start_alignment_procedure(self, alignment_points):
+    def start_alignment_procedure(self, alignment_points, synchronous=False):
         self._set_current_coordinates(alignment_points)
 
-        t = Thread(target=self.align,
-                   name="alignment_procedure_thread",
-                   kwargs={"coordinates": self.provided_coordinates})
-        t.start()
+        if synchronous:
+            self.align(self.provided_coordinates)
+        else:
+            t = Thread(target=self.align,
+                        name="alignment_procedure_thread",
+                        kwargs={"coordinates": self.provided_coordinates})
+            t.start()
 
     def align(self, coordinates):
         res = self.alignment_finder.get_alignment_matrices(coordinates)
+        self.globals["alignment_matrices"] = res
         self.provided_coordinates = None
 
         print(res)

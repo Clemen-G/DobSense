@@ -2,23 +2,53 @@
 from alignment.utils import rot, r, deg, X, Y, Z, norm, get_unit_vector
 from alignment.alignment_finder import AlignmentMatrices
 from alignment.taz_coordinates_calculator import TazCoordinatesCalculator
+from collections import namedtuple
 
+TaltTazCoord = namedtuple("TaltTazCoord", "taz talt")
 
 class TelescopeInterface:
     def __init__(self, alignment_matrices, key_reader):
         print(alignment_matrices)
         self.alignment_matrices = alignment_matrices
         self.key_reader = key_reader
-        key_reader.callback = self.handle_event
+        key_reader.callback = self._handle_event
         self.event_listener = None
         self.taz = 0
         self.talt = 0
 
-    def get_taz_from_alt_az(self, alt, az):
-        return (TazCoordinatesCalculator(self.alignment_matrices)
-                    .get_taz_from_alt_az(alt, az))
+    def get_taz_coords(self):
+        """returns the current taz coordinates
 
-    def handle_event(self, ch):
+        Returns:
+            current taz coordinates as a TaltTazCoord tuple
+        """
+        return TaltTazCoord(self.taz, self.talt)
+
+    def get_taz_from_alt_az(self, az, alt):
+        """HACK computes alt-az coordinates for given taz-talt and
+        alignment matrices
+
+        Args:
+            az:
+            alt:
+
+        Returns:
+            taz-talt coordinates as a TaltTazCoord named tuple
+        """
+        coords = (TazCoordinatesCalculator(self.alignment_matrices)
+                    .get_taz_from_alt_az(az, alt))
+        return TaltTazCoord(coords["taz"], coords["talt"])
+
+    def set_taz_coords(self, taz_coords):
+        """HACK sets taz coordinates
+
+        Args:
+            taz_coords: taz-talt coordinates as a TaltTazCoord named tuple
+        """
+        self.taz = taz_coords.taz
+        self.talt = taz_coords.talt
+
+    def _handle_event(self, ch):
         if ch not in ["h", "j", "k", "l"]:
             return
 

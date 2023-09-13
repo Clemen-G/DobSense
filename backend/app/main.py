@@ -15,6 +15,20 @@ from data_model import AlignmentPoints
 from key_reader import KeyReader
 
 
+GLOBALS = {
+    "location": None,
+    #  [{'object_id': 54061,
+    # 'timestamp': 1694338900.363,
+    # 'id': '6a7c26fe-c9a3-46fc-a819-a717b6486b90',
+    # 'taz_coords': {'taz': 13.32155705976877, 'talt': 38.21793978375107},
+    # 'alt_az_coords': {'az': 23.321557059768754, 'alt': 68.21793978375106}}]
+    "alignment_points": AlignmentPoints(),
+    "constellation_data": None,
+    "stars": None,
+    "app_path": os.path.dirname(os.path.realpath(__file__)),
+    "alignment_matrices": None,
+}
+
 hyperparameters = {
     "num_steps": 200,
     "alpha": .4,
@@ -27,20 +41,7 @@ alignment_finder = AlignmentFinder(
     gradient_penalties_lambda=gradient_penalties_lambda,
     hyperparameters=hyperparameters)
 
-alignment_delegate = AlignmentDelegate(alignment_finder)
-
-GLOBALS = {
-    "location": None,
-    #  [{'object_id': 54061,
-    # 'timestamp': 1694338900.363,
-    # 'id': '6a7c26fe-c9a3-46fc-a819-a717b6486b90',
-    # 'taz_coords': {'taz': 13.32155705976877, 'talt': 38.21793978375107},
-    # 'alt_az_coords': {'az': 23.321557059768754, 'alt': 68.21793978375106}}]
-    "alignment_points": AlignmentPoints(),
-    "constellation_data": None,
-    "stars": None,
-    "app_path": os.path.dirname(os.path.realpath(__file__))
-}
+alignment_delegate = AlignmentDelegate(alignment_finder, GLOBALS)
 
 
 async def main():

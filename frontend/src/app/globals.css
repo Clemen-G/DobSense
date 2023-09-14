@@ -5,7 +5,17 @@ div {
 
 /* For red text */
 div, select, option, button {
+  background-color: #000; /* Black background */
   color: red;
+}
+
+button:active {
+  color: #000;
+  background-color: red;
+
+}
+button[disabled]{
+  color: gray;
 }
 
 /* For control widths to be 95% */
@@ -21,4 +31,12 @@ div {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+div[is_visible="true"] {
+  visibility: visible;
+}
+
+div[is_visible="false"] {
+  visibility: collapse;
 }

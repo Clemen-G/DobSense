@@ -8,7 +8,8 @@ import uuid
 from exceptions import UserException
 from alignment.coordinates import eq_to_alt_az
 from data_model import AlignmentPoint, Hello, TelescopeCoords, TazCoords
-from data_model import TazCoords, AltAzCoords
+from data_model import AltAzCoords
+import alignment.coordinates as coordinates
 
 
 class AppHandler(tornado.web.RequestHandler):
@@ -131,11 +132,9 @@ class RealTimeMessagesWebSocket(websocket.WebSocketHandler):
         logging.info("WebSocket opened")
         # self.telescope_interface.event_listener = self.write_taz
         isAligned = self.globals["alignment_matrices"] is not None
+        # needed 
         self.write_message(Hello(isTelescopeAligned=isAligned).model_dump_json())
-        if isAligned:
-            self.send_task = asyncio.create_task(self._send_coordinates())
-        else:
-            self.close()
+        self.send_task = asyncio.create_task(self._send_coordinates())
 
     def on_message(self, message):
         raise ValueError(f"unexpected message {message}")
@@ -153,25 +152,49 @@ class RealTimeMessagesWebSocket(websocket.WebSocketHandler):
     async def _send_coordinates(self):
         SLEEP_INTERVAL = .5
         PING_INTERVAL = 10
+        previous_is_aligned = False
         previous_taz_coords = None
         previous_time = 0
         while True:
-            current_taz_coords = self.telescope_interface.get_taz_coords()
+            alignment_matrices = self.globals["alignment_matrices"]
+            is_aligned = alignment_matrices is not None
             current_time = time.time()
-            if (current_taz_coords != previous_taz_coords or
-                current_time - previous_time > PING_INTERVAL):
+            if is_aligned:
+                current_taz_coords = self.telescope_interface.get_taz_coords()
+                if (current_taz_coords != previous_taz_coords or
+                    current_time - previous_time > PING_INTERVAL):
+                    try:
+                        taz_coords = TazCoords(
+                            taz=current_taz_coords.taz,
+                            talt=current_taz_coords.talt)
+                        scope_az_coords = coordinates.taz_to_az(alignment_matrices,
+                                                           current_taz_coords.taz,
+                                                           current_taz_coords.talt)
+                        scope_az_coords = AltAzCoords(**scope_az_coords)
+                        scope_coords = TelescopeCoords(taz_coords=taz_coords,
+                                                       alt_az_coords=scope_az_coords)
+                        self.write_message(scope_coords.model_dump_json())
+                        previous_taz_coords = current_taz_coords
+                        previous_time = current_time
+                    except websocket.WebSocketClosedError:
+                        logging.warn("failed to send coordinates")
+                        break
+                    except Exception as e:
+                        logging.exception(e, exc_info=e)
+                        raise e
+            if (is_aligned and not previous_is_aligned or
+                   (current_time - previous_time > PING_INTERVAL)):
                 try:
                     self.write_message(
-                        TazCoords(taz=current_taz_coords.taz,
-                                  talt=current_taz_coords.talt)
-                                      .model_dump_json())
-                    previous_taz_coords = current_taz_coords
+                        Hello(isTelescopeAligned=is_aligned).model_dump_json())
+                    previous_is_aligned = is_aligned
                     previous_time = current_time
                 except websocket.WebSocketClosedError:
-                    logging.warn("failed to send coordinates")
+                    logging.warn("failed to send hello")
                     break
             try:
                 await asyncio.sleep(SLEEP_INTERVAL)
             except asyncio.CancelledError as e:
                 logging.info("_send_coordinates canceled")
                 raise e
+        print('I should not be here')

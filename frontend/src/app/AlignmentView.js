@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import { AppContext } from './appContext.js';
 
 
-export default function AlignmentView({constellationsStars}) {
+export default function AlignmentView({constellationsStars, isVisible}) {
     const [selectedConst, setSelectedConst] = useState("");
     const [selectedStar, setSelectedStar] = useState("");
     const [alignments, setAlignments] = useState([]);
@@ -41,8 +41,6 @@ export default function AlignmentView({constellationsStars}) {
             {starOptions}
         </select>
 
-    console.log(selectedConst + " " + selectedStar);
-
     function submitAlignment(e) {
         const payload = {
           object_id: parseInt(selectedStar),
@@ -63,7 +61,7 @@ export default function AlignmentView({constellationsStars}) {
     function requestAlignment(e) {
         axios.get('/api/alignment')
         .then(function (response) {
-            console.log("alignment requested");
+          console.log("alignment completed");
         })
         .catch(function (error) {
           appContext.apiErrorHandler(error);
@@ -73,14 +71,14 @@ export default function AlignmentView({constellationsStars}) {
         }); 
     }
 
-    return <div>
+    return <div is_visible={isVisible.toString()}>
         <div>
             <select onChange={constSelectedHandler}>{constsOptions}</select>
         </div>
         <div>
             {starSelector}
         </div>
-        <button disabled={selectedStar == ""} onClick={submitAlignment}>
+        <button disabled={selectedStar === ""} onClick={submitAlignment}>
             Confirm centered
         </button>
         <button disabled={alignments.length < 3} onClick={requestAlignment}>

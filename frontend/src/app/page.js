@@ -1,14 +1,21 @@
 'use client'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import AlignmentView from './AlignmentView.js';
+import { useState, useRef, useEffect } from 'react';
+
 import { AppContext } from './appContext.js';
+
+import AlignmentView from './AlignmentView.js';
+import PointingView from './PointingView.js';
+import TabView from './TabView.js';
 import ErrorView from './ErrorView.js';
+import WebsocketMessaging from './WebsocketMessaging.js'
 
 export default function Page() {
 
   const [constStars, setConstStars] = useState([])
   const [errorMessage, setErrorMessage] = useState(null)
+  const [isTelescopeAligned, setIsTelescopeAligned] = useState(false)
+  const websocketMessaging = useRef(undefined);
+  const [activeView, setActiveView] = useState("AlignmentView")
 
   let hasInitRun = false;
 
@@ -50,18 +57,39 @@ export default function Page() {
       // always executed
     }); 
   }
+  
   function initialize() {
     if (hasInitRun) return;
+
     navigator.geolocation.getCurrentPosition(handshake)
     hasInitRun = true;
   }
+  function onTabClick(view) {
+    setActiveView(view);
+  }
 
   useEffect(initialize, [])
+  useEffect(() => {
+    websocketMessaging.current =
+      new WebsocketMessaging('wss://' + window.location.host + '/api/websocket');
+    websocketMessaging.current.register(
+      "Hello",
+      (m) => {setIsTelescopeAligned(m.isTelescopeAligned); console.log(m.isTelescopeAligned)})
+    websocketMessaging.current.open();
+    return () => {websocketMessaging.current.close()}
+  }, [])
 
+  const tabs = [
+    {text: "Al", key: "AlignmentView"},
+    {text: "Po", key: "PointingView", disabled: !isTelescopeAligned}
+  ]
   return <div>
     <AppContext.Provider value = {appContext}>
-    <AlignmentView constellationsStars={constStars}/>
+    <AlignmentView constellationsStars={constStars} isVisible={activeView === 'AlignmentView'}/>
+    <PointingView isVisible={activeView === 'PointingView'}/>
     <ErrorView errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
+    <TabView tabs={tabs} onClick={onTabClick}/>
+    {isTelescopeAligned}
     </AppContext.Provider>
     </div>
 }

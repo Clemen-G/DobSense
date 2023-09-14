@@ -1,7 +1,8 @@
+import math
 from astropy.coordinates import SkyCoord, AltAz, EarthLocation
 from astropy import units as u
 from astropy.time import Time
-
+from alignment.utils import rot, deg, r, X, Y, Z
 
 def eq_to_alt_az(eq_coordinates_str, location, timestamp):
     """Converts RA/DEC coordinates to alt-az for a given location/time
@@ -24,3 +25,29 @@ def eq_to_alt_az(eq_coordinates_str, location, timestamp):
     alt_az = obj_radec.transform_to(AltAz(obstime=time,
                                     location=curr_location))
     return alt_az
+
+
+def taz_to_az(alignment_matrices, taz, talt):
+    """Returns the alt-az coordinates of an object at given taz, talt
+
+    Arguments:
+        alignment_matrices: named tuple containing R_azO, R_altO, R_tilt
+        taz: telescope azimuth in deg
+        talt: telescope altitude in deg
+
+    Returns:
+        a dict {"az": 123, "alt": 12} with angles in degrees
+    """
+
+    az_vector = (alignment_matrices.R_azO.T @
+              rot(Z, r(-taz)) @
+              alignment_matrices.R_tilt.T @
+              alignment_matrices.R_altO.T @
+              rot(Y, r(-talt)) @ X)
+
+    az = math.atan2(az_vector[1], az_vector[0])
+    alt = math.atan2(az_vector[2],
+                     math.sqrt(
+                         math.pow(az_vector[0], 2) + math.pow(az_vector[1], 2)))
+
+    return {"az": deg(az), "alt": deg(alt)}

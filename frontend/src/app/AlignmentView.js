@@ -1,13 +1,15 @@
 'use client'
-import { useState, useContext } from 'react';
-import { AppContext } from './appContext.js';
+
+import axios from 'axios';
+
+import { useState } from 'react';
+import { appContext } from './appContext.js';
 
 
 export default function AlignmentView({constellationsStars, isVisible}) {
     const [selectedConst, setSelectedConst] = useState("");
     const [selectedStar, setSelectedStar] = useState("");
     const [alignments, setAlignments] = useState([]);
-    const appContext = useContext(AppContext);
 
     function constSelectedHandler(e) {
         e.stopPropagation();

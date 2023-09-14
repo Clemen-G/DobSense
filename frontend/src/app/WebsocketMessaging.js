@@ -1,4 +1,5 @@
 'use client'
+
 export default class WebsocketMessaging {
     constructor(url) {
         this.url = url;

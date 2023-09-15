@@ -1,3 +1,4 @@
+import math
 from math import pi
 import numpy as np
 from scipy.spatial.transform import Rotation as R
@@ -60,10 +61,33 @@ def get_unit_vector(az, alt):
     """Converts alt-az angles to a unit vector
 
     Args:
-        az: azimuth
-        alt: altitude
+        az: azimuth in degrees
+        alt: altitude in degrees
 
     Returns:
         A (3, 1) unitary vector
     """
     return rot(Z, r(-az)) @ rot(Y, r(-alt)) @ np.array([1, 0, 0]).reshape([3, -1])
+
+
+def get_taz_angles(vector):
+    """Given a 3d vector, it returns its alt-az angles according to the
+    following convention:
+    - the vector corresponding to az-alt angle (0,0) is [1, 0, 0]
+    - the vector corresponding to az-alt angle (0, 90) is [0, 1, 0]
+    - the vector corresponding to az-alt angle (-90, 0) is [0, 0, 1]
+
+    This function is the inverse of get_unit_vector(az, alt)
+    Args:
+        vector: a (3,) or (3, 1) np.array or list
+    
+    Returns:
+        A (az, alt) tuple, with angles in degrees.
+    """
+    vector = np.squeeze(np.array(vector))
+    # when v_1, v0 are positive we have negative azimuth
+    az = -deg(math.atan2(vector[1], vector[0]))
+    alt = deg(math.atan2(vector[2],
+                     math.sqrt(
+                         math.pow(vector[0], 2) + math.pow(vector[1], 2))))
+    return (az, alt)

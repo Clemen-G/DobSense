@@ -2,7 +2,7 @@ import math
 from astropy.coordinates import SkyCoord, AltAz, EarthLocation
 from astropy import units as u
 from astropy.time import Time
-from alignment.utils import rot, deg, r, X, Y, Z
+from alignment.utils import rot, r, get_taz_angles, X, Y, Z
 
 def eq_to_alt_az(eq_coordinates_str, location, timestamp):
     """Converts RA/DEC coordinates to alt-az for a given location/time
@@ -45,9 +45,6 @@ def taz_to_az(alignment_matrices, taz, talt):
               alignment_matrices.R_altO.T @
               rot(Y, r(-talt)) @ X)
 
-    az = math.atan2(az_vector[1], az_vector[0])
-    alt = math.atan2(az_vector[2],
-                     math.sqrt(
-                         math.pow(az_vector[0], 2) + math.pow(az_vector[1], 2)))
+    (az, alt) = get_taz_angles(az_vector)
 
-    return {"az": deg(az), "alt": deg(alt)}
+    return {"az": az, "alt": alt}

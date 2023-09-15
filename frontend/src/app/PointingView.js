@@ -16,5 +16,6 @@ export default function PointingView({isVisible}) {
             updateTelescopeCoords);
     }, [])
 
-    return <div is_visible={isVisible.toString()}>{telescope_az} {telescope_alt}</div>
+    return <div is_visible={isVisible.toString()}>
+        {telescope_az && telescope_az.toFixed(2)} {telescope_az && telescope_alt.toFixed(2)}</div>
 }

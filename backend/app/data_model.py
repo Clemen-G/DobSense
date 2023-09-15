@@ -14,6 +14,12 @@ class TazCoords(BaseModel):
     talt: float
 
 
+class EqCoords(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    ra: float
+    dec: float
+
+
 class AlignmentPoint(BaseModel):
     model_config = ConfigDict(frozen=True)
     # currently, hipparcos id
@@ -40,6 +46,7 @@ class TelescopeCoords(BaseModel):
     model_config = ConfigDict(frozen=True)
     taz_coords: TazCoords
     alt_az_coords: AltAzCoords
+    eq_coords: EqCoords
     messageType: str = Field(default="TelescopeCoords",
                              init_var=False)
 

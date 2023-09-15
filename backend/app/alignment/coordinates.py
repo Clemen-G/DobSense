@@ -27,6 +27,34 @@ def eq_to_alt_az(eq_coordinates_str, location, timestamp):
     return alt_az
 
 
+def alt_az_to_eq(az, alt, location, timestamp):
+    """Converts an alt-az coordinate at a given location/time to equatorial
+
+    Args:
+        az: azimuth in degrees
+        alt: altitude in degrees
+        location: {"altitude":342.36, "latitude":42.6, "longitude":13.693}
+        timestamp: unix_epoch in seconds
+
+    Returns:
+        A SkyCoord object whos .ra.value, .dec.value contains the point's
+        equatorial coordinates.
+    """
+    # see https://docs.astropy.org/en/stable/coordinates/
+    timestamp = Time(val=timestamp, format='unix')
+    location = EarthLocation(lat=location["latitude"]*u.deg,
+                             lon=location["longitude"]*u.deg,
+                             height=location["altitude"]*u.m)
+    sky_coord = SkyCoord(frame='altaz',
+                         az=az*u.degree,
+                         alt=alt*u.degree,
+                         obstime=timestamp,
+                         location=location)
+    sky_coord = sky_coord.icrs
+
+    return sky_coord
+
+
 def taz_to_az(alignment_matrices, taz, talt):
     """Returns the alt-az coordinates of an object at given taz, talt
 

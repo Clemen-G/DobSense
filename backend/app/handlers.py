@@ -7,7 +7,8 @@ import logging
 import uuid
 from exceptions import UserException
 from alignment.coordinates import eq_to_alt_az
-from data_model import AlignmentPoint, Hello, TelescopeCoords, TazCoords
+from data_model import AlignmentPoint, Hello, TelescopeCoords, TazCoords,\
+    EqCoords
 from data_model import AltAzCoords
 import alignment.coordinates as coordinates
 
@@ -167,12 +168,22 @@ class RealTimeMessagesWebSocket(websocket.WebSocketHandler):
                         taz_coords = TazCoords(
                             taz=current_taz_coords.taz,
                             talt=current_taz_coords.talt)
-                        scope_az_coords = coordinates.taz_to_az(alignment_matrices,
-                                                           current_taz_coords.taz,
-                                                           current_taz_coords.talt)
+                        scope_az_coords = coordinates.taz_to_az(
+                            alignment_matrices,
+                            current_taz_coords.taz,
+                            current_taz_coords.talt)
                         scope_az_coords = AltAzCoords(**scope_az_coords)
-                        scope_coords = TelescopeCoords(taz_coords=taz_coords,
-                                                       alt_az_coords=scope_az_coords)
+                        eq_coords = coordinates.alt_az_to_eq(
+                            az=scope_az_coords.az,
+                            alt=scope_az_coords.alt,
+                            location=self.globals["location"],
+                            timestamp=current_time)
+                        eq_coords = EqCoords(ra=eq_coords.ra.value,
+                                             dec=eq_coords.dec.value)
+                        scope_coords = TelescopeCoords(
+                            taz_coords=taz_coords,
+                            alt_az_coords=scope_az_coords,
+                            eq_coords=eq_coords)
                         self.write_message(scope_coords.model_dump_json())
                         previous_taz_coords = current_taz_coords
                         previous_time = current_time

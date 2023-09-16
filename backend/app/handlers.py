@@ -151,6 +151,13 @@ class RealTimeMessagesWebSocket(websocket.WebSocketHandler):
         return True
     
     async def _send_coordinates(self):
+        try:
+            await self._do_send_coordinates()
+        except Exception as e:
+            logging.exception(e, exc_info=e)
+            raise e
+
+    async def _do_send_coordinates(self):
         SLEEP_INTERVAL = .5
         PING_INTERVAL = 10
         previous_is_aligned = False
@@ -190,9 +197,6 @@ class RealTimeMessagesWebSocket(websocket.WebSocketHandler):
                     except websocket.WebSocketClosedError:
                         logging.warn("failed to send coordinates")
                         break
-                    except Exception as e:
-                        logging.exception(e, exc_info=e)
-                        raise e
             if (is_aligned and not previous_is_aligned or
                    (current_time - previous_time > PING_INTERVAL)):
                 try:

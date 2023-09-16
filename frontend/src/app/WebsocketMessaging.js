@@ -55,7 +55,7 @@ export default class WebsocketMessaging {
         };
 
         this.socket.onerror = (error) => {
-            console.log(`[error] ${error.message}`);
+            console.log(`websocketMessaging [error] ${error}`);
         };
     }
 

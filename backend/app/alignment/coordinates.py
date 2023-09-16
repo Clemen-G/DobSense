@@ -21,7 +21,7 @@ def eq_to_alt_az(eq_coordinates_str, location, timestamp):
     time = Time(val=timestamp, format='unix')
     curr_location = EarthLocation(lat=location["latitude"]*u.deg,
                                   lon=location["longitude"]*u.deg,
-                                  height=location["altitude"]*u.m)
+                                  height=(location["altitude"] or 200)*u.m)
     alt_az = obj_radec.transform_to(AltAz(obstime=time,
                                     location=curr_location))
     return alt_az
@@ -44,7 +44,7 @@ def alt_az_to_eq(az, alt, location, timestamp):
     timestamp = Time(val=timestamp, format='unix')
     location = EarthLocation(lat=location["latitude"]*u.deg,
                              lon=location["longitude"]*u.deg,
-                             height=location["altitude"]*u.m)
+                             height=(location["altitude"] or 200)*u.m)
     sky_coord = SkyCoord(frame='altaz',
                          az=az*u.degree,
                          alt=alt*u.degree,

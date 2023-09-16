@@ -1,22 +1,45 @@
-body {
+body, html {
   font-family: monospace;
+  /* ensures the contents fill the whole browser viewport */
+  height: 100%;
+  width: 100%;
+  /* disables ability to scroll*/
+  overflow: hidden;
+  background-color: black
 }
-/* For dark background */
-div {
-  background-color: #000; /* Black background */
+body {
+  /* removes a default (white) margin around the body */
+  margin: 0px;
+  font-size: 2em;
+}
+/* the outermost application element */
+div.canvas {
+  width: 100%;
+  max-width: 375px;
+  height: 100%;
+}
+
+/* the main views get to occupy 80% of the vertical screen.
+Content will be placed from the start. */
+div.mainview {
+  height: 80%;
+  justify-content: start;
 }
 
 /* For red text */
-div, select, option, button {
+select, option, button {
   background-color: #000; /* Black background */
   color: red;
+  font-size: .9em;
 }
 
+/* gives a visual cue on click */
 button:active {
   color: #000;
   background-color: red;
 
 }
+
 button[disabled]{
   color: gray;
 }
@@ -28,38 +51,53 @@ select, button {
   margin: 2px; /* 2px apart from other controls */
 }
 
-/* To center all controls */
+/* Default placement: use flex with centered elements
+and vertical flow */
 div {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 95%;
 }
+/* the buttons in the tab view should be aligned horizontally */
 div.tabview {
   flex-direction: row;
+  margin-bottom: 5px;
 }
 
+button.tabbutton {
+  height: 2em;
+  color: red;
+  width: 30%;
+}
+
+/* the is_visible attribute controls visibility */
 div[is_visible="true"] {
   visibility: visible;
 }
 
 div[is_visible="false"] {
   visibility: collapse;
+  display: none;
 }
 
 div.coordsbox {
   border: 1px solid red;
   margin-top: 12px;
   padding: 3px;
+  color: red;
   /*font-size: .9em;*/
 }
 div.coords {
   flex-direction: row;
 }
 span.coordsobj {
-  margin-top: -10px;
-  margin-left: -20px;
+  margin-top: -16px;
+  margin-left: -96px;
+  /* needed to hide the line behind it */
   background-color: #000;
+  font-size: .8em;
 }
 span.coordname {
   font-size: .8em;

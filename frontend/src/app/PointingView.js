@@ -21,7 +21,7 @@ export default function PointingView({isVisible}) {
     }, [])
 
     return (
-    <div is_visible={isVisible.toString()}>
+    <div className="mainview" is_visible={isVisible.toString()}>
         <div className="coordsbox">
             <span className="coordsobj">Telescope</span>
             <div className="coords">

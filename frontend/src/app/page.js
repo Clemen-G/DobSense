@@ -73,10 +73,10 @@ export default function Page() {
   }, []);
 
   const tabs = [
-    {text: "Al", key: "AlignmentView"},
-    {text: "Po", key: "PointingView", disabled: !isTelescopeAligned}
+    {text: "Align", key: "AlignmentView"},
+    {text: "Point", key: "PointingView", disabled: !isTelescopeAligned}
   ]
-  return <div onClick={dismissError}>
+  return <div className="canvas" onClick={dismissError}>
     <AlignmentView constellationsStars={constStars} isVisible={activeView === 'AlignmentView'}/>
     <PointingView isVisible={activeView === 'PointingView'}/>
     <ErrorView errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>

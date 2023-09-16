@@ -6,7 +6,7 @@ export default function TabView({onClick, tabs}) {
         onClick(e.target.attributes._value.value)
     }
     const tab_components = tabs.map(t => 
-      <button key={t.key} _value={t.key} disabled={t.disabled} onClick={onClickWrapper}>
+      <button className="tabbutton" key={t.key} _value={t.key} disabled={t.disabled} onClick={onClickWrapper}>
         {t.text}
       </button>);
     

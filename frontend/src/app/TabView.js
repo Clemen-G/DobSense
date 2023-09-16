@@ -10,5 +10,5 @@ export default function TabView({onClick, tabs}) {
         {t.text}
       </button>);
     
-    return <div>{tab_components}</div>;
+    return <div className="tabview">{tab_components}</div>;
 }

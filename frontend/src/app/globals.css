@@ -1,3 +1,6 @@
+body {
+  font-family: monospace;
+}
 /* For dark background */
 div {
   background-color: #000; /* Black background */
@@ -32,6 +35,9 @@ div {
   align-items: center;
   flex-direction: column;
 }
+div.tabview {
+  flex-direction: row;
+}
 
 div[is_visible="true"] {
   visibility: visible;
@@ -39,4 +45,24 @@ div[is_visible="true"] {
 
 div[is_visible="false"] {
   visibility: collapse;
+}
+
+div.coordsbox {
+  border: 1px solid red;
+  margin-top: 12px;
+  padding: 3px;
+  /*font-size: .9em;*/
+}
+div.coords {
+  flex-direction: row;
+}
+span.coordsobj {
+  margin-top: -10px;
+  margin-left: -20px;
+  background-color: #000;
+}
+span.coordname {
+  font-size: .8em;
+  margin-right: 3px;
+  margin-left: 3px;
 }

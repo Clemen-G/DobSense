@@ -22,8 +22,21 @@ export default function PointingView({isVisible}) {
 
     return (
     <div is_visible={isVisible.toString()}>
-        <div>{telescope_az && telescope_az.toFixed(2)} {telescope_alt && telescope_alt.toFixed(2)}</div>
-        <div>{telescope_ra && telescope_ra.toFixed(3)} {telescope_dec && telescope_dec.toFixed(3)}</div>
+        <div className="coordsbox">
+            <span className="coordsobj">Telescope</span>
+            <div className="coords">
+                <span className="coordname">Az</span>
+                {telescope_az && telescope_az.toFixed(2)}
+                <span className="coordname">Alt</span> 
+                {telescope_alt && telescope_alt.toFixed(2)}
+            </div>
+            <div className="coords">
+                <span className="coordname">RA</span> 
+                {telescope_ra && telescope_ra.toFixed(2)}
+                <span className="coordname">Dec</span>
+                {telescope_dec && telescope_dec.toFixed(2)}
+            </div>
+        </div>
     </div>
     );
 }

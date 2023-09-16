@@ -57,6 +57,11 @@ export default function Page() {
     setActiveView(view);
   }
 
+  //dismiss error messages
+  function dismissError(e) {
+    setErrorMessage(null);
+  }
+
   useEffect(initialize, []);
 
   useEffect(() => {
@@ -71,7 +76,7 @@ export default function Page() {
     {text: "Al", key: "AlignmentView"},
     {text: "Po", key: "PointingView", disabled: !isTelescopeAligned}
   ]
-  return <div>
+  return <div onClick={dismissError}>
     <AlignmentView constellationsStars={constStars} isVisible={activeView === 'AlignmentView'}/>
     <PointingView isVisible={activeView === 'PointingView'}/>
     <ErrorView errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>

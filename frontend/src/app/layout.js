@@ -1,9 +1,6 @@
 'use client'
 
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({ children }) {
 
@@ -16,7 +13,7 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-title" content="Notentool"/>
         <meta name="giovanni-test" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }

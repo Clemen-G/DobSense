@@ -46,9 +46,10 @@ class HandshakeHandler(AppHandler):
     def post(self):
         logging.info(self.request.body)
         payload = json.loads(self.request.body)
-        if self.globals["location"] is None:
-            self.globals["location"] = payload["position"]
-        self.write(dict(constellation_data=self.globals["constellation_data"]))
+        if self.globals.state.location is None:
+            self.globals.state.location = payload["position"]
+        self.write(
+            dict(constellation_data=self.globals.catalogs.constellations))
 
     def get(self):
         logging.info("hello")
@@ -65,7 +66,7 @@ class AlignmentsHandler(AppHandler):
         alignment_point["id"] = str(uuid.uuid4())
         self._add_current_alt_az_coords(alignment_point)
 
-        alignment_points = self.globals["alignment_points"]
+        alignment_points = self.globals.state.alignment_points
         logging.info(f"Adding alignment point {alignment_point}")
         alignment_points.alignment_points.append(
             AlignmentPoint(**alignment_point))
@@ -73,14 +74,15 @@ class AlignmentsHandler(AppHandler):
 
     def _add_current_alt_az_coords(self, alignment):
         logging.info(f"Aligning hip object {alignment['object_id']}")
-        logging.info(f"Current location: {self.globals['location']}")
+        logging.info(f"Current location: {self.globals.state.location}")
         logging.info(f"Alignment timestamp: {alignment['timestamp']}")
 
-        alignment_star = self.globals["stars"][alignment["object_id"]]
+        alignment_star = self.globals.catalogs.get_star_info(
+            alignment["object_id"])
         logging.info(f"  with star {alignment_star}")
         alt_az_sky_coords = eq_to_alt_az(alignment_star["ra"],
                                      alignment_star["dec"],
-                                     self.globals["location"],
+                                     self.globals.state.location,
                                      alignment["timestamp"])
         alt_az_coords = AltAzCoords(az=alt_az_sky_coords.az.value,
                                     alt=alt_az_sky_coords.alt.value)
@@ -109,7 +111,7 @@ class AlignmentHandler(AppHandler):
         return super().initialize(globals)
 
     def post(self):
-        alignment_points = self.globals["alignment_points"].alignment_points
+        alignment_points = self.globals.state.alignment_points.alignment_points
         self._validate_get_input(alignment_points)
         self.alignment_delegate.start_alignment_procedure(alignment_points,
                                                           synchronous=True)
@@ -134,7 +136,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
     def open(self):
         logging.info("WebSocket opened")
         # self.telescope_interface.event_listener = self.write_taz
-        isAligned = self.globals["alignment_matrices"] is not None
+        isAligned = self.globals.state.alignment_matrices is not None
         # needed 
         self.write_message(Hello(isTelescopeAligned=isAligned).model_dump_json())
         self.send_task = asyncio.create_task(self._send_coordinates())
@@ -166,7 +168,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
         previous_taz_coords = None
         previous_time = 0
         while True:
-            alignment_matrices = self.globals["alignment_matrices"]
+            alignment_matrices = self.globals.state.alignment_matrices
             is_aligned = alignment_matrices is not None
             current_time = time.time()
             if is_aligned:
@@ -185,7 +187,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
                         eq_coords = coordinates.alt_az_to_eq(
                             az=scope_az_coords.az,
                             alt=scope_az_coords.alt,
-                            location=self.globals["location"],
+                            location=self.globals.state.location,
                             timestamp=current_time)
                         eq_coords = EqCoords(ra=eq_coords.ra.value,
                                              dec=eq_coords.dec.value)

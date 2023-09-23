@@ -26,7 +26,7 @@ class AlignmentDelegate:
 
     def align(self, coordinates):
         res = self.alignment_finder.get_alignment_matrices(coordinates)
-        self.globals["alignment_matrices"] = res
+        self.globals.state.alignment_matrices = res
         self.provided_coordinates = None
 
         print(res)

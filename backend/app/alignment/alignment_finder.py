@@ -9,10 +9,13 @@ AlignmentMatrices = namedtuple("AlignmentMatrices", "R_azO R_tilt R_altO")
 
 class AlignmentFinder():
     def __init__(self, gradient_optimized_err_lambda,
-                 gradient_penalties_lambda, hyperparameters):
+                 gradient_penalties_lambda, hyperparameters=None):
         self.gradient_optimized_err_lambda = gradient_optimized_err_lambda
         self.gradient_penalties_lambda = gradient_penalties_lambda
-        self.hyperparameters = hyperparameters
+        if hyperparameters:
+            self.hyperparameters = hyperparameters
+        else:
+            self.hyperparameters = self.__class__._best_hyperparameters()
         self.num_params = 13
 
     def get_alignment_matrices(self, coordinates, debug=False):
@@ -77,3 +80,12 @@ class AlignmentFinder():
                                  [t4, 0, t3 ]])
 
         return AlignmentMatrices(R_azO_s_est, R_tilt_s_est, R_altO_s_est)
+
+    def _best_hyperparameters():
+        return {
+            "num_steps": 200,
+            "alpha": .4,
+            "beta": .85,
+            "penalty_weight": 1,
+            "n_samples_correction": True,
+        }

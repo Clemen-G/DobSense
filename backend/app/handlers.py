@@ -75,9 +75,10 @@ class AlignmentsHandler(AppHandler):
         logging.info(f"Current location: {self.globals['location']}")
         logging.info(f"Alignment timestamp: {alignment['timestamp']}")
 
-        ra_dec_coords = self.globals["stars"][alignment["object_id"]]["RA/DEC"]
-        logging.info(f"  with RA/DEC {ra_dec_coords}")
-        alt_az_sky_coords = eq_to_alt_az(ra_dec_coords, 
+        alignment_star = self.globals["stars"][alignment["object_id"]]
+        logging.info(f"  with star {alignment_star}")
+        alt_az_sky_coords = eq_to_alt_az(alignment_star["ra"],
+                                     alignment_star["dec"],
                                      self.globals["location"],
                                      alignment["timestamp"])
         alt_az_coords = AltAzCoords(az=alt_az_sky_coords.az.value,

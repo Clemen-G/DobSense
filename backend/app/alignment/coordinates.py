@@ -4,11 +4,12 @@ from astropy import units as u
 from astropy.time import Time
 from alignment.utils import rot, r, get_taz_angles, X, Y, Z
 
-def eq_to_alt_az(eq_coordinates_str, location, timestamp):
+def eq_to_alt_az(ra_deg, dec_deg, location, timestamp):
     """Converts RA/DEC coordinates to alt-az for a given location/time
 
     Args:
-        eq_coordinates_str: str "00 08 23.17 +29 05 27.0" hh mm ss deg min sec
+        ra_deg: RA in decimal degrees (45.268)
+        dec_deg: DEC in decimal degrees (-41.7106)
         location: {"altitude":342.36, "latitude":42.6, "longitude":13.693}
         timestamp: unix_epoch in seconds
 
@@ -17,7 +18,7 @@ def eq_to_alt_az(eq_coordinates_str, location, timestamp):
         coordinates in degrees.
     """
     # see https://docs.astropy.org/en/stable/coordinates/
-    obj_radec = SkyCoord(eq_coordinates_str, unit=(u.hourangle, u.deg))
+    obj_radec = SkyCoord(ra_deg, dec_deg, unit=(u.deg, u.deg))
     time = Time(val=timestamp, format='unix')
     curr_location = EarthLocation(lat=location["latitude"]*u.deg,
                                   lon=location["longitude"]*u.deg,

@@ -35,10 +35,18 @@ class AlignmentPoints(BaseModel):
     alignment_points: List[AlignmentPoint] = []
 
 
+# this message is client-generated and is kept here
+# only for protocol visibility
 class Hello(BaseModel):
     model_config = ConfigDict(frozen=True)
-    isTelescopeAligned: bool
     messageType: str = Field(default="Hello",
+                             init_var=False)
+
+
+class IsAligned(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    isTelescopeAligned: bool
+    messageType: str = Field(default="IsAligned",
                              init_var=False)
 
 

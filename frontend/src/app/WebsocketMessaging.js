@@ -40,6 +40,7 @@ export default class WebsocketMessaging {
 
         this.socket.onopen = () => {
             console.log('WebSocket opened');
+            this.socket.send(JSON.stringify({"messageType": "Hello"}))
         };
 
         this.socket.onclose = (event) => {

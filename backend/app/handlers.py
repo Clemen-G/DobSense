@@ -7,7 +7,7 @@ import logging
 import uuid
 from exceptions import UserException
 from alignment.coordinates import eq_to_alt_az
-from data_model import AlignmentPoint, Hello, TelescopeCoords, TazCoords,\
+from data_model import AlignmentPoint, IsAligned, TelescopeCoords, TazCoords,\
     EqCoords
 from data_model import AltAzCoords
 import alignment.coordinates as coordinates
@@ -129,23 +129,23 @@ class WebsocketHandler(websocket.WebSocketHandler):
         self.globals = globals
         self.telescope_interface = telescope_interface
         self.send_task = None
-
-    # def write_taz(self, taz, talt):
-    #    self.write_message({"taz": taz, "talt": talt})
     
     def open(self):
         logging.info("WebSocket opened")
-        # self.telescope_interface.event_listener = self.write_taz
-        isAligned = self.globals.state.alignment_matrices is not None
-        # needed 
-        self.write_message(Hello(isTelescopeAligned=isAligned).model_dump_json())
-        self.send_task = asyncio.create_task(self._send_coordinates())
 
-    def on_message(self, message):
-        raise ValueError(f"unexpected message {message}")
+    def on_message(self, message_json):
+        logging.info(message_json)
+        message = json.loads(message_json)
+        if message["messageType"] == "Hello":
+            isAligned = self.globals.state.alignment_matrices is not None
+            self.write_message(
+                IsAligned(isTelescopeAligned=isAligned).model_dump_json())
+            if self.send_task is None:
+                self.send_task = asyncio.create_task(self._send_coordinates())
+        else:
+            raise ValueError(f"unexpected message {message}")
 
     def on_close(self):
-        #self.telescope_interface.event_listener = None
         logging.info("WebSocket closed")
         if self.send_task:
             self.send_task.cancel()
@@ -205,7 +205,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
                    (current_time - previous_time > PING_INTERVAL)):
                 try:
                     self.write_message(
-                        Hello(isTelescopeAligned=is_aligned).model_dump_json())
+                        IsAligned(isTelescopeAligned=is_aligned).model_dump_json())
                     previous_is_aligned = is_aligned
                     previous_time = current_time
                 except websocket.WebSocketClosedError:

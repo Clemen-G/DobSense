@@ -66,7 +66,7 @@ export default function Page() {
   useEffect(
     () => {
       appContext.websocketMessaging.register(
-        "Hello",
+        "IsAligned",
         (m) => {
           setIsTelescopeAligned(m.isTelescopeAligned);
           return () => {appContext.websocketMessaging.close()};

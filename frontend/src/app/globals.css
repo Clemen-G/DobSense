@@ -27,10 +27,15 @@ div.mainview {
 }
 
 /* For red text */
-select, option, button {
+select, option, button, div {
   background-color: #000; /* Black background */
   color: red;
   font-size: .9em;
+}
+
+/* slightly smaller font for error messages */
+div.error_view {
+  font-size: .8em;
 }
 
 /* gives a visual cue on click */

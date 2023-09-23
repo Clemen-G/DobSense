@@ -4,5 +4,5 @@ export default function ErrorView({errorMessage, setErrorMessage}) {
         e.stopPropagation();
         setErrorMessage(null);
     }
-    return errorMessage ? <div onClick={ackMessage}>{errorMessage}</div> : "";
+    return errorMessage ? <div className="error_view" onClick={ackMessage}>{errorMessage}</div> : "";
 }

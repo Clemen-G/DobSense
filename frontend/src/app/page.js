@@ -23,7 +23,6 @@ export default function Page() {
 
   function handshake(pos) {
     const coords = pos.coords;
-    console.log("hello")
     const payload = {
         position: {
           accuracy: coords.accuracy,
@@ -64,13 +63,16 @@ export default function Page() {
 
   useEffect(initialize, []);
 
-  useEffect(() => {
-    appContext.websocketMessaging.register(
-      "Hello",
-      (m) => {setIsTelescopeAligned(m.isTelescopeAligned); console.log(m.isTelescopeAligned)})
-    appContext.websocketMessaging.open();
-    return () => {appContext.websocketMessaging.close()}
-  }, []);
+  useEffect(
+    () => {
+      appContext.websocketMessaging.register(
+        "Hello",
+        (m) => {
+          setIsTelescopeAligned(m.isTelescopeAligned);
+          appContext.websocketMessaging.open();
+          return () => {appContext.websocketMessaging.close()};
+        });
+    }, []);
 
   const tabs = [
     {text: "Align", key: "AlignmentView"},
@@ -81,6 +83,5 @@ export default function Page() {
     <PointingView isVisible={activeView === 'PointingView'}/>
     <ErrorView errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
     <TabView tabs={tabs} onClick={onTabClick}/>
-    {isTelescopeAligned}
     </div>
 }

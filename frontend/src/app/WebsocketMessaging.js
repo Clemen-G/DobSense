@@ -19,7 +19,7 @@ export default class WebsocketMessaging {
     // Handle incoming WebSocket messages
     handleMessage(event) {
         const data = JSON.parse(event.data);
-        console.log(data);
+        // console.log(data);
         const messageType = data.messageType;
         if (this.handlers[messageType]) {
             this.handlers[messageType].forEach(handler => {

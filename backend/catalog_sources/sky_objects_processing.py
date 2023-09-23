@@ -7,6 +7,9 @@ import requests
 import pandas as pd
 import itertools
 import json
+from astropy.coordinates import SkyCoord
+from astropy import units as u
+import numpy as np
 # %%
 
 url = "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/master/western/index.json"
@@ -96,6 +99,7 @@ df['HIP'] = df['HIP'].astype(int)
 # Makes HIP index
 df = df.set_index(df['HIP'])
 df = df.drop('HIP', axis=1)
+
 # %%
 
 # stats
@@ -130,6 +134,26 @@ hip_const = hip_const.drop('HIP', axis=1)
 master_db = const_stars_in_catalog.join(hip_const)
 '''
 master_db = const_stars_in_catalog
+
+# converts RA/DEC string to decimal degrees
+
+stars_skycoords = SkyCoord(master_db["RA/DEC"].to_numpy(),
+                           unit=(u.hourangle, u.deg))
+
+stars_ra_degs = stars_skycoords.ra.value
+stars_dec_degs = stars_skycoords.dec.value
+
+stars_ra_dec_degs = pd.DataFrame(
+                                dict(ra=stars_ra_degs,
+                                    dec=stars_dec_degs),
+                                index=master_db.index)
+
+master_db = master_db.join(stars_ra_dec_degs)
+
+# drops RA/DEC column
+# df = df.drop('RA/DEC', axis=1)
+
+# prepares a groupby dataset grouped by constellation
 grps = master_db.reset_index().sort_values(['Const', 'Vmag']).groupby('Const')
 
 const_stars_final = []

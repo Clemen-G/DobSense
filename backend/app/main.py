@@ -5,7 +5,7 @@ import asyncio
 import json
 import tornado
 from handlers import HandshakeHandler, AlignmentHandler, AlignmentsHandler
-from handlers import RealTimeMessagesWebSocket
+from handlers import WebsocketHandler
 from tornado.options import define, options, parse_command_line
 from alignment.telescope_interface import TelescopeInterface, generate_matrices
 from alignment.alignment_finder import AlignmentFinder
@@ -60,7 +60,7 @@ async def main():
          dict(
             globals=GLOBALS,
             alignment_delegate=alignment_delegate)),
-        (r"/api/websocket", RealTimeMessagesWebSocket,
+        (r"/api/websocket", WebsocketHandler,
             dict(globals=GLOBALS,
                  telescope_interface=telescope_interface))
     ], debug=options.debug)

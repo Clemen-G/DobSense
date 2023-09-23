@@ -40,7 +40,7 @@ export default function AlignmentView({constellationsStars, isVisible}) {
     }
 
     function requestAlignment(e) {
-        axios.get('/api/alignment')
+        axios.post('/api/alignment')
         .then(function (response) {
           console.log("alignment completed");
         })

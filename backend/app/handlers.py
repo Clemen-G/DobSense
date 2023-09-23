@@ -46,7 +46,8 @@ class HandshakeHandler(AppHandler):
     def post(self):
         logging.info(self.request.body)
         payload = json.loads(self.request.body)
-        self.globals["location"] = payload["position"]
+        if self.globals["location"] is None:
+            self.globals["location"] = payload["position"]
         self.write(dict(constellation_data=self.globals["constellation_data"]))
 
     def get(self):
@@ -107,7 +108,7 @@ class AlignmentHandler(AppHandler):
         self.alignment_delegate = alignment_delegate
         return super().initialize(globals)
 
-    def get(self):
+    def post(self):
         alignment_points = self.globals["alignment_points"].alignment_points
         self._validate_get_input(alignment_points)
         self.alignment_delegate.start_alignment_procedure(alignment_points,
@@ -121,7 +122,7 @@ class AlignmentHandler(AppHandler):
                                 user_message="Alignment requires at least 3 distinct objects")
 
 
-class RealTimeMessagesWebSocket(websocket.WebSocketHandler):
+class WebsocketHandler(websocket.WebSocketHandler):
     def initialize(self, globals, telescope_interface):
         self.globals = globals
         self.telescope_interface = telescope_interface

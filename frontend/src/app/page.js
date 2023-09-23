@@ -69,9 +69,9 @@ export default function Page() {
         "Hello",
         (m) => {
           setIsTelescopeAligned(m.isTelescopeAligned);
-          appContext.websocketMessaging.open();
           return () => {appContext.websocketMessaging.close()};
         });
+      appContext.websocketMessaging.open();
     }, []);
 
   const tabs = [

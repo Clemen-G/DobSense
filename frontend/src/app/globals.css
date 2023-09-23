@@ -34,6 +34,10 @@ select, option, button {
 }
 
 /* gives a visual cue on click */
+button {
+  color: red;
+}
+
 button:active {
   color: #000;
   background-color: red;
@@ -68,7 +72,6 @@ div.tabview {
 
 button.tabbutton {
   height: 2em;
-  color: red;
   width: 30%;
 }
 

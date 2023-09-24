@@ -69,7 +69,11 @@ export default function Page() {
       appContext.websocketMessaging.register(
         "IsAligned",
         (m) => {
+          console.log("updating alignment status: "+ m.isTelescopeAligned);
           setIsTelescopeAligned(m.isTelescopeAligned);
+          if (!m.isTelescopeAligned) {
+            setActiveView("AlignmentView");
+          }
           return () => {appContext.websocketMessaging.close()};
         });
       appContext.websocketMessaging.open();

@@ -8,6 +8,7 @@ import SearchResult from './SearchResult.js'
 export default function SearchView({isVisible}) {
     const fuse = useRef(null);
     const [searchString, setSearchString] = useState('');
+    const [candidateTarget, setCandidateTarget] = useState(null);
 
     function loadObjects() {
         axios.get('/api/objects')
@@ -21,6 +22,20 @@ export default function SearchView({isVisible}) {
           // always executed
         }); 
     };
+
+    function setTarget(e) {
+        const payload = {object_id: candidateTarget}
+        axios.put('/api/target', payload)
+        .then(function (response) {
+          console.log("target set");
+        })
+        .catch(function (error) {
+          appContext.apiErrorHandler(error);
+        })
+        .finally(function () {
+          // always executed
+        }); 
+    }
 
     function initFuse(catalog) {
         const fuseOptions = {
@@ -54,7 +69,8 @@ export default function SearchView({isVisible}) {
     let searchResults =[]
     if (fuse.current) {
         searchResults = fuse.current.search(searchString, {limit: 20})
-            .map(r => <SearchResult object={r.item}/>);
+            .map(r => <SearchResult object={r.item}
+                        onClickHandler={e => setCandidateTarget(e.currentTarget.attributes.object_id.value)}/>);
     }
 
     return (
@@ -68,6 +84,9 @@ export default function SearchView({isVisible}) {
             <ul className='searchresults'>
                 {searchResults}
             </ul>
+            <button disabled={candidateTarget === null} onClick={setTarget}>
+                Select target
+            </button>
         </div>
     );
 }

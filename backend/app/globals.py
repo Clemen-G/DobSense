@@ -38,6 +38,14 @@ class SystemState:
     def alignment_points(self):
         return self._alignment_points
 
+    @property
+    def target(self):
+        return self._target
+    
+    @target.setter
+    def target(self, object_id):
+        self._target = object_id
+
     def register(self, event_name, handler):
         if event_name not in self.__class__.events:
             raise ValueError("unknown event " + event_name)
@@ -95,7 +103,7 @@ class Catalogs:
         return self._saguaro_objects_blob
     
     def get_object_coords(self, object_id):
-        return self._saguaro_objects_coords[object_id]
+        return self._saguaro_objects_coords.get(object_id, None)
 
 
 

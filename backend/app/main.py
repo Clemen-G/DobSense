@@ -3,7 +3,7 @@ import sys
 import logging
 import asyncio
 import tornado
-from handlers import HandshakeHandler, AlignmentHandler, AlignmentsHandler, ObjectsHandler
+from handlers import HandshakeHandler, AlignmentHandler, AlignmentsHandler, ObjectsHandler, TargetHandler
 from handlers import WebsocketHandler
 from globals import GLOBALS
 from tornado.options import define, options, parse_command_line
@@ -36,6 +36,8 @@ async def main():
         (r"/api/alignment", AlignmentHandler,
             dict(globals=GLOBALS,
                 alignment_delegate=alignment_delegate)),
+        (r"/api/target", TargetHandler,
+            dict(globals=GLOBALS)),
         (r"/api/objects", ObjectsHandler,
             dict(globals=GLOBALS)),
         (r"/api/websocket", WebsocketHandler,

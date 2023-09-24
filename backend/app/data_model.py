@@ -61,7 +61,9 @@ class TelescopeCoords(BaseModel):
 
 class TargetCoords(BaseModel):
     model_config = ConfigDict(frozen=True)
+    object_id: str
     taz_coords: TazCoords
     alt_az_coords: AltAzCoords
+    eq_coords: EqCoords
     messageType: str = Field(default="TargetCoords",
                              init_var=False)

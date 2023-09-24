@@ -1,7 +1,8 @@
 import os
 import json
 import logging
-from data_model import AlignmentPoints
+import gzip
+from data_model import AlignmentPoints, EqCoords
 
 
 class SystemState:
@@ -59,6 +60,7 @@ class SystemState:
 class Catalogs:
     def __init__(self) -> None:
         self._load_constellation_data()
+        self._load_saguaro_objects()
 
     @property
     def constellations(self):
@@ -76,6 +78,25 @@ class Catalogs:
             obj["HIP"]: obj
                 for const in self._constellations_stars
                     for obj in const["stars"]}
+
+    def _load_saguaro_objects(self):
+        mod_path = os.path.dirname(os.path.realpath(__file__))
+        with open(mod_path + '/../data/saguaro_objects.json.gz', 'rb') as f:
+            self._saguaro_objects_blob = f.read()
+
+        saguaro_objects = json.loads(
+            gzip.decompress(self._saguaro_objects_blob).decode("utf-8"))
+
+        self._saguaro_objects_coords = {o["object_id"]: EqCoords(ra=o["ra"], dec=o["dec"])
+            for o in saguaro_objects}
+
+    @property
+    def objects(self):
+        return self._saguaro_objects_blob
+    
+    def get_object_coords(self, object_id):
+        return self._saguaro_objects_coords[object_id]
+
 
 
 class Globals:

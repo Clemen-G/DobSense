@@ -125,6 +125,12 @@ class AlignmentHandler(AppHandler):
                                 user_message="Alignment requires at least 3 distinct objects")
 
 
+class ObjectsHandler(AppHandler):
+    def get(self):
+        self.set_header('Content-Encoding', 'gzip')
+        self.write(self.globals.catalogs.objects)
+
+
 class WebsocketHandler(websocket.WebSocketHandler):
     def initialize(self, globals, telescope_interface):
         self.globals = globals

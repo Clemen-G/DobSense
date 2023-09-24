@@ -8,6 +8,7 @@ import { appContext } from './appContext.js';
 
 import AlignmentView from './AlignmentView.js';
 import PointingView from './PointingView.js';
+import SearchView from './SearchView.js';
 import TabView from './TabView.js';
 import ErrorView from './ErrorView.js';
 
@@ -76,11 +77,13 @@ export default function Page() {
 
   const tabs = [
     {text: "Align", key: "AlignmentView"},
-    {text: "Point", key: "PointingView", disabled: !isTelescopeAligned}
+    {text: "Point", key: "PointingView", disabled: !isTelescopeAligned},
+    {text: "Search", key: "SearchView", disabled: !isTelescopeAligned}
   ]
   return <div className="canvas" onClick={dismissError}>
     <AlignmentView constellationsStars={constStars} isVisible={activeView === 'AlignmentView'}/>
     <PointingView isVisible={activeView === 'PointingView'}/>
+    <SearchView isVisible={activeView === 'SearchView'}/>
     <ErrorView errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
     <TabView tabs={tabs} onClick={onTabClick}/>
     </div>

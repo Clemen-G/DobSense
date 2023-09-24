@@ -7,12 +7,14 @@ from data_model import AlignmentPoints, EqCoords
 
 class SystemState:
     ALIGN_CHANGE = "ALIGN_CHANGE"
-    events = set([ALIGN_CHANGE])
+    TARGET_CHANGE = "TARGET_CHANGE"
+    events = set([ALIGN_CHANGE, TARGET_CHANGE])
 
     def __init__(self):
         self._alignment_points = AlignmentPoints()
         self._alignment_matrices = None
         self._location = None
+        self._target = None
         self._event_listeners = {e: set() for e in self.__class__.events}
 
     @property
@@ -45,6 +47,7 @@ class SystemState:
     @target.setter
     def target(self, object_id):
         self._target = object_id
+        self._notify_listeners(self.__class__.TARGET_CHANGE)
 
     def register(self, event_name, handler):
         if event_name not in self.__class__.events:

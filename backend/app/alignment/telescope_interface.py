@@ -49,7 +49,7 @@ class TelescopeInterface:
         self.talt = taz_coords.talt
 
     def _handle_event(self, ch):
-        if ch not in ["h", "j", "k", "l"]:
+        if ch not in ["h", "j", "k", "l", "b", "n", "m", ","]:
             return
 
         if ch == "h":
@@ -58,8 +58,16 @@ class TelescopeInterface:
             self.taz += 1
         elif ch == "k":
             self.talt += 1
-        else:
+        elif ch == "j":
             self.talt -= 1
+        elif ch == "b":
+            self.taz -= .1
+        elif ch == ",":
+            self.taz += .1
+        elif ch == "m":
+            self.talt += .1
+        elif ch == "n":
+            self.talt -= .1
         print(self.taz, self.talt)
         if self.event_listener is not None:
             self.event_listener(self.taz, self.talt)

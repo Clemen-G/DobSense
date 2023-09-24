@@ -69,7 +69,7 @@ export default function SearchView({isVisible}) {
     let searchResults =[]
     if (fuse.current) {
         searchResults = fuse.current.search(searchString, {limit: 20})
-            .map(r => <SearchResult object={r.item}
+            .map(r => <SearchResult object={r.item} key={r.item.object_id}
                         onClickHandler={e => setCandidateTarget(e.currentTarget.attributes.object_id.value)}/>);
     }
 

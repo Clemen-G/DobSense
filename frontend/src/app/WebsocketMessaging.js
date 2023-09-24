@@ -37,6 +37,7 @@ export default class WebsocketMessaging {
         this.shouldReconnect = true;
         this.socket = new WebSocket(this.url);
         this.socket.onmessage = this.handleMessage.bind(this);
+        console.log("opening websocket aaa")
 
         this.socket.onopen = () => {
             console.log('WebSocket opened');

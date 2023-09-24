@@ -14,7 +14,7 @@ export default function ObjectCoordsView({objectName, objectCoords}) {
                 <span className="coordname">RA</span> 
                 {objectCoords && objectCoords.eq_coords.ra.toFixed(2)}
                 <span className="coordname">Dec</span>
-                {objectCoords && objectCoords.eq_coords.ra.toFixed(2)}
+                {objectCoords && objectCoords.eq_coords.dec.toFixed(2)}
             </div>
         </div>
     );

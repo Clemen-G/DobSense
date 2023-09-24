@@ -8,7 +8,7 @@ import uuid
 from exceptions import UserException
 from alignment.coordinates import eq_to_alt_az
 from data_model import AlignmentPoint, IsAligned, TelescopeCoords, TazCoords,\
-    EqCoords
+    EqCoords, TargetCoords
 from data_model import AltAzCoords
 import alignment.coordinates as coordinates
 from globals import SystemState
@@ -167,12 +167,15 @@ class WebsocketHandler(websocket.WebSocketHandler):
         self.globals.state.register(
             SystemState.ALIGN_CHANGE,
             self._on_state_change)
+        self.globals.state.register(
+            SystemState.TARGET_CHANGE,
+            self._on_state_change)
 
     def on_message(self, message_json):
         logging.info(message_json)
         message = json.loads(message_json)
         if message["messageType"] == "Hello":
-            self._send_is_aligned()
+            # self._send_is_aligned()
             if self.send_task is None:
                 self.send_task = asyncio.create_task(
                     self._send_coordinates_periodically())
@@ -187,6 +190,9 @@ class WebsocketHandler(websocket.WebSocketHandler):
         self.globals.state.unregister(
             SystemState.ALIGN_CHANGE,
             self._on_state_change)
+        self.globals.state.unregister(
+            SystemState.TARGET_CHANGE,
+            self._on_state_change)
 
     def check_origin(self, origin):
         return True
@@ -200,6 +206,8 @@ class WebsocketHandler(websocket.WebSocketHandler):
                 self._send_telescope_coords(
                     current_taz_coords,
                     current_time)
+                if self.globals.state.target:
+                    self._send_target_coords()
         except websocket.WebSocketClosedError:
             logging.warn("Failed to send state change messages" +
                         "because websocket is closed")
@@ -228,6 +236,8 @@ class WebsocketHandler(websocket.WebSocketHandler):
                         self._send_telescope_coords(
                             current_taz_coords,
                             current_time)
+                        if self.globals.state.target:
+                            self._send_target_coords()
                         previous_taz_coords = current_taz_coords
                         previous_time = current_time
                     except websocket.WebSocketClosedError:
@@ -278,7 +288,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
             az=scope_az_coords.az,
             alt=scope_az_coords.alt,
             location=self.globals.state.location,
-            timestamp=current_time)
+            timestamp=current_time) # TODO no need to pass time.
         eq_coords = EqCoords(ra=eq_coords.ra.value,
                                 dec=eq_coords.dec.value)
         scope_coords = TelescopeCoords(
@@ -287,3 +297,30 @@ class WebsocketHandler(websocket.WebSocketHandler):
             eq_coords=eq_coords)
 
         self.write_message(scope_coords.model_dump_json())
+
+    def _send_target_coords(self):
+        target_id = self.globals.state.target
+        target_eq_coords = self.globals.catalogs.get_object_coords(target_id)
+
+        alt_az_sky_coords = eq_to_alt_az(target_eq_coords.ra,
+                                     target_eq_coords.dec,
+                                     self.globals.state.location,
+                                     time.time())
+
+        alt_az_coords = AltAzCoords(az=alt_az_sky_coords.az.value,
+                                    alt=alt_az_sky_coords.alt.value)
+        taz_coords = (self.telescope_interface.get_taz_from_alt_az(
+                alt_az_coords.az,
+                alt_az_coords.alt))
+
+        if taz_coords is None:
+            raise Exception("Cannot determine taz_coords for the target")
+        
+        taz_coords = TazCoords(taz=taz_coords.taz, talt=taz_coords.talt)
+
+        target_coords = TargetCoords(object_id=target_id,
+                                     eq_coords=target_eq_coords,
+                                     alt_az_coords=alt_az_coords,
+                                     taz_coords=taz_coords)
+
+        self.write_message(target_coords.model_dump_json())

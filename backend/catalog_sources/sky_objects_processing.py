@@ -4,12 +4,15 @@
 #  comment
 
 import requests
+import gzip
 import pandas as pd
 import itertools
 import json
 from astropy.coordinates import SkyCoord
 from astropy import units as u
 import numpy as np
+import csv
+
 # %%
 
 url = "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/master/western/index.json"
@@ -173,4 +176,72 @@ for [const, grp] in grps:
 
 with open('../data/constellations_stars.json', "w") as f:
     json.dump(const_stars_final, f, indent=4)
+# %%
+
+# =============================================================
+# Saguaro astro catalog preparation procedure
+# =============================================================
+
+database_path = "./raw/SAC_DeepSky_Ver81_QCQ.TXT"
+df = pd.read_csv(
+    database_path,
+    quotechar='"',
+    quoting=csv.QUOTE_ALL,
+    header=0,
+    delimiter=',',
+    dtype=str,
+    skipinitialspace=True)
+
+# removes spaces around column names
+df.columns = [c.strip() for c in df.columns]
+
+df = df[['OBJECT', 'OTHER', 'TYPE', 'CON', 'RA', 'DEC', 'MAG', 'SUBR',
+       'CLASS', 'NGC DESCR']]
+
+# removes all leading/trailing spaces and dedups spaces
+df = df.replace(r"^ +| +$", r"", regex=True)
+df = df.replace(r" +", r" ", regex=True)
+
+# removes NONEX objects
+df = df[df["TYPE"] != "NONEX"]
+
+# there is a duplicate object, NGC 2905, with slightly
+# different coordinates
+df["OBJECT"].value_counts().iloc[0:2]
+
+df[df["OBJECT"] == "NGC 2905"]
+
+duplicate_item_idx = df.index[df["OBJECT"] == "NGC 2905"][1]
+df = df.drop(duplicate_item_idx)
+
+# replaces RA/DEC values with decimal degrees
+objects_coords = SkyCoord(df[["RA", "DEC"]].to_numpy(),
+                           unit=(u.hourangle, u.deg))
+
+objects_ra_degs = objects_coords.ra.value
+objects_dec_degs = objects_coords.dec.value
+
+objects_ra_dec_degs = pd.DataFrame(
+                                dict(ra=objects_ra_degs,
+                                    dec=objects_dec_degs),
+                                index=df.index)
+df = df.join(objects_ra_dec_degs)
+
+df.drop(labels=["RA", "DEC"], axis=1, inplace=True)
+
+column_rename_map = dict(
+    OBJECT='object_id',
+    OTHER='other_names',
+    TYPE='type',
+    CON='con',
+    MAG='vmag',
+    SUBR='sr_br',
+    CLASS='class'
+)
+column_rename_map['NGC DESCR'] = 'ngc_desc'
+df.rename(column_rename_map, axis=1, inplace=True)
+# save to file
+
+with gzip.open('../data/saguaro_objects.json.gz', "wb") as f:
+    df.to_json(f, orient='records')
 # %%

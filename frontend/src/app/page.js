@@ -61,7 +61,7 @@ export default function Page() {
   function dismissError(e) {
     setErrorMessage(null);
   }
-
+  
   useEffect(initialize, []);
 
   useEffect(

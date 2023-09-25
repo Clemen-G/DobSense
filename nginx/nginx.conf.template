@@ -34,6 +34,9 @@ http {
             alias /usr/src/app/nginx/static/$1;
         }
     {% end %}
+        location ~/images/(.*) {
+            alias /usr/src/app/nginx/static/images/$1;
+        }
         location /api {
             proxy_pass http://localhost:8001/api;
         }

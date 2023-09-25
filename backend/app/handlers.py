@@ -93,8 +93,6 @@ class AlignmentsHandler(AppHandler):
         taz_coords = (self.telescope_interface.get_taz_from_alt_az(
                 alt_az_coords.az,
                 alt_az_coords.alt))
-        if taz_coords is None:
-            raise UserException(409, "The scope can't point to this object")
 
         # simulator: "set" telescope angles to match aligned object
         self.telescope_interface.set_taz_coords(taz_coords)

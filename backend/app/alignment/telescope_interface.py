@@ -24,7 +24,7 @@ class TelescopeInterface:
         """
         return TaltTazCoord(self.taz, self.talt)
 
-    def get_taz_from_alt_az(self, az, alt):
+    def get_taz_from_alt_az(self, az, alt) -> TaltTazCoord:
         """HACK computes alt-az coordinates for given taz-talt and
         alignment matrices
 

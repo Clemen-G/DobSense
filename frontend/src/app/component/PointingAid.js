@@ -41,7 +41,7 @@ export default function PointingAid({scope_taz, scope_talt, target_taz, target_t
                 .fill("none").stroke("red")
                 .center(canvas_x/2, canvas_y/2);
             
-            draw.rect(5, 5).fill('#39f')
+            draw.circle(5).fill('#39f')
                 .center(
                     canvas_x/2 + delta_taz / view_taz * (canvas_x/2),
                     canvas_y/2 - delta_talt / view_talt * (canvas_y/2) // y coord is inverted in svg canvas

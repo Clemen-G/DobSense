@@ -100,12 +100,20 @@ class TazCoordinatesCalculator:
         valid_solutions = sorted(candidates,
                                  key=lambda c: abs(1 - norm([c[2:]])))[0:2]
         valid_solutions = list(map(self._to_angles, valid_solutions))
+        # we attempt to pick a solution above the horizon
+        # that does not require the telescope to flip over
         if (0 <= valid_solutions[0]["talt"] + self.altO <= 90):
             return valid_solutions[0]
         elif (0 <= valid_solutions[1]["talt"] + self.altO <= 90):
             return valid_solutions[1]
+        # otherwise we'll return a solution that does not flip over
+        # but might result in the telescope pointing below the horizon
+        elif (valid_solutions[0]["talt"] + self.altO <= 90):
+            return valid_solutions[0]
+        elif (valid_solutions[1]["talt"] + self.altO <= 90):
+            return valid_solutions[1]
         else:
-            return None
+            raise Exception("Unable to find a solution.")
     
     def _find_roots(self, a, b, c):
         def _eq(a, b, epsilon=0.000001):

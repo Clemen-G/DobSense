@@ -76,7 +76,7 @@ export default function Page() {
           }
           return () => {appContext.websocketMessaging.close()};
         });
-      appContext.websocketMessaging.open();
+      appContext.websocketMessaging.open('wss://' + window.location.host + '/api/websocket');
     }, []);
 
   const tabs = [

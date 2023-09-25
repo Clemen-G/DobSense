@@ -13,5 +13,5 @@ export const appContext = {
           console.log(e);
         }
     },
-    websocketMessaging: new WebsocketMessaging('wss://' + window.location.host + '/api/websocket')
+    websocketMessaging: new WebsocketMessaging()
 }

@@ -1,8 +1,7 @@
 'use client'
 
 export default class WebsocketMessaging {
-    constructor(url) {
-        this.url = url;
+    constructor() {
         this.handlers = {};
         this.socket = null;
         this.shouldReconnect = false;
@@ -29,13 +28,13 @@ export default class WebsocketMessaging {
     }
 
     // Open the WebSocket connection
-    open() {
+    open(url) {
         if (this.socket && this.socket.readyState === WebSocket.OPEN) {
             return;
         }
 
         this.shouldReconnect = true;
-        this.socket = new WebSocket(this.url);
+        this.socket = new WebSocket(url);
         this.socket.onmessage = this.handleMessage.bind(this);
         console.log("opening websocket aaa")
 

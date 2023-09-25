@@ -15,15 +15,14 @@ class TazCoordinatesCalculator:
 
     def get_taz_from_alt_az(self, az, alt):
         """Returns the telescope angles corresponding to given alt-az
-        coordinates, if the object can be pointed by the scope
-        (0 <= talt <= 90)
+        coordinates
 
         Args:
             az: sky object's azimuth
             alt: sky object's altitude
 
         Returns:
-            { "taz": 123, "talt": 55 } or None
+            { "taz": 123, "talt": 55 }
         """
         return self.get_telescope_angles(*np.squeeze(get_unit_vector(az, alt)))
     

@@ -6,7 +6,9 @@ export default function PointingAid({scope_taz, scope_talt, target_taz, target_t
     const containerRef = useRef(null);
     const [svgCanvas, setSvgCanvas] = useState(null);
 
-    const delta_taz = target_taz - scope_taz;
+    const delta_taz_360 = (target_taz - scope_taz) % 360;
+    // -180 <= delta_taz <= 180 to recommend and view smallest rotation
+    const delta_taz = delta_taz_360 <= 180 ? delta_taz_360 : delta_taz_360 - 360
     const delta_talt = target_talt - scope_talt;
 
     const canvas_x = 300;

@@ -87,6 +87,10 @@ def get_taz_angles(vector):
     vector = np.squeeze(np.array(vector))
     # when v_1, v0 are positive we have negative azimuth
     az = -deg(math.atan2(vector[1], vector[0]))
+    # returning a 0 <= <= 360 result (-180 <= atan <= 180)
+    if az < 0:
+        az = 360 + az
+    
     alt = deg(math.atan2(vector[2],
                      math.sqrt(
                          math.pow(vector[0], 2) + math.pow(vector[1], 2))))

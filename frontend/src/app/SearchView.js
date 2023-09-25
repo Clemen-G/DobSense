@@ -49,14 +49,16 @@ export default function SearchView({isVisible}) {
             // threshold: 0.6,
             // distance: 100,
             // useExtendedSearch: false,
-            // ignoreLocation: false,
+            ignoreLocation: true,
             // ignoreFieldNorm: false,
             // fieldNormWeight: 1,
             keys: [
                 "object_id",
                 "other_names",
                 "type",
-                "con"
+                "con",
+                "m_long",
+                "m_short"
             ]
         };
         console.log('initing fuse');

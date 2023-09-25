@@ -5,9 +5,11 @@ export default function SearchResult({object, onClickHandler}) {
     const srbr = object.sr_br != "99.9" && object.sr_br != "79.9" ? object.sr_br : "-";
     const vmag_srbr = vmag + " / " + srbr;
 
+    const obj_name = object.object_id + (object.m_short ? " (" + object.m_short + ")" : "");
+
     return <li className="searchresult" object_id={object.object_id} onClick={onClickHandler}>
         <div className="searchresultline">
-            <div className="objectid">{object.object_id} </div>
+            <div className="objectname">{obj_name}</div>
             <div className="con">{object.con}</div>
         </div>
         <div className="searchresultline">

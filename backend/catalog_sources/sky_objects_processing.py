@@ -240,8 +240,22 @@ column_rename_map = dict(
 )
 column_rename_map['NGC DESCR'] = 'ngc_desc'
 df.rename(column_rename_map, axis=1, inplace=True)
+
+# adds alternative spellings of Messier objects (M 45 -> "Messier 45", "M45")
+
+messier_ids = df["other_names"].str.extract(r"( |^)M (\d+)")[1]
+
+messier_long = ("Messier " + messier_ids)
+messier_long.name = "m_long"
+messier_short = ("M" + messier_ids)
+messier_short.name = "m_short"
+# alt_messiers = messier_long.str.cat(messier_short, sep=" ")
+# df2 = df.copy()
+# df2["other_names"] = df2["other_names"].str.cat(alt_messiers, sep=" ")
+df2 = pd.concat([df, messier_long, messier_short], axis=1)
+
 # save to file
 
 with gzip.open('../data/saguaro_objects.json.gz', "wb") as f:
-    df.to_json(f, orient='records')
+    df2.to_json(f, orient='records')
 # %%

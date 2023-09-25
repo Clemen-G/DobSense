@@ -17,6 +17,7 @@ div.canvas {
   width: 100%;
   max-width: 375px;
   height: 100%;
+  position: relative; /* needed so that the error box is bounded by the canvas */
 }
 
 /* the main views get to occupy 80% of the vertical screen.
@@ -33,9 +34,20 @@ select, option, button, div {
   font-size: .9em;
 }
 
+/* visual feedback when clicking on a list item */
+li:active div {
+  background-color: red;
+  color:black;
+}
+
 /* slightly smaller font for error messages */
 div.error_view {
   font-size: .8em;
+  position: absolute;
+  top: 30%;
+  width: 70%;
+  padding: 18px;
+  border: 1px solid red; /* 1px red border */
 }
 
 /* gives a visual cue on click */

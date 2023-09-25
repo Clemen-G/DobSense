@@ -30,7 +30,6 @@ class AppHandler(tornado.web.RequestHandler):
         #    UserException(UserException(...), 'Alignment requires at least 3 distinct objects'),
         #    <traceback object at 0x7fb91e766940>)}
 
-        logging.info("nuuush begin")
         if kwargs['exc_info'][0] == UserException:
             self.set_status(409)
             message = str(kwargs['exc_info'][1].user_message)

@@ -46,7 +46,6 @@ button {
 button:active {
   color: #000;
   background-color: red;
-
 }
 
 button[disabled]{
@@ -112,6 +111,10 @@ span.coordname {
   font-size: .8em;
   margin-right: 3px;
   margin-left: 3px;
+}
+
+div.pointingaid {
+  border: 1px solid red;
 }
 
 /* search results styling */

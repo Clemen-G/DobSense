@@ -3,7 +3,7 @@
 export default function ObjectCoordsView({objectName, objectCoords}) {
     return (
         <div className="coordsbox">
-            <span className="coordsobj">{objectName}</span>
+            <span className="coordsobj">{objectName || "No target selected"}</span>
             <div className="coords">
                 <span className="coordname">Az</span>
                 {objectCoords && objectCoords.alt_az_coords.az.toFixed(2)}

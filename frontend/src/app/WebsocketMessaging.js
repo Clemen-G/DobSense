@@ -51,7 +51,7 @@ export default class WebsocketMessaging {
             }
 
             if (this.shouldReconnect) {
-                setTimeout(() => this.open(), 1000); // Try reconnecting after 1 second if .close() wasn't called
+                setTimeout(() => this.open(url), 1000); // Try reconnecting after 1 second if .close() wasn't called
             }
         };
 

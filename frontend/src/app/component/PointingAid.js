@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useEffect, useState } from 'react';
 import { SVG } from '@svgdotjs/svg.js';
+import LabeledFrame from './LabeledFrame';
 
 export default function PointingAid({scope_taz, scope_talt, target_taz, target_talt}) {
     const containerRef = useRef(null);
@@ -42,13 +43,6 @@ export default function PointingAid({scope_taz, scope_talt, target_taz, target_t
 
             draw.clear();
 
-            draw.text("\u0394taz:  "+delta_taz.toFixed(1))
-                .font({family:   'monospace', size: 14})
-                .move(0,16).stroke("red").fill("red");
-            draw.text("\u0394talt: "+delta_talt.toFixed(1))
-                .font({family:   'monospace', size: 14})
-                .move(0,32).stroke("red").fill("red");
-            
             const search_circle_radius_px = Math.max(search_circle_radius / view_taz * (canvas_x/2), 5);
             const search_circle_radius_fill = search_circle_radius / view_taz * (canvas_x/2) < 5 ?
                 "red" :
@@ -66,5 +60,8 @@ export default function PointingAid({scope_taz, scope_talt, target_taz, target_t
         }
     }, [scope_taz, scope_talt, target_taz, target_talt]);
 
-    return <div className="pointingaid" ref={containerRef}/>
+    const text = "\u0394taz:  " + delta_taz.toFixed(1) + "; \u0394talt: "+delta_talt.toFixed(1);
+    return <LabeledFrame label={text}>
+        <div className="pointingaid" ref={containerRef}/>
+        </LabeledFrame>;
 };

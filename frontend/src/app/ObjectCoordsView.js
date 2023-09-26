@@ -1,9 +1,10 @@
 'use client'
 
+import LabeledFrame from "./component/LabeledFrame";
+
 export default function ObjectCoordsView({objectName, objectCoords}) {
     return (
-        <div className="coordsbox">
-            <span className="coordsobj">{objectName || "No target selected"}</span>
+        <LabeledFrame label={objectName || "No target selected"}>
             <div className="coords">
                 <span className="coordname">Az</span>
                 {objectCoords && objectCoords.alt_az_coords.az.toFixed(2)}
@@ -16,6 +17,6 @@ export default function ObjectCoordsView({objectName, objectCoords}) {
                 <span className="coordname">Dec</span>
                 {objectCoords && objectCoords.eq_coords.dec.toFixed(2)}
             </div>
-        </div>
+        </LabeledFrame>
     );
 }

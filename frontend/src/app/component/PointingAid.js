@@ -43,10 +43,12 @@ export default function PointingAid({scope_taz, scope_talt, target_taz, target_t
 
             draw.clear();
 
-            const search_circle_radius_px = Math.max(search_circle_radius / view_taz * (canvas_x/2), 5);
-            const search_circle_radius_fill = search_circle_radius / view_taz * (canvas_x/2) < 5 ?
+            let search_circle_radius_px = search_circle_radius / view_taz * (canvas_x/2)
+            const search_circle_radius_fill = search_circle_radius_px < 5 ?
                 "red" :
                 "none";
+            search_circle_radius_px = Math.max(search_circle_radius_px, 5);
+
             draw.circle(search_circle_radius_px)
                 .fill(search_circle_radius_fill)
                 .stroke("red")

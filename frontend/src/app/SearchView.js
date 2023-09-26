@@ -46,22 +46,35 @@ export default function SearchView({isVisible}) {
             // findAllMatches: false,
             // minMatchCharLength: 1,
             // location: 0,
-            // threshold: 0.6,
+            threshold: 0.0,
             // distance: 100,
-            // useExtendedSearch: false,
+            useExtendedSearch: true,
             ignoreLocation: true,
             // ignoreFieldNorm: false,
             // fieldNormWeight: 1,
             keys: [
-                "object_id",
-                "other_names",
-                "type",
-                "con",
-                "m_long",
-                "m_short"
+                "flattened"
             ]
         };
         console.log('initing fuse');
+        const attrs = [
+            "object_id",
+            "other_names",
+            "type",
+            "con",
+            "m_long",
+            "m_short"
+        ];
+        // fuse does not support "spreading" the search across different fields,
+        // so I'm concating all fields of interest in a single one.
+        function add_flattened(entry) {
+            const flattened_tokens = attrs.map(a => entry[a]).join(" ");
+            entry["flattened"] = flattened_tokens;
+        }
+        
+        catalog.forEach(add_flattened);
+
+        console.log(catalog[0]);
         fuse.current = new Fuse(catalog, fuseOptions);
         console.log('completed fuse initialization');
     }
@@ -70,7 +83,7 @@ export default function SearchView({isVisible}) {
 
     let searchResults =[]
     if (fuse.current) {
-        searchResults = fuse.current.search(searchString, {limit: 20})
+        searchResults = fuse.current.search(searchString, {limit: 50})
             .map(r => <SearchResult object={r.item} key={r.item.object_id}
                         onClickHandler={e => setCandidateTarget(e.currentTarget.attributes.object_id.value)}/>);
     }

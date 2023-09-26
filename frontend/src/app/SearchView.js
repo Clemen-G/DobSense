@@ -100,7 +100,7 @@ export default function SearchView({isVisible}) {
                 {searchResults}
             </ul>
             <button disabled={candidateTarget === null} onClick={setTarget}>
-                Select target
+                Target {candidateTarget}
             </button>
         </div>
     );

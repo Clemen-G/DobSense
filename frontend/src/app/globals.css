@@ -35,7 +35,7 @@ select, option, button, div {
 }
 
 /* visual feedback when clicking on a list item */
-li:active div {
+li[selected] div {
   background-color: red;
   color:black;
 }

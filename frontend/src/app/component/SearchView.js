@@ -1,7 +1,7 @@
 'use client'
 import axios from 'axios';
 import Fuse from 'fuse.js';
-import { appContext } from './appContext.js';
+import { appContext } from '../appContext.js';
 import { useState, useEffect, useRef } from 'react';
 import SearchResult from './SearchResult.js'
 

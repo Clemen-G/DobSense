@@ -1,7 +1,7 @@
 'use client'
 import ObjectCoordsView from './ObjectCoordsView.js';
-import PointingAid from './component/PointingAid.js';
-import { appContext } from './appContext.js';
+import PointingAid from './PointingAid.js';
+import { appContext } from '../appContext.js';
 import { useState, useEffect } from 'react';
 
 export default function PointingView({isVisible}) {

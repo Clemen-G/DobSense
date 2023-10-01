@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 import { useState } from 'react';
-import { appContext } from './appContext.js';
+import { appContext } from '../appContext.js';
 
 
 export default function AlignmentView({constellationsStars, isVisible}) {

@@ -6,11 +6,11 @@ import { useState, useEffect } from 'react';
 
 import { appContext } from './appContext.js';
 
-import AlignmentView from './AlignmentView.js';
-import PointingView from './PointingView.js';
-import SearchView from './SearchView.js';
-import TabView from './TabView.js';
-import ErrorView from './ErrorView.js';
+import AlignmentView from './component/AlignmentView.js';
+import PointingView from './component/PointingView.js';
+import SearchView from './component/SearchView.js';
+import TabView from './component/TabView.js';
+import ErrorView from './component/ErrorView.js';
 
 export default function Page() {
 

@@ -1,4 +1,4 @@
-
+'use client'
 export default function ErrorView({errorMessage, setErrorMessage}) {
     function ackMessage(e) {
         e.stopPropagation();

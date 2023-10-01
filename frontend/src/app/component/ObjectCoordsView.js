@@ -1,6 +1,6 @@
 'use client'
 
-import LabeledFrame from "./component/LabeledFrame";
+import LabeledFrame from "./LabeledFrame";
 
 export default function ObjectCoordsView({objectName, objectCoords}) {
     return (

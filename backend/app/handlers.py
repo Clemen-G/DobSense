@@ -1,4 +1,3 @@
-import time
 import json
 import asyncio
 import tornado
@@ -48,6 +47,8 @@ class HandshakeHandler(AppHandler):
         payload = json.loads(self.request.body)
         if self.globals.state.location is None:
             self.globals.state.location = payload["position"]
+        if self.globals.state.time is None:
+            self.globals.state.time = payload["datetime"]
         self.write(
             dict(constellation_data=self.globals.catalogs.constellations))
 
@@ -64,6 +65,7 @@ class AlignmentsHandler(AppHandler):
     def put(self):
         alignment_point = json.loads(self.request.body)
         alignment_point["id"] = str(uuid.uuid4())
+        alignment_point["timestamp"] = self.globals.state.time
         self._add_current_alt_az_coords(alignment_point)
 
         alignment_points = self.globals.state.alignment_points
@@ -146,7 +148,7 @@ class TargetHandler(AppHandler):
         alt_az_sky_coords = eq_to_alt_az(object_eq_coords.ra,
                                      object_eq_coords.dec,
                                      self.globals.state.location,
-                                     time.time())
+                                     self.globals.state.time)
         if alt_az_sky_coords.alt.value < 0:
             raise UserException(http_code=409,
                                 user_message="Cannot set target: object below the horizon")
@@ -198,7 +200,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
         try:
             self._send_is_aligned()
             if self._is_aligned():
-                current_time = time.time()
+                current_time = self.globals.state.time
                 current_taz_coords = self.telescope_interface.get_taz_coords()
                 self._send_telescope_coords(
                     current_taz_coords,
@@ -224,7 +226,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
         previous_time = 0
         while True:
             is_aligned = self._is_aligned()
-            current_time = time.time()
+            current_time = self.globals.state.time
             if is_aligned:
                 current_taz_coords = self.telescope_interface.get_taz_coords()
                 if (current_taz_coords != previous_taz_coords or
@@ -285,7 +287,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
             az=scope_az_coords.az,
             alt=scope_az_coords.alt,
             location=self.globals.state.location,
-            timestamp=current_time) # TODO no need to pass time.
+            timestamp=current_time)
         eq_coords = EqCoords(ra=eq_coords.ra.value,
                                 dec=eq_coords.dec.value)
         scope_coords = TelescopeCoords(
@@ -302,7 +304,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
         alt_az_sky_coords = eq_to_alt_az(target_eq_coords.ra,
                                      target_eq_coords.dec,
                                      self.globals.state.location,
-                                     time.time())
+                                     self.globals.state.time)
 
         alt_az_coords = AltAzCoords(az=alt_az_sky_coords.az.value,
                                     alt=alt_az_sky_coords.alt.value)

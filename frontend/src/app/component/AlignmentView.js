@@ -24,8 +24,7 @@ export default function AlignmentView({constellationsStars, isVisible}) {
 
     function submitAlignment(e) {
         const payload = {
-          object_id: parseInt(selectedStar),
-          timestamp: new Date().getTime() / 1000.0
+          object_id: parseInt(selectedStar)
         }
         axios.put('/api/alignments', payload)
         .then(function (response) {

@@ -1,7 +1,9 @@
 import os
 import json
-import logging
 import gzip
+import time
+import logging
+from exceptions import UserException
 from data_model import AlignmentPoints, EqCoords
 
 
@@ -15,6 +17,7 @@ class SystemState:
         self._alignment_matrices = None
         self._location = None
         self._target = None
+        self._time_offset = None
         self._event_listeners = {e: set() for e in self.__class__.events}
 
     @property
@@ -63,6 +66,19 @@ class SystemState:
             raise ValueError("handler not registered for this event")
         self._event_listeners[event_name].remove(handler)
     
+    @property
+    def time(self):
+        if not self._time_offset:
+            return None
+        else:
+            return time.time() + self._time_offset
+    
+    @time.setter
+    def time(self, t0):
+        # t - t_rasp = t0 - t0_rasp
+        self._time_offset = t0 - time.time()
+        logging.info("time offset set to " + str(self._time_offset))
+    
     def _notify_listeners(self, event_name):
         for listener in self._event_listeners[event_name]:
             listener(event_name)
@@ -107,7 +123,6 @@ class Catalogs:
     
     def get_object_coords(self, object_id):
         return self._saguaro_objects_coords.get(object_id, None)
-
 
 
 class Globals:

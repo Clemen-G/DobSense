@@ -12,6 +12,7 @@ from alignment.alignment_finder import AlignmentFinder
 from alignment.loss_function_generators import gradient_optimized_err_lambda, gradient_penalties_lambda
 from alignment.alignment_delegate import AlignmentDelegate
 from key_reader import KeyReader
+import initializer.astropy
 
 
 alignment_finder = AlignmentFinder(
@@ -22,6 +23,9 @@ alignment_delegate = AlignmentDelegate(alignment_finder, GLOBALS)
 
 
 async def main():
+    logging.info("Setting astropy to offline mode")
+    initializer.astropy.set_astropy_offline()
+
     key_reader = KeyReader()
     telescope_interface = TelescopeInterface(
         alignment_matrices=generate_matrices(),

@@ -1,8 +1,9 @@
-FROM node:latest as node_build
+# hardcoding platform since this stage only produces static assets
+FROM --platform=linux/amd64 node:latest as node_build
 RUN mkdir /work_area
 WORKDIR /work_area
 COPY frontend/package.json frontend/package-lock.json ./
-RUN npm clean-install # installs from package-lock
+RUN npm clean-install --loglevel verbose  # installs from package-lock
 COPY frontend .
 RUN npx next build
 

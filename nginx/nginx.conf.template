@@ -27,9 +27,8 @@ http {
             proxy_pass http://host.docker.internal:3000/$1;
         }
     {% else %}
-        location /index.html {
-            alias /usr/src/app/nginx/static/;
-        }
+        root /usr/src/app/nginx/static/;
+        
         location ~/client/(.*) {
             alias /usr/src/app/nginx/static/$1;
         }

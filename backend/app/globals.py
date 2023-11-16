@@ -3,7 +3,6 @@ import json
 import gzip
 import time
 import logging
-from exceptions import UserException
 from data_model import AlignmentPoints, EqCoords
 
 

@@ -17,11 +17,12 @@ WORKDIR /usr/src/app/backend
 COPY  ./backend/Pipfile ./backend/Pipfile.lock ./
 RUN pipenv sync
 WORKDIR /usr/src/app
-COPY launch.sh .
+COPY launch.dev.sh .
+COPY launch.prod.sh .
 COPY nginx nginx/
 COPY backend backend/
 COPY --from=node_build /work_area/out /usr/src/app/nginx/static/
 ENV TORNADO_PORT 8001
 ENV NGINX_PORT 8000
 EXPOSE ${NGINX_PORT}/tcp
-ENTRYPOINT [ "./launch.sh" ]
+ENTRYPOINT [ "./launch.prod.sh" ]

@@ -3,8 +3,8 @@ import sys
 import logging
 import asyncio
 import tornado
-from handlers import HandshakeHandler, AlignmentHandler, AlignmentsHandler, ObjectsHandler, TargetHandler
-from handlers import WebsocketHandler
+from handler import HandshakeHandler, AlignmentHandler, AlignmentsHandler
+from handler import WebsocketHandler, ObjectsHandler, TargetHandler
 from globals import GLOBALS
 from tornado.options import define, options, parse_command_line
 from alignment.telescope_interface import TelescopeInterface, generate_matrices

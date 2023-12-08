@@ -15,7 +15,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 echo generating nginx configuration
 export dns_server=`grep -e '^nameserver ' /etc/resolv.conf | head -n 1 | tr -s ' ' | cut -d ' ' -f 2` 
-export dev_mode
+export dev_mode=true
 (cd $SCRIPT_DIR/backend && pipenv run python ../nginx/gen_nginx_conf.py ../nginx/nginx.conf.template > $SCRIPT_DIR/nginx/nginx.conf)
 
 echo starting nginx

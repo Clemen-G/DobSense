@@ -3,20 +3,21 @@ import json
 import gzip
 import time
 import logging
-from data_model import AlignmentPoints, EqCoords
+from data_model import EqCoords, AlignmentPoint, AlignmentPointState
 
 
 class SystemState:
     ALIGN_CHANGE = "ALIGN_CHANGE"
     TARGET_CHANGE = "TARGET_CHANGE"
-    events = set([ALIGN_CHANGE, TARGET_CHANGE])
+    ALIGNMENT_POINTS_CHANGE = "ALIGNMENT_POINTS_CHANGE"
+    events = set([ALIGN_CHANGE, TARGET_CHANGE, ALIGNMENT_POINTS_CHANGE])
 
     def __init__(self):
-        self._alignment_points = AlignmentPoints()
         self._alignment_matrices = None
         self._location = None
         self._target = None
         self._time_offset = None
+        self._alignment_points = AlignmentPoints(self._alignment_points_change)
         self._event_listeners = {e: set() for e in self.__class__.events}
 
     @property
@@ -26,6 +27,7 @@ class SystemState:
     @alignment_matrices.setter
     def alignment_matrices(self, value):
         self._alignment_matrices = value
+        self.alignment_points.alignment_update()
         self._notify_listeners(self.__class__.ALIGN_CHANGE)
 
     @property
@@ -81,6 +83,9 @@ class SystemState:
     def _notify_listeners(self, event_name):
         for listener in self._event_listeners[event_name]:
             listener(event_name)
+    
+    def _alignment_points_change(self):
+        self._notify_listeners(self.__class__.ALIGNMENT_POINTS_CHANGE)
 
 
 class Catalogs:
@@ -129,5 +134,49 @@ class Globals:
         self.state = SystemState()
         self.catalogs = Catalogs()
 
+
+class AlignmentPoints():
+    def __init__(self, on_change) -> None:
+        self.alignment_points  = dict()
+        self.on_change = on_change
+    
+    def add(self, alignment_point: AlignmentPoint):
+        if alignment_point.state != AlignmentPointState.CANDIDATE:
+            raise ValueError("alignment point state must be CANDIDATE")
+        if alignment_point.id in self.alignment_points:
+            raise ValueError("duplicate alignment point id")
+        self.alignment_points[alignment_point.id] = alignment_point
+        self._notify_change()
+
+    def delete(self, alignment_point_id: str):
+        if alignment_point_id not in self.alignment_points:
+            return
+        alignment_point = self.alignment_points[alignment_point_id]
+        if alignment_point.state == AlignmentPointState.CANDIDATE:
+            del self.alignment_points[alignment_point_id]
+        else:
+            self.alignment_points[alignment_point_id] = \
+                alignment_point.clone_with_state(AlignmentPointState.DELETING)
+        self._notify_change()
+
+    def alignment_update(self):
+        new_alignment_points = dict()
+        for alignment_point in self.alignment_points.values():
+            if alignment_point.state == AlignmentPointState.DELETING:
+                continue
+            new_alignment_points[alignment_point.id] = \
+                alignment_point.clone_with_state(AlignmentPointState.EFFECTIVE)
+        self.alignment_points = new_alignment_points
+        self._notify_change()
+    
+    def get_candidates(self):
+        return [ap for ap in self.alignment_points.values()
+            if ap.state != AlignmentPointState.DELETING]
+    
+    def get_all(self):
+        return self.alignment_points.values()
+
+    def _notify_change(self):
+        self.on_change()
 
 GLOBALS = Globals()

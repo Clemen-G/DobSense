@@ -8,7 +8,7 @@ class AlignmentHandler(AppHandler):
         return super().initialize(globals)
 
     def post(self):
-        alignment_points = self.globals.state.alignment_points.alignment_points
+        alignment_points = self.globals.state.alignment_points.get_candidates()
         self._validate_get_input(alignment_points)
         self.alignment_delegate.start_alignment_procedure(alignment_points,
                                                           synchronous=True)

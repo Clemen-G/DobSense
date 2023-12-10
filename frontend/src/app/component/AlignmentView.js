@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { appContext } from '../appContext.js';
 
 
@@ -10,6 +10,11 @@ export default function AlignmentView({constellationsStars, isVisible}) {
     const [selectedConst, setSelectedConst] = useState("");
     const [selectedStar, setSelectedStar] = useState("");
     const [alignments, setAlignments] = useState([]);
+
+    useEffect(() => {
+      appContext.websocketMessaging.register("AlignmentPointsList",
+      alignment_points_list => setAlignments(alignment_points_list.alignment_points));
+    }, [])
 
     function constSelectedHandler(e) {
         e.stopPropagation();
@@ -27,15 +32,9 @@ export default function AlignmentView({constellationsStars, isVisible}) {
           object_id: parseInt(selectedStar)
         }
         axios.put('/api/alignments', payload)
-        .then(function (response) {
-          setAlignments(response.data.alignment_points)
-        })
         .catch(function (error) {
           appContext.apiErrorHandler(error);
-        })
-        .finally(function () {
-          // always executed
-        }); 
+        });
     }
 
     function requestAlignment(e) {
@@ -45,10 +44,7 @@ export default function AlignmentView({constellationsStars, isVisible}) {
         })
         .catch(function (error) {
           appContext.apiErrorHandler(error);
-        })
-        .finally(function () {
-          // always executed
-        }); 
+        });
     }
 
     const constsOptions = [<option key="" value="">Pick a constellation</option>].concat(

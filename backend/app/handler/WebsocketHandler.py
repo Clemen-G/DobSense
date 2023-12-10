@@ -4,7 +4,8 @@ import logging
 import asyncio
 from tornado import websocket
 from alignment import coordinates
-from data_model import AltAzCoords, EqCoords, IsAligned, TargetCoords, TazCoords, TelescopeCoords
+from data_model import AltAzCoords, EqCoords, IsAligned, TargetCoords
+from data_model import TazCoords, TelescopeCoords, AlignmentPointsList
 from globals import SystemState
 
 
@@ -20,6 +21,9 @@ class WebsocketHandler(websocket.WebSocketHandler):
             SystemState.ALIGN_CHANGE,
             self._on_state_change)
         self.globals.state.register(
+            SystemState.ALIGNMENT_POINTS_CHANGE,
+            self._on_alignment_points_change)
+        self.globals.state.register(
             SystemState.TARGET_CHANGE,
             self._on_state_change)
 
@@ -27,6 +31,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
         logging.info(message_json)
         message = json.loads(message_json)
         if message["messageType"] == "Hello":
+            self._send_alignment_points()
             if self.send_task is None:
                 self.send_task = asyncio.create_task(
                     self._send_coordinates_periodically())
@@ -44,9 +49,19 @@ class WebsocketHandler(websocket.WebSocketHandler):
         self.globals.state.unregister(
             SystemState.TARGET_CHANGE,
             self._on_state_change)
+        self.globals.state.unregister(
+            SystemState.ALIGNMENT_POINTS_CHANGE,
+            self._on_alignment_points_change)
 
     def check_origin(self, origin):
         return True
+
+    def _on_alignment_points_change(self, event_name):
+        try:
+            self._send_alignment_points()
+        except websocket.WebSocketClosedError:
+            logging.warn("Failed to send state change messages" +
+                        "because websocket is closed")
 
     def _on_state_change(self, event_name):
         try:
@@ -119,6 +134,11 @@ class WebsocketHandler(websocket.WebSocketHandler):
         """
         self.write_message(
             IsAligned(isTelescopeAligned=self._is_aligned()).model_dump_json())
+
+    def _send_alignment_points(self):
+        alignment_points = AlignmentPointsList(alignment_points=
+            self.globals.state.alignment_points.get_all())
+        self.write_message(alignment_points.model_dump_json())
 
     def _send_telescope_coords(self, current_taz_coords):
         """Sends a TelescopeCoords message asynchronously.

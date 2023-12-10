@@ -18,12 +18,16 @@ class AlignmentsHandler(AppHandler):
         alignment_point["timestamp"] = self.globals.state.time
         self._add_current_alt_az_coords(alignment_point)
 
-        alignment_points = self.globals.state.alignment_points
         logging.info(f"Adding alignment point {alignment_point}")
-        alignment_points.alignment_points.append(
+        self.globals.state.alignment_points.add(
             AlignmentPoint(**alignment_point))
-        self.write(alignment_points.model_dump_json())
+        self.write("")
 
+    def delete(self, alignment_point_id):
+        logging.info(f"Deleting alignment point {alignment_point_id}")
+        self.globals.state.alignment_points.delete(alignment_point_id)
+        self.write("")
+    
     def _add_current_alt_az_coords(self, alignment):
         logging.info(f"Aligning hip object {alignment['object_id']}")
         logging.info(f"Current location: {self.globals.state.location}")

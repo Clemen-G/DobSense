@@ -1,3 +1,4 @@
+from enum import Enum
 from pydantic import BaseModel, ConfigDict, Field
 from typing import List
 
@@ -20,6 +21,12 @@ class EqCoords(BaseModel):
     dec: float
 
 
+class AlignmentPointState(str, Enum):
+    CANDIDATE = "candidate"
+    EFFECTIVE = "effective"
+    DELETING = "deleting"
+
+
 class AlignmentPoint(BaseModel):
     model_config = ConfigDict(frozen=True)
     # currently, hipparcos id
@@ -29,11 +36,21 @@ class AlignmentPoint(BaseModel):
     id: str
     taz_coords: TazCoords
     alt_az_coords: AltAzCoords
+    state: AlignmentPointState = Field(default=AlignmentPointState.CANDIDATE)
+    messageType: str = Field(default="AlignmentPoint",
+                             init_var=False)
+
+    # clones this object changing only its state
+    def clone_with_state(self, state: AlignmentPointState):
+        return self.model_copy(update={"state": state})
 
 
-class AlignmentPoints(BaseModel):
-    alignment_points: List[AlignmentPoint] = []
-
+# required for serialization to provide a messageType
+class AlignmentPointsList(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    alignment_points: List[AlignmentPoint]
+    messageType: str = Field(default="AlignmentPointsList",
+                             init_var=False)
 
 # this message is client-generated and is kept here
 # only for protocol visibility

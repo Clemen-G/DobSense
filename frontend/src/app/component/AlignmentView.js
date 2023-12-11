@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { useEffect, useState } from 'react';
 import { appContext } from '../appContext.js';
+import AlignmentPointsView from './AlignmentPointsView.js';
 
 
 export default function AlignmentView({constellationsStars, isVisible}) {
@@ -77,5 +78,6 @@ export default function AlignmentView({constellationsStars, isVisible}) {
         <button disabled={alignments.length < 3} onClick={requestAlignment}>
             Align telescope
         </button>
+        <AlignmentPointsView alignmentPoints={alignments}/>
       </div>
   }

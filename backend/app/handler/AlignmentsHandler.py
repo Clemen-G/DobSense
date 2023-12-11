@@ -24,6 +24,7 @@ class AlignmentsHandler(AppHandler):
         self.write("")
 
     def delete(self, alignment_point_id):
+        alignment_point_id = self.path_kwargs["alignment_point_id"]
         logging.info(f"Deleting alignment point {alignment_point_id}")
         self.globals.state.alignment_points.delete(alignment_point_id)
         self.write("")

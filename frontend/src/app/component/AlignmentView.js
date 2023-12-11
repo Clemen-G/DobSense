@@ -75,7 +75,9 @@ export default function AlignmentView({constellationsStars, isVisible}) {
         <button disabled={selectedStar === ""} onClick={submitAlignment}>
             Confirm centered
         </button>
-        <button disabled={alignments.length < 3} onClick={requestAlignment}>
+        <button
+          disabled={alignments.filter(ap => ["candidate", "effective"].includes(ap.state)).length < 3}
+          onClick={requestAlignment}>
             Align telescope
         </button>
         <AlignmentPointsView alignmentPoints={alignments}/>

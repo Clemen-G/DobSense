@@ -1,6 +1,11 @@
 'use client'
 
 export default class WebsocketMessaging {
+    static IS_ALIGNED_MESSAGE = "IsAlignedMessage";
+    static ALIGNMENT_POINTS_MESSAGE = "AlignmentPointsMessage";
+    static TELESCOPE_COORDS_MESSAGE = "TelescopeCoordsMessage";
+    static TARGET_COORDS_MESSAGE = "TargetCoordsMessage";
+
     constructor() {
         this.handlers = {};
         this.socket = null;

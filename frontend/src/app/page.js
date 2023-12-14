@@ -11,6 +11,7 @@ import PointingView from './component/PointingView.js';
 import SearchView from './component/SearchView.js';
 import TabView from './component/TabView.js';
 import ErrorView from './component/ErrorView.js';
+import WebsocketMessaging from './WebsocketMessaging.js';
 
 export default function Page() {
 
@@ -67,7 +68,7 @@ export default function Page() {
   useEffect(
     () => {
       appContext.websocketMessaging.register(
-        "IsAligned",
+        WebsocketMessaging.IS_ALIGNED_MESSAGE,
         (m) => {
           console.log("updating alignment status: "+ m.isTelescopeAligned);
           setIsTelescopeAligned(m.isTelescopeAligned);

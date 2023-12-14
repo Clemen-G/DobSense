@@ -3,6 +3,7 @@ import ObjectCoordsView from './ObjectCoordsView.js';
 import PointingAid from './PointingAid.js';
 import { appContext } from '../appContext.js';
 import { useState, useEffect } from 'react';
+import WebsocketMessaging from '../WebsocketMessaging.js';
 
 export default function PointingView({isVisible}) {
     const [telescopeCoords, setTelescopeCoords] = useState(null);
@@ -10,10 +11,12 @@ export default function PointingView({isVisible}) {
 
 
     useEffect(() => {
-        appContext.websocketMessaging.register("TelescopeCoords",
-            tc => setTelescopeCoords(tc));
-        appContext.websocketMessaging.register("TargetCoords",
-            tc => setTargetCoords(tc));
+        appContext.websocketMessaging.register(
+            WebsocketMessaging.TELESCOPE_COORDS_MESSAGE,
+            tc => setTelescopeCoords(tc.telescope_coords));
+        appContext.websocketMessaging.register(
+            WebsocketMessaging.TARGET_COORDS_MESSAGE,
+            tc => setTargetCoords(tc.target_coords));
     }, [])
 
     const pointingAid = targetCoords ?

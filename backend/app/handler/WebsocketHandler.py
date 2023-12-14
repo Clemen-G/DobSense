@@ -4,8 +4,9 @@ import logging
 import asyncio
 from tornado import websocket
 from alignment import coordinates
-from data_model import AltAzCoords, EqCoords, IsAligned, TargetCoords
-from data_model import TazCoords, TelescopeCoords, AlignmentPointsList
+from data_model import AltAzCoords, EqCoords, IsAlignedMessage
+from data_model import TazCoords, TelescopeCoordsMessage, TelescopeCoords
+from data_model import TargetCoordsMessage, TargetCoords, AlignmentPointsMessage
 from globals import SystemState
 
 
@@ -133,10 +134,10 @@ class WebsocketHandler(websocket.WebSocketHandler):
             Throws websocket.WebSocketClosedError if the websocket is closed.
         """
         self.write_message(
-            IsAligned(isTelescopeAligned=self._is_aligned()).model_dump_json())
+            IsAlignedMessage(isTelescopeAligned=self._is_aligned()).model_dump_json())
 
     def _send_alignment_points(self):
-        alignment_points = AlignmentPointsList(alignment_points=
+        alignment_points = AlignmentPointsMessage(alignment_points=
             self.globals.state.alignment_points.get_all())
         self.write_message(alignment_points.model_dump_json())
 
@@ -160,12 +161,13 @@ class WebsocketHandler(websocket.WebSocketHandler):
             timestamp=self.globals.state.time)
         eq_coords = EqCoords(ra=eq_coords.ra.value,
                                 dec=eq_coords.dec.value)
-        scope_coords = TelescopeCoords(
-            taz_coords=taz_coords,
-            alt_az_coords=scope_az_coords,
-            eq_coords=eq_coords)
+        scope_coords_msg = TelescopeCoordsMessage(
+            telescope_coords=TelescopeCoords(
+                taz_coords=taz_coords,
+                alt_az_coords=scope_az_coords,
+                eq_coords=eq_coords))
 
-        self.write_message(scope_coords.model_dump_json())
+        self.write_message(scope_coords_msg.model_dump_json())
 
     def _send_target_coords(self):
         target_id = self.globals.state.target
@@ -187,9 +189,10 @@ class WebsocketHandler(websocket.WebSocketHandler):
 
         taz_coords = TazCoords(taz=taz_coords.taz, talt=taz_coords.talt)
 
-        target_coords = TargetCoords(object_id=target_id,
+        target_coords_msg = TargetCoordsMessage(
+            target_coords=TargetCoords(object_id=target_id,
                                      eq_coords=target_eq_coords,
                                      alt_az_coords=alt_az_coords,
-                                     taz_coords=taz_coords)
+                                     taz_coords=taz_coords))
 
-        self.write_message(target_coords.model_dump_json())
+        self.write_message(target_coords_msg.model_dump_json())

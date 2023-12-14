@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { appContext } from '../appContext.js';
 import AlignmentPointsView from './AlignmentPointsView.js';
+import WebsocketMessaging from '../WebsocketMessaging.js';
 
 
 export default function AlignmentView({constellationsStars, isVisible}) {
@@ -13,8 +14,9 @@ export default function AlignmentView({constellationsStars, isVisible}) {
     const [alignments, setAlignments] = useState([]);
 
     useEffect(() => {
-      appContext.websocketMessaging.register("AlignmentPointsList",
-      alignment_points_list => setAlignments(alignment_points_list.alignment_points));
+      appContext.websocketMessaging.register(
+        WebsocketMessaging.ALIGNMENT_POINTS_MESSAGE,
+        alignment_points_list => setAlignments(alignment_points_list.alignment_points));
     }, [])
 
     function constSelectedHandler(e) {

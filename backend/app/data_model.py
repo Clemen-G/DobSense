@@ -46,10 +46,10 @@ class AlignmentPoint(BaseModel):
 
 
 # required for serialization to provide a messageType
-class AlignmentPointsList(BaseModel):
+class AlignmentPointsMessage(BaseModel):
     model_config = ConfigDict(frozen=True)
     alignment_points: List[AlignmentPoint]
-    messageType: str = Field(default="AlignmentPointsList",
+    messageType: str = Field(default="AlignmentPointsMessage",
                              init_var=False)
 
 # this message is client-generated and is kept here
@@ -60,10 +60,10 @@ class Hello(BaseModel):
                              init_var=False)
 
 
-class IsAligned(BaseModel):
+class IsAlignedMessage(BaseModel):
     model_config = ConfigDict(frozen=True)
     isTelescopeAligned: bool
-    messageType: str = Field(default="IsAligned",
+    messageType: str = Field(default="IsAlignedMessage",
                              init_var=False)
 
 
@@ -72,7 +72,12 @@ class TelescopeCoords(BaseModel):
     taz_coords: TazCoords
     alt_az_coords: AltAzCoords
     eq_coords: EqCoords
-    messageType: str = Field(default="TelescopeCoords",
+
+
+class TelescopeCoordsMessage(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    telescope_coords: TelescopeCoords
+    messageType: str = Field(default="TelescopeCoordsMessage",
                              init_var=False)
 
 
@@ -82,5 +87,10 @@ class TargetCoords(BaseModel):
     taz_coords: TazCoords
     alt_az_coords: AltAzCoords
     eq_coords: EqCoords
-    messageType: str = Field(default="TargetCoords",
+
+
+class TargetCoordsMessage(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    target_coords: TargetCoords
+    messageType: str = Field(default="TargetCoordsMessage",
                              init_var=False)

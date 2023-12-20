@@ -13,6 +13,8 @@ class AlignmentsHandler(AppHandler):
         return super().initialize(globals)
 
     def put(self):
+        if not self.globals.state.time or not self.globals.state.location:
+            raise UserException(409, "Time/location not yet established")
         alignment_point = json.loads(self.request.body)
         alignment_point["id"] = str(uuid.uuid4())
         alignment_point["timestamp"] = self.globals.state.time

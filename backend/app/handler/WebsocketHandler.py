@@ -110,13 +110,6 @@ class WebsocketHandler(websocket.WebSocketHandler):
                 except websocket.WebSocketClosedError:
                     logging.warn("failed to send coordinates")
                     break
-            if (system_time - previous_system_time > PING_INTERVAL):
-                try:
-                    self._send_is_aligned()
-                    previous_system_time = system_time
-                except websocket.WebSocketClosedError:
-                    logging.warn("failed to send hello")
-                    break
             try:
                 await asyncio.sleep(SLEEP_INTERVAL)
             except asyncio.CancelledError as e:

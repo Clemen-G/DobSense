@@ -6,7 +6,7 @@ import AlignmentPointView from './AlignmentPointView';
 import LabeledFrame from './LabeledFrame';
 
 export default function AlignmentPointsView({alignmentPoints}) {
-    var alignmentPointsItems = [];
+    let alignmentPointsItems = [];
 
     if (alignmentPoints == null || alignmentPoints.length == 0) {
         return "";

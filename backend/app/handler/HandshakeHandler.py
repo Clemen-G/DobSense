@@ -1,6 +1,7 @@
 import json
 import logging
 from .AppHandler import AppHandler
+from data_model import Location
 
 
 class HandshakeHandler(AppHandler):
@@ -12,10 +13,8 @@ class HandshakeHandler(AppHandler):
     def post(self):
         logging.info(self.request.body)
         payload = json.loads(self.request.body)
-        if self.globals.state.location is None:
-            self.globals.state.location = payload["position"]
-        if self.globals.state.time is None:
-            self.globals.state.time = payload["datetime"]
+        self.globals.state.location = payload["location"]
+        self.globals.state.time = payload["datetime"]
         self.write(
             dict(constellation_data=self.globals.catalogs.constellations))
 

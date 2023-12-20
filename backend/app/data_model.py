@@ -1,6 +1,6 @@
 from enum import Enum
 from pydantic import BaseModel, ConfigDict, Field
-from typing import List
+from typing import List, Optional
 
 
 class AltAzCoords(BaseModel):
@@ -52,11 +52,23 @@ class AlignmentPointsMessage(BaseModel):
     messageType: str = Field(default="AlignmentPointsMessage",
                              init_var=False)
 
+
+class Location(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    accuracy: Optional[float]
+    altitude: Optional[float]
+    altitudeAccuracy: Optional[float]
+    latitude: float
+    longitude: float
+
+
 # this message is client-generated and is kept here
 # only for protocol visibility
-class Hello(BaseModel):
+class HelloMessage(BaseModel):
     model_config = ConfigDict(frozen=True)
-    messageType: str = Field(default="Hello",
+    location: Location
+    timestamp: float
+    messageType: str = Field(default="HelloMessage",
                              init_var=False)
 
 
@@ -76,7 +88,7 @@ class TelescopeCoords(BaseModel):
 
 class TelescopeCoordsMessage(BaseModel):
     model_config = ConfigDict(frozen=True)
-    telescope_coords: TelescopeCoords
+    telescope_coords: Optional[TelescopeCoords]
     messageType: str = Field(default="TelescopeCoordsMessage",
                              init_var=False)
 
@@ -91,6 +103,6 @@ class TargetCoords(BaseModel):
 
 class TargetCoordsMessage(BaseModel):
     model_config = ConfigDict(frozen=True)
-    target_coords: TargetCoords
+    target_coords: Optional[TargetCoords]
     messageType: str = Field(default="TargetCoordsMessage",
                              init_var=False)

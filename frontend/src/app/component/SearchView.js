@@ -74,9 +74,8 @@ export default function SearchView({isVisible}) {
         
         catalog.forEach(add_flattened);
 
-        console.log(catalog[0]);
         fuse.current = new Fuse(catalog, fuseOptions);
-        console.log('completed fuse initialization');
+        console.log('SearchView: completed fuse initialization');
     }
 
     useEffect(loadObjects, []);

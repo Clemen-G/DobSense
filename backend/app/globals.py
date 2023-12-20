@@ -37,7 +37,7 @@ class SystemState:
     @location.setter
     def location(self, value):
         if self._location is not None:
-            raise ValueError("Location can be set only once")
+            return
         self._location = value
     
     @property
@@ -76,6 +76,8 @@ class SystemState:
     
     @time.setter
     def time(self, t0):
+        if self._time_offset:
+            return
         # t - t_rasp = t0 - t0_rasp
         self._time_offset = t0 - time.time()
         logging.info("time offset set to " + str(self._time_offset))

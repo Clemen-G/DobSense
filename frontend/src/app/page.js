@@ -23,35 +23,25 @@ export default function Page() {
   let hasInitRun = false;
 
 
-  function handshake(pos) {
-    const coords = pos.coords;
+  function handshake(loc) {
     const payload = {
-        position: {
-          accuracy: coords.accuracy,
-          altitude: coords.altitude,
-          altitudeAccuracy: coords.altitudeAccuracy,
-          latitude: coords.latitude,
-          longitude: coords.longitude,
-          isSecureContext: window.isSecureContext
-        },
+        location: loc,
         datetime: new Date().getTime() / 1000.0,
     }
-    axios.post('/api/handshake', payload)
-    .then(function (response) {
-      setConstStars(response.data.constellation_data)
-    })
-    .catch(function (error) {
-      appContext.apiErrorHandler(error);
-    })
-    .finally(function () {
-      // always executed
-    }); 
+    return axios.post('/api/handshake', payload)
+      .then(function (response) {
+        setConstStars(response.data.constellation_data)
+      })
+      .catch(function (error) {
+        appContext.apiErrorHandler(error);
+      }); 
   }
   
   function initialize() {
     if (hasInitRun) return;
     appContext.setErrorMessage = setErrorMessage;
-    navigator.geolocation.getCurrentPosition(handshake);
+    appContext.getLocation()
+      .then(handshake);
     hasInitRun = true;
   }
   function onTabClick(view) {

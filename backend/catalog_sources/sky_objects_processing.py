@@ -259,3 +259,20 @@ df2 = pd.concat([df, messier_long, messier_short], axis=1)
 with gzip.open('../data/saguaro_objects.json.gz', "wb") as f:
     df2.to_json(f, orient='records')
 # %%
+# in-progress: determines culminations times for a given object
+
+lat = 40.71
+long = -74.05
+t_ref = time.time()
+ha_frame = astropy.coordinates.HADec(
+    location=astropy.coordinates.EarthLocation(lat=lat*u.degree, lon=long*u.degree),
+    obstime=astropy.time.Time(val=t_ref, format='unix'))
+c = SkyCoord(ra=0*u.degree, dec=0*u.degree)
+ha_c = c.transform_to(ha_frame)
+print(ha_c.ha)
+lst_ref = ha_c.ha.value % 24
+ra_o = (19 + 53.0/60 + 34/3600)
+ha_o = (lst_ref - ra_o) % 24
+culm_at = t_ref + (24 - ha_o) * 3600
+time.localtime(culm_at)
+# %%

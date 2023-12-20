@@ -4,7 +4,7 @@ import logging
 import asyncio
 from tornado import websocket
 from alignment import coordinates
-from data_model import AltAzCoords, EqCoords, IsAlignedMessage
+from data_model import AltAzCoords, EqCoords, HelloMessage, IsAlignedMessage
 from data_model import TazCoords, TelescopeCoordsMessage, TelescopeCoords
 from data_model import TargetCoordsMessage, TargetCoords, AlignmentPointsMessage
 from globals import SystemState
@@ -31,7 +31,12 @@ class WebsocketHandler(websocket.WebSocketHandler):
     def on_message(self, message_json):
         logging.info(message_json)
         message = json.loads(message_json)
-        if message["messageType"] == "Hello":
+        if message["messageType"] == "HelloMessage":
+            self.globals.state.location = message["location"]
+            self.globals.state.time = message["timestamp"]
+            self._send_is_aligned()
+            self._send_telescope_coords()
+            self._send_target_coords()
             self._send_alignment_points()
             if self.send_task is None:
                 self.send_task = asyncio.create_task(
@@ -68,8 +73,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
         try:
             self._send_is_aligned()
             if self._is_aligned():
-                current_taz_coords = self.telescope_interface.get_taz_coords()
-                self._send_telescope_coords(current_taz_coords)
+                self._send_telescope_coords()
                 if self.globals.state.target:
                     self._send_target_coords()
         except websocket.WebSocketClosedError:
@@ -86,33 +90,32 @@ class WebsocketHandler(websocket.WebSocketHandler):
     async def _do_send_coordinates(self):
         SLEEP_INTERVAL = .5
         PING_INTERVAL = 10
-        previous_is_aligned = False
-        previous_taz_coords = None
-        previous_system_time = 0
+        # avoid immediately resending the same messages on startup
+        # since it's been done by on_message
+        previous_taz_coords = self.telescope_interface.get_taz_coords()
+        previous_system_time = time.time()
         while True:
-            is_aligned = self._is_aligned()
             # using system time because we might not have received a
             # timestamp from the client yet
             system_time = time.time()
 
-            if is_aligned:
-                current_taz_coords = self.telescope_interface.get_taz_coords()
-                if (current_taz_coords != previous_taz_coords or
+            current_taz_coords = self.telescope_interface.get_taz_coords()
+            if (current_taz_coords != previous_taz_coords or
                     system_time - previous_system_time > PING_INTERVAL):
-                    try:
-                        self._send_telescope_coords(current_taz_coords)
-                        if self.globals.state.target:
-                            self._send_target_coords()
-                        previous_taz_coords = current_taz_coords
-                        previous_system_time = system_time
-                    except websocket.WebSocketClosedError:
-                        logging.warn("failed to send coordinates")
-                        break
-            if (is_aligned and not previous_is_aligned or
-                   (system_time - previous_system_time > PING_INTERVAL)):
+                try:
+                    # telescope coords message also functions as heartbeat
+                    # so we send it inconditionally
+                    self._send_telescope_coords()
+                    if self.globals.state.target:
+                        self._send_target_coords()
+                    previous_taz_coords = current_taz_coords
+                    previous_system_time = system_time
+                except websocket.WebSocketClosedError:
+                    logging.warn("failed to send coordinates")
+                    break
+            if (system_time - previous_system_time > PING_INTERVAL):
                 try:
                     self._send_is_aligned()
-                    previous_is_aligned = is_aligned
                     previous_system_time = system_time
                 except websocket.WebSocketClosedError:
                     logging.warn("failed to send hello")
@@ -137,15 +140,21 @@ class WebsocketHandler(websocket.WebSocketHandler):
             IsAlignedMessage(isTelescopeAligned=self._is_aligned()).model_dump_json())
 
     def _send_alignment_points(self):
-        alignment_points = AlignmentPointsMessage(alignment_points=
-            self.globals.state.alignment_points.get_all())
+        alignment_points = AlignmentPointsMessage(
+            alignment_points=self.globals.state.alignment_points.get_all())
         self.write_message(alignment_points.model_dump_json())
 
-    def _send_telescope_coords(self, current_taz_coords):
+    def _send_telescope_coords(self):
         """Sends a TelescopeCoords message asynchronously.
 
             Throws websocket.WebSocketClosedError if the websocket is closed.
         """
+        if not self._is_aligned():
+            self.write_message(TelescopeCoordsMessage(
+                telescope_coords=None).model_dump_json())
+            return
+
+        current_taz_coords = self.telescope_interface.get_taz_coords()
         taz_coords = TazCoords(
             taz=current_taz_coords.taz,
             talt=current_taz_coords.talt)
@@ -170,6 +179,11 @@ class WebsocketHandler(websocket.WebSocketHandler):
         self.write_message(scope_coords_msg.model_dump_json())
 
     def _send_target_coords(self):
+        if not self._is_aligned() or self.globals.state.target is None:
+            self.write_message(TargetCoordsMessage(
+                target_coords=None).model_dump_json())
+            return
+
         target_id = self.globals.state.target
         target_eq_coords = self.globals.catalogs.get_object_coords(target_id)
 

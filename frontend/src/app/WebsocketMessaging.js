@@ -41,43 +41,43 @@ export default class WebsocketMessaging {
             return;
         }
 
-        const doOpen = (location) => {
-            this.shouldReconnect = true;
-            this.socket = new WebSocket(url);
-            this.socket.onmessage = this.handleMessage.bind(this);
-            console.log("opening websocket")
-
-            this.socket.onopen = () => {
-                console.log('WebSocket opened, sending HelloMessage');
-                const helloMessage = {
-                    location: location,
-                    timestamp: new Date().getTime() / 1000.0,
-                    "messageType": "HelloMessage"
-                }
-                this.socket.send(JSON.stringify(helloMessage))
-            };
-
-            this.socket.onclose = (event) => {
-                if (event.wasClean) {
-                    console.log('Closed cleanly');
-                } else {
-                    console.log('Connection died');
-                }
-
-                if (this.shouldReconnect) {
-                    console.log("Reconnecting...");
-                    setTimeout(() => this.open(url), 2000); // Try reconnecting after xx second if .close() wasn't called
-                }
-            };
-
-            this.socket.onerror = (error) => {
-                console.log(`websocketMessaging [error] ${error}`);
-            };
+        const sendHelloMessage = (location) => {
+            console.log('WebSocketMessaging, sending HelloMessage');
+            const helloMessage = {
+                location: location,
+                timestamp: new Date().getTime() / 1000.0,
+                "messageType": "HelloMessage"
+            }
+            this.socket.send(JSON.stringify(helloMessage))
         }
 
-        console.log("WebsocketMessaging: getting location");
-        return appContext.getLocation()
-            .then(doOpen);
+        this.shouldReconnect = true;
+        this.socket = new WebSocket(url);
+        this.socket.onmessage = this.handleMessage.bind(this);
+        console.log("opening websocket")
+
+        this.socket.onopen = () => {
+            console.log("WebsocketMessaging: getting location");
+            appContext.getLocation()
+                .then(sendHelloMessage);
+        }
+
+        this.socket.onclose = (event) => {
+            if (event.wasClean) {
+                console.log('Closed cleanly');
+            } else {
+                console.log('Connection died');
+            }
+
+            if (this.shouldReconnect) {
+                console.log("Reconnecting...");
+                setTimeout(() => this.open(url), 2000); // Try reconnecting after xx second if .close() wasn't called
+            }
+        };
+
+        this.socket.onerror = (error) => {
+            console.log(`websocketMessaging error: ${error}`);
+        };
     }
 
     // Close the WebSocket connection

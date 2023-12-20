@@ -4,7 +4,7 @@ import LabeledFrame from "./LabeledFrame";
 
 export default function ObjectCoordsView({objectName, objectCoords}) {
     return (
-        <LabeledFrame label={objectName || "No target selected"}>
+        <LabeledFrame label={objectName}>
             <div className="coords">
                 <span className="coordname">Az</span>
                 {objectCoords && objectCoords.alt_az_coords.az.toFixed(2)}

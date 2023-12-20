@@ -29,7 +29,9 @@ export default function PointingView({isVisible}) {
     return (
     <div className="mainview" is_visible={isVisible.toString()}>
         <ObjectCoordsView objectName="Telescope" objectCoords={telescopeCoords}/>
-        <ObjectCoordsView objectName={targetCoords && targetCoords.object_id} objectCoords={targetCoords}/>
+        <ObjectCoordsView
+            objectName={(targetCoords && targetCoords.object_id) || "No target selected"}
+            objectCoords={targetCoords}/>
         {pointingAid}
     </div>
     );

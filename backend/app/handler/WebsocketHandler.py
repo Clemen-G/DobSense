@@ -1,5 +1,4 @@
 import json
-import time
 import logging
 import asyncio
 from tornado import websocket
@@ -93,11 +92,9 @@ class WebsocketHandler(websocket.WebSocketHandler):
         # avoid immediately resending the same messages on startup
         # since it's been done by on_message
         previous_taz_coords = self.telescope_interface.get_taz_coords()
-        previous_system_time = time.time()
+        previous_system_time = self.globals.state.time
         while True:
-            # using system time because we might not have received a
-            # timestamp from the client yet
-            system_time = time.time()
+            system_time = self.globals.state.time
 
             current_taz_coords = self.telescope_interface.get_taz_coords()
             if (current_taz_coords != previous_taz_coords or

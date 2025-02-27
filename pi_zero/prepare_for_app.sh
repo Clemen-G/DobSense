@@ -52,15 +52,21 @@ fi
 print_header "Disabling unneeded services"
 
 for srv in lightdm cups-browsed cups ModemManager; do
-    echo "Disabling system service $srv"
-    systemctl disable $srv
-    systemctl stop $srv
+    srv="${srv}.service"
+    if [ -n "$(systemctl list-units -q $srv)" ]; then
+        echo "Disabling system service $srv"
+        systemctl disable $srv
+        systemctl stop $srv
+    fi
 done
 
 for srv in pulseaudio pipewire pipewire-pulse; do
-    echo "Disabling user service $srv"
-    su $SUDO_USER -c "systemctl --user mask $srv.socket"
-    su $SUDO_USER -c "systemctl --user mask $srv.service"
+    srv="${srv}.service"
+    if [ -n "$(systemctl list-units -q $srv)" ]; then
+        echo "Disabling user service $srv"
+        su $SUDO_USER -c "systemctl --user mask $srv.socket"
+        su $SUDO_USER -c "systemctl --user mask $srv.service"
+    fi
 done
 
 
@@ -69,7 +75,7 @@ print_header "Installing Docker"
 apt-get update
 apt-get install ca-certificates curl gnupg
 install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor --yes -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
 
 # Add the repository to Apt sources:
@@ -84,15 +90,17 @@ apt-get install docker-ce docker-ce-cli containerd.io
 
 print_header "Access Point configuration"
 
-nmcli con add type wifi ifname wlan0 mode ap con-name Nushscope ssid Nushscope
-nmcli con modify Nushscope 802-11-wireless.band bg
-nmcli con modify Nushscope 802-11-wireless.cloned-mac-address permanent
-nmcli con modify Nushscope ipv4.method manual ipv4.address 192.168.99.1/24
-nmcli con modify Nushscope ipv6.method disabled
+if [ -z "$(nmcli connection show | grep Nushscope)" ]; then
+    nmcli con add type wifi ifname wlan0 mode ap con-name Nushscope ssid Nushscope
+    nmcli con modify Nushscope 802-11-wireless.band bg
+    nmcli con modify Nushscope 802-11-wireless.cloned-mac-address permanent
+    nmcli con modify Nushscope ipv4.method manual ipv4.address 192.168.99.1/24
+    nmcli con modify Nushscope ipv6.method disabled
 
-# Todo: should I remove authentication altogether?
-nmcli con modify Nushscope wifi-sec.key-mgmt wpa-psk
-nmcli con modify Nushscope wifi-sec.psk "password"
+    # Todo: should I remove authentication altogether?
+    nmcli con modify Nushscope wifi-sec.key-mgmt wpa-psk
+    nmcli con modify Nushscope wifi-sec.psk "password"
+fi
 
 print_header "Installing and configuring DHCP server"
 
@@ -140,7 +148,7 @@ fi
 EOF
 
 
-cat <<'EOF' > /etc/system.d/system/ConfigureMode.service
+cat <<'EOF' > /etc/systemd/system/ConfigureMode.service
 [Unit]
 Description=Configures Nushscope Server/Tethered mode
 Requires=NetworkManager-wait-online.service Docker.socket

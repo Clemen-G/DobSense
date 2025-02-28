@@ -12,13 +12,10 @@ print_header() {
     echo
 }
 
-print_header "Patching /boot/cmdline.txt"
-sed -i 's/rootwait quiet/rootwait modules-load=dwc2,g_ether quiet/' /boot/cmdline.txt
 
+CONFIG_FILE="/boot/firmware/config.txt"
 
-print_header "Patching /boot/config.txt"
-
-CONFIG_FILE="/boot/config.txt"
+print_header "Patching $CONFIG_FILE"
 
 echo "Ensuring dtparam=audio=off"
 sed -i 's/^dtparam=audio=on/dtparam=audio=off/' $CONFIG_FILE
@@ -40,12 +37,40 @@ else
     echo "gpu_mem=16" | tee -a $CONFIG_FILE
 fi
 
+
+print_header "Enabling USB Ethernet"
+
+CMDLINE="/boot/firmware/cmdline.txt"
+echo "Patching $CMDLINE"
+
+if ! grep -q "modules-load=dwc2,g_ether" $CMDLINE; then
+    sed -i 's/rootwait /rootwait modules-load=dwc2,g_ether /' $CMDLINE
+    echo "Added modules-load=dwc2,g_ether to $CMDLINE"
+fi
+
 echo "Adding dwc2 to dtoverlay"
 
-if grep -q "^dtoverlay=" $CONFIG_FILE; then
-    sed -i '/dwc2/!s/^dtoverlay=.*/&,dwc2/' $CONFIG_FILE
-else
-    echo "dtoverlay=dwc2" | tee -a $CONFIG_FILE
+if awk '/^\[pi02\]/{found=1;  next} /^\[.*\]/{found=0; next} found && /^dtoverlay=dwc2/{exit 1}' "$CONFIG_FILE"; then
+    echo -e "\n[pi02]\ndtoverlay=dwc2" >> "$CONFIG_FILE"
+fi
+
+echo "Ensuring usb gadget is managed, so that it can be activated at startup."
+if [ ! -f '/etc/udev/rules.d/85-nm-unmanaged.rules' ]; then
+    cp /usr/lib/udev/rules.d/85-nm-unmanaged.rules /etc/udev/rules.d/85-nm-unmanaged.rules
+fi
+sed 's/^[^#]*gadget/#\ &/' -i /etc/udev/rules.d/85-nm-unmanaged.rules
+
+echo "Checking if usb0 is already configured"
+if ! nmcli con | grep -q usb-p2p; then
+    IP=192.168.4.100/24
+    sudo nmcli con add \
+        con-name usb-p2p \
+        type ethernet \
+        ifname usb0 \
+        ipv4.addresses $IP \
+        connection.autoconnect yes \
+        ipv4.method manual
+    echo "Added a new connection for usb0, static IP: $IP"
 fi
 
 
@@ -72,8 +97,11 @@ done
 
 print_header "Installing Docker"
 
-apt-get update
-apt-get install ca-certificates curl gnupg
+echo "Updating package list"
+apt-get update -q -y
+
+echo "Installing certificates and tools for docker"
+apt-get install -y ca-certificates curl gnupg
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor --yes -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
@@ -83,10 +111,12 @@ echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get update
 
-apt-get install docker-ce docker-ce-cli containerd.io 
 
+echo "Installing Docker packages"
+apt-get install -y docker-ce docker-ce-cli containerd.io 
+
+mkdir -p /var/local/shared_docker
 
 print_header "Access Point configuration"
 
@@ -104,7 +134,7 @@ fi
 
 print_header "Installing and configuring DHCP server"
 
-apt install -y dnsmasq
+apt-get install -y dnsmasq
 systemctl stop dnsmasq
 systemctl disable dnsmasq
 
@@ -143,9 +173,11 @@ else
     systemctl start dnsmasq
 
     echo starting the container
-    docker run --memory 256M --publish 192.168.99.1:443:8000 --detach nushscope_arm64
+    docker run --mount type=bind,src=/var/local/shared_docker,target=/shared --publish 443:8000 --detach nushscope_arm64
 fi
 EOF
+
+chmod u+x /usr/sbin/configure_mode.sh
 
 
 cat <<'EOF' > /etc/systemd/system/ConfigureMode.service
@@ -164,3 +196,5 @@ EOF
 
 systemctl daemon-reload
 systemctl enable ConfigureMode.service
+
+print_header "Done"

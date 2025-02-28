@@ -54,7 +54,7 @@ Flash the Raspberry Pi OS Lite 64-bit on your Pi Zero's SD card.
 
 ## 2. Raspberry Pi Configuration
 
-This script will install docker, configure ssh via usb, configure wifi in access point mode, disable unneeded services, etc.
+This script will install docker, configure ethernet over usb, configure wifi in access point mode, disable unneeded services, etc.
 ```shell
 ssh raspberrypi.local 'sudo bash -s' < ./pi_zero/prepare_for_app.sh
 ```

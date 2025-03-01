@@ -23,6 +23,7 @@ COPY nginx nginx/
 COPY backend backend/
 COPY --from=node_build /work_area/out /usr/src/app/nginx/static/
 ENV TORNADO_PORT 8001
-ENV NGINX_PORT 8000
-EXPOSE ${NGINX_PORT}/tcp
+ENV NGINX_HTTP_PORT 8080
+ENV NGINX_HTTPS_PORT 8443
+EXPOSE ${NGINX_HTTP_PORT}/tcp ${NGINX_HTTPS_PORT}/tcp
 ENTRYPOINT [ "./launch.prod.sh" ]

@@ -173,7 +173,7 @@ else
     systemctl start dnsmasq
 
     echo starting the container
-    docker run --mount type=bind,src=/var/local/shared_docker,target=/shared --publish 443:8000 --detach nushscope_arm64
+    docker run --mount type=bind,src=/var/local/shared_docker,target=/shared --publish 443:8443 --publish 80:8080 --detach nushscope_arm64
 fi
 EOF
 

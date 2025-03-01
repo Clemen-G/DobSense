@@ -35,11 +35,6 @@ You can then use the UI to search for a celestial object and Nushscope will show
 - Once these matrices are known, the app can determine how the telescope should be oriented to point at any object in the sky.
 - The main application will periodically send coordinate updates to the UI to track changes in the telescope / celestial object positions.
 
-
-```shell
-sudo docker run --publish 192.168.99.1:443:8000 -it --entrypoint bash nushscope_arm64
-```
-
 # Software installation
 
 ## 1. Raspberry Pi OS installation
@@ -68,10 +63,42 @@ docker buildx build --platform linux/arm64 --tag $image_name .
 docker save $image_name | gzip -c | ssh raspberrypi.local "gunzip | sudo docker load"
 ```
 
-## 4. Shutdown PiZero
+## 4. Restart Pi Zero 2
 
 ```shell
-halt; exit
+ssh raspberrypi.local 'reboot'
 ```
 
 The configuration script set up PiZero to automatically start a WiFi network in access point mode and run the Docker container when there is no USB connectivity. This corresponds to a "prod" mode when the device expects to be running stand-alone.
+
+## 5. Connect to the app
+
+1. Install the app CA certificate ([security notes](#security)):
+    - Go to http://raspberrypi.local/ca.pem
+    - (On iPhone) follow instructions to install a new profile
+
+2. Launch the app:
+    - Go to https://raspberrypi.local. The app should load
+    - (Optional, on iPhone) add the page to your home screen.
+
+# Security
+
+TL;DR: if you are performing the installation yourself, you are fine. However, **you should not use a device you have not configured yourself**.
+
+This app has not been designed to be secure, given its intended usage.
+The only real security risk is the installation of a self-made Certification Authority on your phone. An attacker with access to the CA's private key would be able to compromise all internet traffic to/from your phone.
+I have taken reasonable care to reduce this risk:
+- The CA key is generated on your Raspberry Pi as part of the application's first boot.
+- The CA key is encrypted with a passphrase kept in memory only for the duration of the certificate generation procedure.
+- The passphrase is discarded after the certificates have been generated.
+- All the CA files, including the key, are deleted after certificates have been generated.
+You can find the script performing these steps [here](./nginx/cert_gen/generate_certs.sh).
+
+
+# FAQ
+
+**Why do I need to install a new certification authority? That feels cumbersome and insecure.**
+
+The application requires the user's position to determine the Alt-Az coordinates of celestial objects. It fetches it from the phone using the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API), which only works over `https`.
+Afaik, no companies will a TLS certificate for a `.local` domain, so I have resorted to a custom certificate chain.
+One way to work around this problem would be to enter the position manually (e.g. keeping a database of cities). I don't currently plan this but I'd welcome feedback.

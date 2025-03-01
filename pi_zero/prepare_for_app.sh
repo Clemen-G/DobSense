@@ -126,10 +126,6 @@ if [ -z "$(nmcli connection show | grep Nushscope)" ]; then
     nmcli con modify Nushscope 802-11-wireless.cloned-mac-address permanent
     nmcli con modify Nushscope ipv4.method manual ipv4.address 192.168.99.1/24
     nmcli con modify Nushscope ipv6.method disabled
-
-    # Todo: should I remove authentication altogether?
-    nmcli con modify Nushscope wifi-sec.key-mgmt wpa-psk
-    nmcli con modify Nushscope wifi-sec.psk "password"
 fi
 
 print_header "Installing and configuring DHCP server"

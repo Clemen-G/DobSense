@@ -120,12 +120,12 @@ mkdir -p /var/local/shared_docker
 
 print_header "Access Point configuration"
 
-if [ -z "$(nmcli connection show | grep Nushscope)" ]; then
-    nmcli con add type wifi ifname wlan0 mode ap con-name Nushscope ssid Nushscope
-    nmcli con modify Nushscope 802-11-wireless.band bg
-    nmcli con modify Nushscope 802-11-wireless.cloned-mac-address permanent
-    nmcli con modify Nushscope ipv4.method manual ipv4.address 192.168.99.1/24
-    nmcli con modify Nushscope ipv6.method disabled
+if [ -z "$(nmcli connection show | grep DobSense)" ]; then
+    nmcli con add type wifi ifname wlan0 mode ap con-name DobSense ssid DobSense
+    nmcli con modify DobSense 802-11-wireless.band bg
+    nmcli con modify DobSense 802-11-wireless.cloned-mac-address permanent
+    nmcli con modify DobSense ipv4.method manual ipv4.address 192.168.99.1/24
+    nmcli con modify DobSense ipv6.method disabled
 fi
 
 print_header "Installing and configuring DHCP server"
@@ -134,7 +134,7 @@ apt-get install -y dnsmasq
 systemctl stop dnsmasq
 systemctl disable dnsmasq
 
-cat <<EOF > /etc/dnsmasq.d/nushscope.conf
+cat <<EOF > /etc/dnsmasq.d/dobsense.conf
 interface=wlan0
 
 # setting explicitly to reduce risk of conflicts if dnsmasq does not terminate
@@ -159,17 +159,17 @@ if ip link show $INTERFACE_NAME | grep -q "state UP"; then
     systemctl stop dnsmasq
 
     echo activating default wifi connection
-    default_wifi_connection=$(nmcli con show | grep wifi | grep -v Nushscope | cut -d ' ' -f 1)
+    default_wifi_connection=$(nmcli con show | grep wifi | grep -v DobSense | cut -d ' ' -f 1)
     nmcli con up $default_wifi_connection
 else
     echo configuring access point mode
-    nmcli con up Nushscope
+    nmcli con up DobSense
 
     echo starting DHCP server
     systemctl start dnsmasq
 
     echo starting the container
-    docker run --mount type=bind,src=/var/local/shared_docker,target=/shared --publish 443:8443 --publish 80:8080 --detach nushscope_arm64
+    docker run --mount type=bind,src=/var/local/shared_docker,target=/shared --publish 443:8443 --publish 80:8080 --detach dobsense_arm64
 fi
 EOF
 
@@ -178,7 +178,7 @@ chmod u+x /usr/sbin/configure_mode.sh
 
 cat <<'EOF' > /etc/systemd/system/ConfigureMode.service
 [Unit]
-Description=Configures Nushscope Server/Tethered mode
+Description=Configures DobSense Server/Tethered mode
 Requires=NetworkManager-wait-online.service Docker.socket
 After=NetworkManager-wait-online.service Docker.socket
 

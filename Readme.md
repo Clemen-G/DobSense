@@ -1,20 +1,20 @@
-# Nushscope
+# DobSense
 
 
-Nushscope is a do-it-yourself project that helps locating objects in the sky with your dobsonian telescope.
+DobSense is a do-it-yourself project that helps locating objects in the sky with your dobsonian telescope.
 
 It's a web application hosted on a Raspberry Pi Zero 2 W that can be accessed on a smartphone. The application senses your telescope's orientation via incremental encoders, and will provide visual guidance to point your telescope towards the desired object. The application does not require Internet connectivity.
 
-Nushscope's main purpose is to have fun with software, electronics and drilling. The same HW/SW platform could be extended to support motorized GoTo capability or cooling fan control.
+DobSense's main purpose is to have fun with software, electronics and drilling. The same HW/SW platform could be extended to support motorized GoTo capability or cooling fan control.
 There are many alternatives if you are looking for turn-key solutions, some of which don't require any hardware besides a smartphone. See for example [Astrohopper](https://github.com/artyom-beilis/skyhopper/blob/main/README.md).
 
 
 ## How it works (user)
 
 Place your telescope as usual. It does not need to be on a horizontal surface or point in any particular direction. The application will figure out this data during the alignment procedure.
-Turn on Nushscope and wait until it boots. Then, using the web UI, perform the initial alignment by pointing your scope towards three known stars.
+Turn on DobSense and wait until it boots. Then, using the web UI, perform the initial alignment by pointing your scope towards three known stars.
 The application will compare the angles from the encoders to the positions of those stars, and derive its own orientation.
-You can then use the UI to search for a celestial object and Nushscope will show you where to point your scope to find it.
+You can then use the UI to search for a celestial object and DobSense will show you where to point your scope to find it.
 
 ## Some caveats if you want to play with it
 
@@ -56,7 +56,7 @@ ssh raspberrypi.local 'sudo bash -s' < ./pi_zero/prepare_for_app.sh
 
 ## 3. Build and deploy the Docker image
 ```shell
-image_name=nushscope_arm64
+image_name=dobsense_arm64
 
 docker buildx build --platform linux/arm64 --tag $image_name .
 

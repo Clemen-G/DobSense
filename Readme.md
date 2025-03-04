@@ -3,36 +3,60 @@
 
 DobSense is a do-it-yourself project that helps locating objects in the sky with your dobsonian telescope.
 
-It's a web application hosted on a Raspberry Pi Zero 2 W that can be accessed on a smartphone. The application senses your telescope's orientation via incremental encoders, and will provide visual guidance to point your telescope towards the desired object. The application does not require Internet connectivity.
+It's a web application hosted on a Raspberry Pi Zero 2 W and it's accessible from a smartphone. The application senses your telescope's orientation via incremental encoders, and will provide visual guidance to point your telescope towards the desired object. The application does not require Internet connectivity.
 
 DobSense's main purpose is to have fun with software, electronics and drilling. The same HW/SW platform could be extended to support motorized GoTo capability or cooling fan control.
 There are many alternatives if you are looking for turn-key solutions, some of which don't require any hardware besides a smartphone. See for example [Astrohopper](https://github.com/artyom-beilis/skyhopper/blob/main/README.md).
 
+## Project status
+DobSense is work-in-progress. Its software is reasonably complete, with the notable exception of the Pico microcontroller routines. I'm currently designing the schematics for its hardware board.
+
 
 ## How it works (user)
 
-Place your telescope as usual. It does not need to be on a horizontal surface or point in any particular direction. The application will figure out this data during the alignment procedure.
+Place your telescope as usual. It does not need to be on a horizontal surface or point in any particular direction. The application will figure out its orientation during the alignment procedure.
 Turn on DobSense and wait until it boots. Then, using the web UI, perform the initial alignment by pointing your scope towards three known stars.
 The application will compare the angles from the encoders to the positions of those stars, and derive its own orientation.
 You can then use the UI to search for a celestial object and DobSense will show you where to point your scope to find it.
 
+Here are some images that illustrate its usage:
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="./documentation/images/alignment_tab.png" ><br>
+    </td>
+    <td align="center" width="33%">
+      <img src="./documentation/images/search_tab.png"><br>
+    </td>
+    <td align="center"  width="33%">
+      <img src="./documentation/images/point_tab.png"><br>
+    </td>
+  </tr>
+  <tr>
+  <td>1. Point your scope towards a known star and mark it as "centered". Once you have three stars, you can align it. You can add more stars for increased accuracy, and remove points added by mistake.</td>
+  <td>2. Use the Search UI to pick a target. The search is over a local copy of the <a href="https://www.saguaroastro.org/sac-downloads/">Saguaro Astronomy Club database v8.1<a>.</td>
+  <td>3. The Point UI will guide you to move your telescope (red dot) until it overlaps with the targeted object (blue dot).</td>
+  </tr>
+</table>
+
 ## Some caveats if you want to play with it
 
-- You will need to find a way to install incremental encoders on your telescope. This might involve drilling, sawing, etc.
-- You will need to buy electronics components, solder, do wiring.
-- The application retrieves its GPS position from a phone. This will require installing a self-signed x509 certificate on your phone to enable `https`.
-- The software installation process requires familiarity with a variety of tools, including docker, linux command line, raspberry pi imaging tools.
+- You'll need to find a way to install incremental encoders on your telescope. This might involve drilling, sawing, etc.
+- You'll need to buy electronics components, solder, do wiring.
+- You'll need to install a self-signed TLS/SSL certificate on your phone, so that the application can retrieve its position from the phone's GPS.
+- You'll need to be(come) familiar with a variety of tools, including docker, linux command line, raspberry pi imaging tools.
 
 ## How it works (developer)
 
-- The main application is hosted in a Docker container running on the Raspberry Pi Zero 2 W.
-- A Raspberry Pico microcontroller receives pulses from the altitude/azimuth encoders and converts them into angles.
-- The main application reads the telescope angles via a serial connection between Pi Zero and Pico.
-- The main application is implemented in Python and runs on a Tornado web server. Its UI is implemented in React. The React app communicates with its backend over wifi (provided by PiZero) using a mix of http verbs (e.g. to download star catalogs) and websockets (e.g. to update the telescope's position).
+- The main application is hosted in a Docker container running on a Raspberry Pi Zero 2 W.
+- The Pi Zero 2 is connected to a Raspberry Pico microcontroller, and uses it to receive movement information from the altitude/azimuth encoders.
+- The main application is implemented in Python and runs on a Tornado web server. Its UI is implemented in React. The UI communicates with its backend over wifi (provided by Pi Zero) using a mix of http (e.g. to download star catalogs) and websockets (e.g. to update the telescope's position).
 - When a phone connects to the application, the React app will send the phone's GPS position to the backend.
+----
 - During the [alignment procedure](./backend/app/alignment/alignment_delegate.py), the application records the measured telescope angles corresponding to each star.
 - It then determines the change-of-basis matrices that represent the telescope orientation wrt. the [Alt-Az coordinates](https://en.wikipedia.org/wiki/Horizontal_coordinate_system) using gradient descent ([method here](./documentation/Alignment.md)).
-- Once these matrices are known, the app can determine how the telescope should be oriented to point at any object in the sky.
+- Once these matrices are known, the app can determine how the telescope should be moved to point at any object in the sky.
 - The main application will periodically send coordinate updates to the UI to track changes in the telescope / celestial object positions.
 
 # Software installation

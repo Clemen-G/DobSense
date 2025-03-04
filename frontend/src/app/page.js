@@ -71,9 +71,9 @@ export default function Page() {
     }, []);
 
   const tabs = [
-    {text: "Align", key: "AlignmentView"},
+    {text: "Search", key: "SearchView", disabled: !isTelescopeAligned},
     {text: "Point", key: "PointingView", disabled: !isTelescopeAligned},
-    {text: "Search", key: "SearchView", disabled: !isTelescopeAligned}
+    {text: "Align", key: "AlignmentView"},
   ].map(t => {
     t.active = t.key === activeView;
     return t;

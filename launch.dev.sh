@@ -18,6 +18,12 @@ export dns_server=`grep -e '^nameserver ' /etc/resolv.conf | head -n 1 | tr -s '
 export dev_mode=true
 (cd $SCRIPT_DIR/backend && pipenv run python ../nginx/gen_nginx_conf.py ../nginx/nginx.conf.template > $SCRIPT_DIR/nginx/nginx.conf)
 
+if [ ! -f "/shared/tls/ca_cert.pem" ] || [ ! -f "/shared/tls/app_cert_chain.pem" ] || [ ! -f "/shared/tls/app_key.pem" ]; then
+    echo "Generating certificates"
+    mkdir -p /shared/tls
+    $SCRIPT_DIR/nginx/cert_gen/generate_certs.sh /shared/tls/ca_cert.pem /shared/tls/app_cert_chain.pem /shared/tls/app_key.pem
+fi
+
 echo starting nginx
 nginx -c $SCRIPT_DIR/nginx/nginx.conf || exit 1
 

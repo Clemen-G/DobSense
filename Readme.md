@@ -1,7 +1,7 @@
 # DobSense
 
 
-DobSense is a do-it-yourself project that helps locating objects in the sky with your dobsonian telescope.
+DobSense is a do-it-yourself project that helps locating objects in the sky with your [Dobsonian telescope](https://www.skyatnightmagazine.com/advice/get-to-grips-with-dobsonians).
 
 It's a web application hosted on a Raspberry Pi Zero 2 W and it's accessible from a smartphone. The application senses your telescope's orientation via incremental encoders, and will provide visual guidance to point your telescope towards the desired object. The application does not require Internet connectivity.
 
@@ -34,9 +34,9 @@ Here are some images that illustrate its usage:
     </td>
   </tr>
   <tr>
-  <td>1. Point your scope towards a known star and mark it as "centered". Once you have three stars, you can align it. You can add more stars for increased accuracy, and remove points added by mistake.</td>
+  <td>1. Point your scope towards a known star and mark it as "centered". Once you have three stars, you can align it. You can add more stars for increased accuracy, and remove points added by mistake. The red/black color scheme is meant to preserve night vision.</td>
   <td>2. Use the Search UI to pick a target. The search is over a local copy of the <a href="https://www.saguaroastro.org/sac-downloads/">Saguaro Astronomy Club database v8.1<a>.</td>
-  <td>3. The Point UI will guide you to move your telescope (red dot) until it overlaps with the targeted object (blue dot).</td>
+  <td>3. The Point UI will guide you to move your telescope (red dot) until it overlaps with the targeted object (blue dot). The guiding view will automatically zoom-in when the objects get closer (not shown).</td>
   </tr>
 </table>
 

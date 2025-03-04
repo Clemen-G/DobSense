@@ -62,6 +62,7 @@ button:active {
 
 button[disabled]{
   color: gray;
+  border: 1px solid gray;
 }
 
 /* For control widths to be 95% */
@@ -91,6 +92,10 @@ button.tabbutton {
   width: 30%;
 }
 
+button.tabbutton.active {
+  border: 3px solid;
+}
+
 /* the is_visible attribute controls visibility */
 div[is_visible="true"] {
   visibility: visible;
@@ -107,6 +112,7 @@ div.coordsbox {
   margin-bottom: 24px;
   padding: 3px;
   color: red;
+  box-sizing:border-box
   /*font-size: .9em;*/
 }
 div.coords {
@@ -137,7 +143,7 @@ span.coordname {
 /* search results styling */
 ul.searchresults {
   list-style: none;
-  width: 100%;
+  width: 95%;
   height: 60%;
   overflow-y: scroll;
   scrollbar-width: none;

@@ -74,7 +74,10 @@ export default function Page() {
     {text: "Align", key: "AlignmentView"},
     {text: "Point", key: "PointingView", disabled: !isTelescopeAligned},
     {text: "Search", key: "SearchView", disabled: !isTelescopeAligned}
-  ]
+  ].map(t => {
+    t.active = t.key === activeView;
+    return t;
+  });
   return <div className="canvas" onClick={dismissError}>
     <AlignmentView constellationsStars={constStars} isVisible={activeView === 'AlignmentView'}/>
     <PointingView isVisible={activeView === 'PointingView'}/>

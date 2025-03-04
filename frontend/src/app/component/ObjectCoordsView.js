@@ -16,7 +16,7 @@ export default function ObjectCoordsView({objectName, objectCoords}) {
         coord_1: objectCoords && objectCoords.eq_coords.ra.toFixed(2),
         coord_2: objectCoords && objectCoords.eq_coords.dec.toFixed(2)
     }
-   ].map(w => <div className="coords">
+   ].map(w => <div className="coords" key={w.label_1}>
     <div className="coord">
         <div className="coordname">{w.label_1}</div>
         <div className="coordvalue">{w.coord_1}</div>

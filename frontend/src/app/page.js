@@ -53,6 +53,10 @@ export default function Page() {
     setErrorMessage(null);
   }
   
+  function switchToPointingView() {
+    setActiveView("PointingView");
+  }
+
   useEffect(initialize, []);
 
   useEffect(
@@ -81,7 +85,7 @@ export default function Page() {
   return <div className="canvas" onClick={dismissError}>
     <AlignmentView constellationsStars={constStars} isVisible={activeView === 'AlignmentView'}/>
     <PointingView isVisible={activeView === 'PointingView'}/>
-    <SearchView isVisible={activeView === 'SearchView'}/>
+    <SearchView isVisible={activeView === 'SearchView'} onTargetSet={switchToPointingView}/>
     <ErrorView errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
     <TabView tabs={tabs} onClick={onTabClick}/>
     </div>

@@ -5,7 +5,7 @@ import { appContext } from '../appContext.js';
 import { useState, useEffect, useRef } from 'react';
 import SearchResult from './SearchResult.js'
 
-export default function SearchView({isVisible}) {
+export default function SearchView({onTargetSet, isVisible}) {
     const fuse = useRef(null);
     const [searchString, setSearchString] = useState('');
     const [candidateTarget, setCandidateTarget] = useState(null);
@@ -28,6 +28,11 @@ export default function SearchView({isVisible}) {
         axios.put('/api/target', payload)
         .then(function (response) {
           console.log("target set");
+        })
+        .then(function () {
+            if (onTargetSet) {
+                onTargetSet();
+            }
         })
         .catch(function (error) {
           appContext.apiErrorHandler(error);

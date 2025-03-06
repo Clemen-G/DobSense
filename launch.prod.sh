@@ -19,7 +19,7 @@ export dev_mode=false
 
 echo generating nginx configuration
 export dns_server=`grep -e '^nameserver ' /etc/resolv.conf | head -n 1 | tr -s ' ' | cut -d ' ' -f 2` 
-(cd $SCRIPT_DIR/backend && pipenv run python ../nginx/gen_nginx_conf.py ../nginx/nginx.conf.template > $SCRIPT_DIR/nginx/nginx.conf)
+perl $SCRIPT_DIR/nginx/gen_nginx_conf.pl $dev_mode $dns_server > $SCRIPT_DIR/nginx/nginx.conf
 
 if [ ! -f "/shared/tls/ca_cert.pem" ] || [ ! -f "/shared/tls/app_cert_chain.pem" ] || [ ! -f "/shared/tls/app_key.pem" ]; then
     echo "Generating certificates"

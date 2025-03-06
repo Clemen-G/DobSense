@@ -9,7 +9,7 @@ RUN npx next build
 
 FROM python:3.10-slim-bookworm
 RUN apt update
-RUN apt install -y nginx
+RUN apt install -y nginx libtemplate-perl
 # temp
 RUN apt install -y vim
 RUN pip install pipenv

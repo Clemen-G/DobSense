@@ -90,6 +90,7 @@ div.tabview {
 button.tabbutton {
   height: 2em;
   width: 30%;
+  padding: 0;
 }
 
 button.tabbutton.active {
@@ -113,7 +114,6 @@ div.labeledframe {
   padding: 3px;
   color: red;
   box-sizing:border-box
-  /*font-size: .9em;*/
 }
 
 div.coordsbox {
@@ -141,13 +141,17 @@ div.framelabel {
 span.framelabel {
   /* needed to hide the line behind it */
   background-color: #000;
-  font-size: .8em;
+  font-size: 1em;
   padding-left: 5px;
   padding-right: 5px;
 }
 
+div.coordname {
+  font-size: 1.1em;
+}
+
 div.coordvalue {
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 
 
@@ -162,7 +166,7 @@ ul.searchresults {
 }
 
 li.searchresult {
-  padding-bottom: 5px;
+  padding-bottom: 7px;
 }
 
 div.searchresultline {
@@ -170,15 +174,24 @@ div.searchresultline {
   font-size: .8em;
 }
 
+div.searchresultline .objectname{
+  font-size: 1em;
+}
+
 /* secondary info gets smaller font */
 div.searchresultline .type, div.searchresultline .vmagsrbr{
   flex-direction: row;
-  font-size: .7em;
+  /*font-size: .7em;*/
   padding-left: 5%;
 }
 
-div.searchresultline .con {
-  font-size: .75em;
+div.alignmentpointscontainer {
+  margin-top: 8%;
+}
+
+.swipeable-list {
+  margin-top: 2%;
+  font-size: 1.4em;
 }
 
 /* reverts to block display to allow text justification */

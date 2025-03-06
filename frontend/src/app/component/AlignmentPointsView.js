@@ -14,7 +14,7 @@ export default function AlignmentPointsView({alignmentPoints}) {
         alignmentPointsItems = alignmentPoints.map((ap) => {
             return AlignmentPointView({ap: ap});
         });
-        return  <LabeledFrame label="Alignment points">
+        return  <LabeledFrame label="Alignment points" classes="alignmentpointscontainer">
                     <SwipeableList>
                         {alignmentPointsItems}
                     </SwipeableList>

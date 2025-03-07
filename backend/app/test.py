@@ -5,14 +5,25 @@ import numpy as np
 import timeit
 
 from alignment.alignment_finder import AlignmentFinder
-from alignment.utils import X, Y, Z, rot, r, ppp, norm
-from alignment.loss_function_generators import gradient_optimized_err_lambda, \
-    gradient_penalties_lambda
+from alignment.utils import X, Y, Z, rot, r, ppp, norm, wrap_with_numpy
+from sympy.utilities.lambdify import lambdify
+from alignment import loss_functions as lf
 
+# %% Generates lambda functions from sympy expressions
+gradient_optimized_err_lambda = lambdify(
+    lf.taz_cosines + lf.az_coordinates + lf.theta,
+    lf.gradient_optimized_err)
+gradient_optimized_err_lambda = wrap_with_numpy(gradient_optimized_err_lambda)
+
+gradient_penalties_lambda = lambdify(lf.theta,
+                                     lf.gradient_penalties)
+gradient_penalties_lambda = wrap_with_numpy(
+    gradient_penalties_lambda)
 
 # %%
 
 # test data generators
+
 
 def get_star_coords_from_taz(R_azO_s, R_altO_s, R_tilt_s, telescope_angles):
     """Generates points that would be transformed into [1, 0, 0]

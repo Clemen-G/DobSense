@@ -1,7 +1,5 @@
 # %%
-import numpy as np
 import sympy as sp
-from sympy.utilities import lambdify
 
 # %%
 
@@ -103,49 +101,3 @@ gradient_R_tilt_penalties = [R_tilt_penalties.diff(dt) for dt in theta]
 gradient_R_azO_alignment_penalties = [R_azO_alignment_penalties.diff(dt)
                                       for dt in theta]
 gradient_penalties = [penalties.diff(dt) for dt in theta]
-
-
-def wrap_with_numpy(sympy_lambda):
-    def wrapper(*args):
-        if isinstance(args[0], np.ndarray):
-            return np.array(sympy_lambda(*(args[0].tolist())))
-        else:
-            return np.array(sympy_lambda(*args))
-    return wrapper
-
-
-gradient_err_lambda = lambdify(taz_cosines + az_coordinates + theta,
-                               gradient_err)
-gradient_err_lambda = wrap_with_numpy(gradient_err_lambda)
-
-gradient_optimized_err_lambda = lambdify(taz_cosines + az_coordinates + theta,
-                                         gradient_optimized_err)
-gradient_optimized_err_lambda = wrap_with_numpy(gradient_optimized_err_lambda)
-
-gradient_R_azO_penalties_lambda = lambdify(theta,
-                                           gradient_R_azO_penalties)
-gradient_R_azO_penalties_lambda = wrap_with_numpy(
-    gradient_R_azO_penalties_lambda)
-
-gradient_R_altO_penalties_lambda = lambdify(theta,
-                                            gradient_R_altO_penalties)
-gradient_R_altO_penalties_lambda = wrap_with_numpy(
-    gradient_R_altO_penalties_lambda)
-
-gradient_R_tilt_penalties_lambda = lambdify(theta,
-                                            gradient_R_tilt_penalties)
-gradient_R_tilt_penalties_lambda = wrap_with_numpy(
-    gradient_R_tilt_penalties_lambda)
-
-gradient_R_azO_alignment_penalties_lambda = lambdify(theta,
-                                            gradient_R_azO_alignment_penalties)
-gradient_R_azO_alignment_penalties_lambda = wrap_with_numpy(
-    gradient_R_azO_alignment_penalties_lambda)
-
-gradient_penalties_lambda = lambdify(theta,
-                                     gradient_penalties)
-gradient_penalties_lambda = wrap_with_numpy(
-    gradient_penalties_lambda)
-
-
-# %%

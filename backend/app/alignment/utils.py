@@ -95,3 +95,12 @@ def get_taz_angles(vector):
                      math.sqrt(
                          math.pow(vector[0], 2) + math.pow(vector[1], 2))))
     return (az, alt)
+
+
+def wrap_with_numpy(sympy_lambda):
+    def wrapper(*args):
+        if isinstance(args[0], np.ndarray):
+            return np.array(sympy_lambda(*(args[0].tolist())))
+        else:
+            return np.array(sympy_lambda(*args))
+    return wrapper

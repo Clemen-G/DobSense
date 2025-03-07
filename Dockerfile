@@ -22,6 +22,8 @@ COPY launch.prod.sh .
 COPY nginx nginx/
 COPY backend backend/
 COPY --from=node_build /work_area/out /usr/src/app/nginx/static/
+# Generates gradient functions from sympy expressions to avoid doing it at app startup time
+RUN (cd ./backend && pipenv run python app/alignment/offline_generator.py --dest_dir /usr/src/app/backend/app/generated --module_name gradients)
 ENV TORNADO_PORT 8001
 ENV NGINX_HTTP_PORT 8080
 ENV NGINX_HTTPS_PORT 8443

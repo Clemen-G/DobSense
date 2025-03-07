@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+from logging import config as log_conf
 import asyncio
 import tornado
 from handler import HandshakeHandler, AlignmentHandler, AlignmentsHandler
@@ -9,10 +10,37 @@ from globals import GLOBALS
 from tornado.options import define, options, parse_command_line
 from alignment.telescope_interface import TelescopeInterface, generate_matrices
 from alignment.alignment_finder import AlignmentFinder
-from alignment.loss_function_generators import gradient_optimized_err_lambda, gradient_penalties_lambda
+from generated.gradients import gradient_optimized_err_lambda, gradient_penalties_lambda
 from alignment.alignment_delegate import AlignmentDelegate
 from key_reader import KeyReader
 import initializer.astropy
+
+
+logging_configuration = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "default": {
+            "format": "\033[32m[%(levelname)1.1s %(asctime)s.%(msecs)03d %(name)s:%(lineno)d]\033[0m %(message)s",
+            "datefmt": "%Y%m%d %H:%M:%S",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,
+            "formatter": "default",
+        },
+    },
+    "root": {
+        "level": "INFO",
+        "handlers": ["console"],
+    },
+}
+log_conf.dictConfig(logging_configuration)
+
+logger = logging.getLogger(__name__)
+logger.info("Starting up")
 
 
 alignment_finder = AlignmentFinder(
@@ -58,9 +86,9 @@ async def main():
 
     server = tornado.web.HTTPServer(application)
     server.listen(os.environ.get("TORNADO_PORT", 8001))
-    logging.info(sys.path)
-    logging.info(os.getcwd())
-    logging.info("ready")
+    logger.info(sys.path)
+    logger.info(os.getcwd())
+    logger.info("ready")
     await asyncio.Event().wait()
 
 

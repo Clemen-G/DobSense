@@ -4,17 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tornado = "*"
-astropy = "*"
 numpy = "*"
-sympy = "^1.13.3"
-scipy = "*"
-pydantic = "*"
+astropy = "~=6.1"
+sympy = "~=1.13"
+pydantic = "~=2.10"
+tornado = "~=6.4"
+scipy = "~=1.15"
 
 [dev-packages]
 numpy = "*"
 scipy = "*"
-sympy = "^1.13.3"
+sympy = "1.13.3"
 ipykernel = "*"
 pytest = "*"
 requests = "*"

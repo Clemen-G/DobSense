@@ -57,21 +57,22 @@ export default function Page() {
     setActiveView("PointingView");
   }
 
+  function onAlignedMessage(m) {
+    console.log("updating alignment status: "+ m.isTelescopeAligned);
+    setIsTelescopeAligned(m.isTelescopeAligned);
+    if (!m.isTelescopeAligned) {
+      setActiveView("AlignmentView");
+    }
+  }
+
+
   useEffect(initialize, []);
 
   useEffect(
     () => {
-      appContext.websocketMessaging.register(
-        WebsocketMessaging.IS_ALIGNED_MESSAGE,
-        (m) => {
-          console.log("updating alignment status: "+ m.isTelescopeAligned);
-          setIsTelescopeAligned(m.isTelescopeAligned);
-          if (!m.isTelescopeAligned) {
-            setActiveView("AlignmentView");
-          }
-          return () => {appContext.websocketMessaging.close()};
-        });
+      appContext.websocketMessaging.register(WebsocketMessaging.IS_ALIGNED_MESSAGE, onAlignedMessage);
       appContext.websocketMessaging.open('wss://' + window.location.host + '/api/websocket');
+      return () => {appContext.websocketMessaging.close()};
     }, []);
 
   const tabs = [

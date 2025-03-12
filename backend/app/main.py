@@ -51,8 +51,7 @@ alignment_delegate = AlignmentDelegate(alignment_finder, GLOBALS)
 
 
 async def main():
-    logging.info("Setting astropy to offline mode")
-    initializer.astropy.set_astropy_offline()
+    initializer.astropy.initialize()
 
     key_reader = KeyReader()
     telescope_interface = TelescopeInterface(

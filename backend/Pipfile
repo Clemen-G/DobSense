@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 numpy = "*"
 astropy = "~=6.1"
-sympy = "~=1.13"
+sympy = ">=1.13.3"
 pydantic = "~=2.10"
 scipy = "~=1.15"
 tornado = ">=6.4.2"

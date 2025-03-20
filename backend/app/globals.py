@@ -6,6 +6,9 @@ import logging
 from data_model import EqCoords, AlignmentPoint, AlignmentPointState
 
 
+logger = logging.getLogger(__name__)
+
+
 class SystemState:
     ALIGN_CHANGE = "ALIGN_CHANGE"
     TARGET_CHANGE = "TARGET_CHANGE"
@@ -80,7 +83,7 @@ class SystemState:
             return
         # t - t_rasp = t0 - t0_rasp
         self._time_offset = t0 - time.time()
-        logging.info("time offset set to " + str(self._time_offset))
+        logger.info("time offset set to " + str(self._time_offset))
     
     def _notify_listeners(self, event_name):
         for listener in self._event_listeners[event_name]:

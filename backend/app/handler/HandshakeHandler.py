@@ -4,6 +4,9 @@ from .AppHandler import AppHandler
 from data_model import Location
 
 
+logger = logging.getLogger(__name__)
+
+
 class HandshakeHandler(AppHandler):
     # https://stackoverflow.com/questions/35254742/tornado-server-enable-cors-requests
     def options(self):
@@ -11,7 +14,7 @@ class HandshakeHandler(AppHandler):
         self.finish()
 
     def post(self):
-        logging.info(self.request.body)
+        logger.info(self.request.body)
         payload = json.loads(self.request.body)
         self.globals.state.location = payload["location"]
         self.globals.state.time = payload["datetime"]
@@ -19,5 +22,5 @@ class HandshakeHandler(AppHandler):
             dict(constellation_data=self.globals.catalogs.constellations))
 
     def get(self):
-        logging.info("hello")
+        logger.info("Hello")
         self.finish()

@@ -124,5 +124,5 @@ You can find the script performing these steps [here](./nginx/cert_gen/generate_
 **Why do I need to install a new certification authority? That feels cumbersome and insecure.**
 
 The application requires the user's position to determine the Alt-Az coordinates of celestial objects. It fetches it from the phone using the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API), which only works over `https`.
-Afaik, no companies will a TLS certificate for a `.local` domain, so I have resorted to a custom certificate chain.
+Afaik, no companies will issue a TLS certificate for a `.local` domain, so I have resorted to a custom certificate chain.
 One way to work around this problem would be to enter the position manually (e.g. keeping a database of cities). I don't currently plan this but I'd welcome feedback.

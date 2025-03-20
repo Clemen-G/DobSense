@@ -9,6 +9,9 @@ from data_model import TargetCoordsMessage, TargetCoords, AlignmentPointsMessage
 from globals import SystemState
 
 
+logger = logging.getLogger(__name__)
+
+
 class WebsocketHandler(websocket.WebSocketHandler):
     def initialize(self, globals, telescope_interface):
         self.globals = globals
@@ -16,7 +19,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
         self.send_task = None
 
     def open(self):
-        logging.info("WebSocket opened")
+        logger.info("WebSocket opened")
         self.globals.state.register(
             SystemState.ALIGN_CHANGE,
             self._on_state_change)
@@ -28,7 +31,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
             self._on_state_change)
 
     def on_message(self, message_json):
-        logging.info(message_json)
+        logger.info(message_json)
         message = json.loads(message_json)
         if message["messageType"] == "HelloMessage":
             self.globals.state.location = message["location"]
@@ -44,7 +47,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
             raise ValueError(f"unexpected message {message}")
 
     def on_close(self):
-        logging.info("WebSocket closed")
+        logger.info("WebSocket closed")
         if self.send_task:
             self.send_task.cancel()
             self.send_task = None
@@ -65,7 +68,7 @@ class WebsocketHandler(websocket.WebSocketHandler):
         try:
             self._send_alignment_points()
         except websocket.WebSocketClosedError:
-            logging.warn("Failed to send state change messages" +
+            logger.warning("Failed to send state change messages" +
                         "because websocket is closed")
 
     def _on_state_change(self, event_name):
@@ -76,14 +79,14 @@ class WebsocketHandler(websocket.WebSocketHandler):
                 if self.globals.state.target:
                     self._send_target_coords()
         except websocket.WebSocketClosedError:
-            logging.warn("Failed to send state change messages" +
+            logger.warning("Failed to send state change messages" +
                         "because websocket is closed")
 
     async def _send_coordinates_periodically(self):
         try:
             await self._do_send_coordinates()
         except Exception as e:
-            logging.exception(e, exc_info=e)
+            logger.exception(e, exc_info=e)
             raise e
 
     async def _do_send_coordinates(self):
@@ -108,12 +111,12 @@ class WebsocketHandler(websocket.WebSocketHandler):
                     previous_taz_coords = current_taz_coords
                     previous_system_time = system_time
                 except websocket.WebSocketClosedError:
-                    logging.warn("failed to send coordinates")
+                    logger.warning("failed to send coordinates")
                     break
             try:
                 await asyncio.sleep(SLEEP_INTERVAL)
             except asyncio.CancelledError as e:
-                logging.info("_send_coordinates canceled")
+                logger.info("_send_coordinates canceled")
                 raise e
         print('I should not be here')
 

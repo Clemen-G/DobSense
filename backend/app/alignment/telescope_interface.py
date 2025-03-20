@@ -3,12 +3,16 @@ from alignment.utils import rot, r, deg, X, Y, Z, norm, get_unit_vector
 from alignment.alignment_finder import AlignmentMatrices
 from alignment.taz_coordinates_calculator import TazCoordinatesCalculator
 from collections import namedtuple
+import logging
+
+logger = logging.getLogger(__name__)
 
 TaltTazCoord = namedtuple("TaltTazCoord", "taz talt")
 
+
 class TelescopeInterface:
     def __init__(self, alignment_matrices, key_reader):
-        print(alignment_matrices)
+        logger.info("Bootstrap alignment matrices: " + str(alignment_matrices))
         self.alignment_matrices = alignment_matrices
         self.key_reader = key_reader
         key_reader.callback = self._handle_event

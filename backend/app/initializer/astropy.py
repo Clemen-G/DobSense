@@ -17,7 +17,7 @@ def warmup_astropy():
 
 
 def initialize():
-    logging.info("Configuring astropy to rely on local IERS files, if available")
+    logger.info("Configuring astropy to rely on local IERS files, if available")
     iers.conf.iers_degraded_accuracy = 'ignore'
     iers.conf.iers_auto_url = 'file:///shared/astropy/finals2000A.all'
     iers.conf.iers_auto_url_mirror = ''

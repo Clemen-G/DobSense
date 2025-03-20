@@ -4,6 +4,9 @@ import logging
 from alignment.utils import deg, norm, get_unit_vector
 
 
+logger = logging.getLogger(__name__)
+
+
 class TazCoordinatesCalculator:
     def __init__(self, alignment_matrices) -> None:
         self.R_azO = alignment_matrices.R_azO
@@ -27,7 +30,7 @@ class TazCoordinatesCalculator:
         return self.get_telescope_angles(*np.squeeze(get_unit_vector(az, alt)))
     
     def get_telescope_angles(self, s1, s2, s3):
-        logging.debug(s1, s2, s3)
+        logger.debug(s1, s2, s3)
         [[t11, t12, t13],
          [t21, t22, t23],
          [t31, t32, t33]] = self.R_azO.T
@@ -37,12 +40,12 @@ class TazCoordinatesCalculator:
         [[_, _ , _ ],
          [_, t1, t2],
          [_, _ , _ ]] = self.R_tilt
-        # logging.debug("t1,t2: ", t1, t2)
-        # logging.debug("t3,t4: ", t3, t4)
+        logger.debug("t1,t2: ", t1, t2)
+        logger.debug("t3,t4: ", t3, t4)
         c = s1*t13*t2 + s2*t2*t23 + s3*t2*t33
         b = s1*t1*t12 + s2*t1*t22 + s3*t1*t32
         a = -s1*t1*t11 - s2*t1*t21 - s3*t1*t31
-        # logging.debug("a, b, c:", a, b, c)
+        logger.debug("a, b, c:", a, b, c)
 
         if a == 0:
             cosines = [-c/b]
@@ -50,7 +53,7 @@ class TazCoordinatesCalculator:
             a1 = ((b/a)**2 + 1)
             b1 = 2 * (b * c)/(a**2)
             c1 = c**2 / a**2 - 1
-            # logging.debug("a1, b1, c1:",a1, b1, c1)
+            logger.debug("a1, b1, c1:",a1, b1, c1)
             cosines = self._find_roots(a1, b1, c1)
             
         co_sines = []
@@ -62,7 +65,7 @@ class TazCoordinatesCalculator:
         for [taz_cos, taz_sin] in co_sines:
             [talt_cos, talt_sin] = self._find_talt(taz_cos, taz_sin, np.array([[s1, s2, s3]]).T)
             candidates.append([taz_cos, taz_sin, talt_cos, talt_sin])
-            logging.debug("result:\n    taz", taz_cos, taz_sin,
+            logger.debug("result:\n    taz", taz_cos, taz_sin,
                   "\n    talt:", talt_cos, talt_sin,
                   "\n  norms: ",
                   norm([[taz_sin, taz_cos]]),
@@ -78,17 +81,17 @@ class TazCoordinatesCalculator:
             [-taz_sin, taz_cos,  0],
             [0       , 0      ,  1]
         ])
-        # logging.debug("_find_talt - s:", s)
+        logger.debug("_find_talt - s:", s)
         v = self.R_tilt @ R_az @ self.R_azO @ s
         [[t3, _, _],
          [_ , _, _],
          [t4, _, _]] = self.R_altO
         
-        # logging.debug("v: \n", v)
+        logger.debug("v: \n", v)
         v1 = v[0].item()
         v3 = v[2].item()
-        # logging.debug("v1: ", v1, "v3:", v3)
-        # logging.debug("t3,t4: ", t3, t4)
+        logger.debug("v1: ", v1, "v3:", v3)
+        logger.debug("t3,t4: ", t3, t4)
         talt_sin = -(v3 + t4 / t3 * v1) / (t3 + t4 / t3 * t4)
         talt_cos = (v1 + t4 * talt_sin) / t3
         return [talt_cos, talt_sin]

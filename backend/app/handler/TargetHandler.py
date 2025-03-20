@@ -5,10 +5,13 @@ from alignment import coordinates
 from exceptions import UserException
 
 
+logger = logging.getLogger(__name__)
+
+
 class TargetHandler(AppHandler):
     def put(self):
         request_body = json.loads(self.request.body)
-        logging.info(request_body)
+        logger.info(request_body)
         object_id = request_body["object_id"]
 
         if not self.globals.state.alignment_matrices:

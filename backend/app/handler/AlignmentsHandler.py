@@ -7,6 +7,9 @@ from data_model import AlignmentPoint, AltAzCoords, TazCoords
 from exceptions import UserException
 
 
+logger = logging.getLogger(__name__)
+
+
 class AlignmentsHandler(AppHandler):
     def initialize(self, globals, telescope_interface):
         self.telescope_interface = telescope_interface
@@ -20,32 +23,32 @@ class AlignmentsHandler(AppHandler):
         alignment_point["timestamp"] = self.globals.state.time
         self._add_current_alt_az_coords(alignment_point)
 
-        logging.info(f"Adding alignment point {alignment_point}")
+        logger.info(f"Adding alignment point {alignment_point}")
         self.globals.state.alignment_points.add(
             AlignmentPoint(**alignment_point))
         self.write("")
 
     def delete(self, alignment_point_id):
         alignment_point_id = self.path_kwargs["alignment_point_id"]
-        logging.info(f"Deleting alignment point {alignment_point_id}")
+        logger.info(f"Deleting alignment point {alignment_point_id}")
         self.globals.state.alignment_points.delete(alignment_point_id)
         self.write("")
     
     def _add_current_alt_az_coords(self, alignment):
-        logging.info(f"Aligning hip object {alignment['object_id']}")
-        logging.info(f"Current location: {self.globals.state.location}")
-        logging.info(f"Alignment timestamp: {alignment['timestamp']}")
+        logger.info(f"Aligning hip object {alignment['object_id']}")
+        logger.info(f"Current location: {self.globals.state.location}")
+        logger.info(f"Alignment timestamp: {alignment['timestamp']}")
 
         alignment_star = self.globals.catalogs.get_star_info(
             alignment["object_id"])
-        logging.info(f"  with star {alignment_star}")
+        logger.info(f"With star {alignment_star}")
         alt_az_sky_coords = coordinates.eq_to_alt_az(alignment_star["ra"],
                                      alignment_star["dec"],
                                      self.globals.state.location,
                                      alignment["timestamp"])
         alt_az_coords = AltAzCoords(az=alt_az_sky_coords.az.value,
                                     alt=alt_az_sky_coords.alt.value)
-        logging.info(f"Alt-az coordinates: {alt_az_coords}")
+        logger.info(f"Alt-az coordinates: {alt_az_coords}")
         if alt_az_coords.alt < 0:
             raise UserException(409,
                                 "Alignment objects must be above the horizon")
@@ -57,6 +60,6 @@ class AlignmentsHandler(AppHandler):
         self.telescope_interface.set_taz_coords(taz_coords)
 
         taz_coords = TazCoords(taz=taz_coords.taz, talt=taz_coords.talt)
-        logging.info(f"Taz coordinates: {taz_coords}")
+        logger.info(f"Taz coordinates: {taz_coords}")
         alignment["taz_coords"] = taz_coords
         alignment["alt_az_coords"] = alt_az_coords
